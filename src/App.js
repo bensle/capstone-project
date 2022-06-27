@@ -1,9 +1,8 @@
-import ActivityCard from './components/ActivityCard/ActivityCard.js';
-
+import Activities from './Pages/activities';
 function ActivityApp() {
   return (
     <>
-      <ActivityCard />
+      <Activities />
     </>
   );
 }
