@@ -1,10 +1,17 @@
-import Activities from './pages/activities';
-function ActivityApp() {
+import styled from 'styled-components';
+
+import ActivityCard from './components/ActivityCard/ActivityCard';
+import DurationFilter from './components/DurationFilterButton/DurationFilter';
+
+export default function ActivityApp() {
   return (
-    <>
-      <Activities />
-    </>
+    <Appcontainer>
+      <DurationFilter />
+      <ActivityCard />
+    </Appcontainer>
   );
 }
-
-export default ActivityApp;
+const Appcontainer = styled.div`
+  display: grid;
+  height: 100vh;
+`;

@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const CardWrapper = styled.div`
   display: grid;
   gap: 10px;
+  overflow-y: auto;
 
   section {
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
