@@ -1,4 +1,4 @@
-import Activities from './Pages/activities';
+import Activities from './pages/activities';
 function ActivityApp() {
   return (
     <>
