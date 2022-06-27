@@ -1,3 +1,10 @@
-export default function App() {
-  return <div>App goes here</div>;
+import Activities from './pages/activities';
+function ActivityApp() {
+  return (
+    <>
+      <Activities />
+    </>
+  );
 }
+
+export default ActivityApp;
