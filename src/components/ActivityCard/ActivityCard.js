@@ -24,10 +24,8 @@ export default function ActivityCard() {
                 <li>3 days +</li>
               )}
               <li>{activity.type}</li>
-              <li>
-                <a href={activity.infos}>Find out more</a>
-              </li>
             </ul>
+            <a href={activity.infos}>Find out more</a>
           </section>
         );
       })}
