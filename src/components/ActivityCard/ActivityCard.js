@@ -14,15 +14,20 @@ export default function ActivityCard() {
         return (
           <section key={activity.id}>
             <h2>{activity.name}</h2>
-            <h3>{activity.location}</h3>
-            {activity.duration === 'short' ? (
-              <p>Day trip</p>
-            ) : activity.duration === 'weekend' ? (
-              <p>Weekend Trip</p>
-            ) : (
-              <p>3 days +</p>
-            )}
-            <a href={activity.infos}>Find out more</a>
+            <ul role="list">
+              <li>{activity.location}</li>
+              {activity.duration === 'short' ? (
+                <li>Day trip</li>
+              ) : activity.duration === 'weekend' ? (
+                <li>Weekend Trip</li>
+              ) : (
+                <li>3 days +</li>
+              )}
+              <li>{activity.type}</li>
+              <li>
+                <a href={activity.infos}>Find out more</a>
+              </li>
+            </ul>
           </section>
         );
       })}
