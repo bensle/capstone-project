@@ -14,8 +14,8 @@ export default function ActivityCard() {
         return (
           <section key={activity.id}>
             <h2>{activity.name}</h2>
+            <h3>{activity.location}</h3>
             <ul role="list">
-              <li>{activity.location}</li>
               {activity.duration === 'short' ? (
                 <li>Day trip</li>
               ) : activity.duration === 'weekend' ? (

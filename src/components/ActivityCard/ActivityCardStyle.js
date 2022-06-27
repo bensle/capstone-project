@@ -16,6 +16,9 @@ const CardWrapper = styled.div`
     font-size: 1.25rem;
     margin: 5px 0 0 0;
   }
+  h3 {
+    margin: 0;
+  }
   ul {
     padding: 0;
     list-style: none;
