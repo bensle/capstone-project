@@ -11,7 +11,7 @@ export default function ActivityCard(props) {
         ) : props.duration === 'weekend' ? (
           <li>Weekend Trip</li>
         ) : (
-          <li>3 days +</li>
+          <li>3 Days +</li>
         )}
         <li>{props.type}</li>
       </ul>
