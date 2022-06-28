@@ -1,16 +1,10 @@
 import DurationFilter from './DurationFilter';
 export default {
-  title: 'Component/Filter/Duration',
+  title: 'Component/Filter',
   component: DurationFilter,
-
-  decorators: [
-    Story => {
-      return (
-        <div style={{padding: '1em', maxWidth: '300px'}}>
-          <Story />
-        </div>
-      );
-    },
-  ],
+  argTypes: {setActivities: {action: 'click'}},
 };
-export const Default = () => <DurationFilter></DurationFilter>;
+
+const template = args => <DurationFilter {...args} />;
+
+export const Default = template.bind({});

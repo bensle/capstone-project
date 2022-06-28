@@ -1,13 +1,17 @@
+import {useState} from 'react';
 import styled from 'styled-components';
 
-import ActivityCard from './components/ActivityCard/ActivityCard';
+import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
+import db from './lib/activityDB';
 
 export default function ActivityApp() {
+  const [activities, setActivities] = useState(db);
+
   return (
     <Appcontainer>
-      <DurationFilter />
-      <ActivityCard />
+      <DurationFilter activities={activities} setActivities={setActivities} />
+      <ActivityCards activities={activities} />
     </Appcontainer>
   );
 }

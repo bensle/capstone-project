@@ -1,17 +1,18 @@
 import ActivityCard from './ActivityCard';
 
-export default {
-  title: 'Component/ActivityCard',
-  component: ActivityCard,
+const Template = args => <ActivityCard {...args} />;
 
-  decorators: [
-    Story => {
-      return (
-        <div style={{padding: '1em', maxWidth: '300px'}}>
-          <Story />
-        </div>
-      );
-    },
-  ],
+export const Default = Template.bind({});
+Default.args = {
+  name: 'Freudenberg',
+  location: 'Siegerland',
+  duration: 'Day Trip',
+  type: 'culture',
+  infos: 'link',
 };
-export const Default = () => <ActivityCard></ActivityCard>;
+
+const story = {
+  title: 'Component/ActivityCard',
+  component: 'ActivityCard',
+};
+export default story;

@@ -1,14 +1,25 @@
 import {useState} from 'react';
 import styled from 'styled-components';
 
-export default function DurationFilter() {
-  const [selectedRadioButton, setSelectedRadioButton] = useState('null');
+import db from '../../lib/activityDB';
 
-  //   function onChange(event) {
-  //     setSelectedRadioButton(event);
-  //   }
-  //   console.log(selectedRadioButton);
+export default function DurationFilter({setActivities}) {
+  const [selectedRadioButton, setSelectedRadioButton] = useState();
 
+  function filterDuration(duration) {
+    const results = db.filter(currentData => {
+      return currentData.duration === duration;
+    });
+    setActivities(results);
+    console.log(results);
+  }
+
+  // const filterResult = activityDuration => {
+  //   const result = activities.filter(curData => {
+  //     return curData.duration === activityDuration;
+  //   });
+  //   console.log(result);
+  // };
   return (
     <RadioToolbar>
       <input
@@ -17,7 +28,7 @@ export default function DurationFilter() {
         name="radioDuration"
         value="DayTrip"
         onChange={event => setSelectedRadioButton(event.target.value)}
-        // onChange={event => onChange(event.target.value)}
+        onClick={() => filterDuration('short')}
       ></input>
       <label htmlFor="radioDayTrip">Day Trip</label>
 
@@ -27,6 +38,7 @@ export default function DurationFilter() {
         name="radioDuration"
         value="Weekend"
         onChange={event => setSelectedRadioButton(event.target.value)}
+        onClick={() => filterDuration('weekend')}
       ></input>
       <label htmlFor="radioWeekend">Weekend</label>
 
@@ -36,8 +48,18 @@ export default function DurationFilter() {
         name="radioDuration"
         value="Vacation"
         onChange={event => setSelectedRadioButton(event.target.value)}
+        onClick={() => filterDuration('vacation')}
       ></input>
       <label htmlFor="radioVacation">3 Days +</label>
+      <input
+        type="radio"
+        id="radioAll"
+        name="radioDuration"
+        value="All"
+        onChange={event => setSelectedRadioButton(event.target.value)}
+        onClick={() => setActivities(db)}
+      ></input>
+      <label htmlFor="radioAll">All</label>
     </RadioToolbar>
   );
 }
@@ -45,9 +67,9 @@ export default function DurationFilter() {
 const RadioToolbar = styled.form`
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: space-around; */
   gap: 5px;
-  justify-content: center;
-  margin: 20px auto;
+  margin: 20px 0;
 
   input[type='radio'] {
     opacity: 0;
@@ -61,5 +83,6 @@ const RadioToolbar = styled.form`
     padding: 5px 5px;
     border: 1px solid;
     border-radius: 5px;
+    flex-grow: 1;
   }
 `;

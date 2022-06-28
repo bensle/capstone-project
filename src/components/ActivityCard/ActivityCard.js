@@ -1,33 +1,21 @@
-import {useState} from 'react';
+import Section from './ActivityCardStyle';
 
-import db from '../../lib/activityDB';
-
-import CardWrapper from './ActivityCardStyle';
-
-export default function ActivityCard() {
-  const [activities, setActivities] = useState(db);
-
+export default function ActivityCard(props) {
   return (
-    <CardWrapper>
-      {activities.map(activity => {
-        return (
-          <section key={activity.id}>
-            <h2>{activity.name}</h2>
-            <h3>{activity.location}</h3>
-            <ul role="list">
-              {activity.duration === 'short' ? (
-                <li>Day trip</li>
-              ) : activity.duration === 'weekend' ? (
-                <li>Weekend Trip</li>
-              ) : (
-                <li>3 days +</li>
-              )}
-              <li>{activity.type}</li>
-            </ul>
-            <a href={activity.infos}>Find out more</a>
-          </section>
-        );
-      })}
-    </CardWrapper>
+    <Section>
+      <h2>{props.name}</h2>
+      <h3>{props.location}</h3>
+      <ul role="list">
+        {props.duration === 'short' ? (
+          <li>Day trip</li>
+        ) : props.duration === 'weekend' ? (
+          <li>Weekend Trip</li>
+        ) : (
+          <li>3 days +</li>
+        )}
+        <li>{props.type}</li>
+      </ul>
+      <a href={props.infos}>Find out more</a>
+    </Section>
   );
 }
