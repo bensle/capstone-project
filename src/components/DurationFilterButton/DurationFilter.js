@@ -11,7 +11,7 @@ export default function DurationFilter({setActivities}) {
       return currentData.duration === duration;
     });
     setActivities(results);
-    console.log(results);
+    // console.log(results);
   }
 
   // const filterResult = activityDuration => {
