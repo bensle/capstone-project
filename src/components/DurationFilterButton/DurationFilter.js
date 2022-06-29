@@ -77,13 +77,13 @@ const RadioToolbar = styled.form`
     position: fixed;
     width: 0;
   }
-  input[type='radio']:checked + label {
-    background-color: var(--greenish);
-  }
   label {
     padding: 5px 5px;
     border: 1px solid;
     border-radius: 5px;
     flex-grow: 1;
+  }
+  input[type='radio']:checked + label {
+    background-color: var(--greenish);
   }
 `;
