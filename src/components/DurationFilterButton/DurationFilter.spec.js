@@ -31,7 +31,7 @@ describe('Duration Filter', () => {
 
   it('checks first radio button on click', async () => {
     const callback = jest.fn();
-    render(<DurationFilter setActivities={callback} filterDuration={callback} />);
+    render(<DurationFilter onFilterReset={callback} onFilterDuration={callback} />);
 
     const user = userEvent.setup();
     const radio1 = screen.getByRole('radio', {name: /day trip/i});
@@ -40,7 +40,7 @@ describe('Duration Filter', () => {
   });
   it('checks second radio button on click', async () => {
     const callback = jest.fn();
-    render(<DurationFilter setActivities={callback} filterDuration={callback} />);
+    render(<DurationFilter onFilterReset={callback} onFilterDuration={callback} />);
 
     const user = userEvent.setup();
     const radio2 = screen.getByRole('radio', {name: /weekend/i});
@@ -49,7 +49,7 @@ describe('Duration Filter', () => {
   });
   it('checks third radio button on click', async () => {
     const callback = jest.fn();
-    render(<DurationFilter setActivities={callback} filterDuration={callback} />);
+    render(<DurationFilter onFilterReset={callback} onFilterDuration={callback} />);
 
     const user = userEvent.setup();
     const radio3 = screen.getByRole('radio', {name: /3 days +/i});
@@ -58,7 +58,7 @@ describe('Duration Filter', () => {
   });
   it('checks fourth radio button on click', async () => {
     const callback = jest.fn();
-    render(<DurationFilter setActivities={callback} filterDuration={callback} />);
+    render(<DurationFilter onFilterReset={callback} onFilterDuration={callback} />);
 
     const user = userEvent.setup();
     const radio4 = screen.getByRole('radio', {name: /all/i});
@@ -68,7 +68,7 @@ describe('Duration Filter', () => {
 
   it('calls filterDuration function on click', async () => {
     const callback = jest.fn();
-    render(<DurationFilter setActivities={callback} filterDuration={callback} />);
+    render(<DurationFilter onFilterReset={callback} onFilterDuration={callback} />);
 
     const user = userEvent.setup();
     await user.click(screen.getByRole('radio', {name: /day trip/i}));
