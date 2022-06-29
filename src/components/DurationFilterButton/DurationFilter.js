@@ -1,19 +1,7 @@
 import {useState} from 'react';
 import styled from 'styled-components';
 
-import db from '../../lib/activityDB';
-
-export default function DurationFilter({setActivities}) {
-  const [selectedRadioButton, setSelectedRadioButton] = useState();
-
-  function filterDuration(duration) {
-    const results = db.filter(currentData => {
-      return currentData.duration === duration;
-    });
-    setActivities(results);
-    // console.log(results);
-  }
-
+export default function DurationFilter({onFilterDuration, onFilterReset}) {
   return (
     <>
       <FilterHeading>I&apos;m looking for:</FilterHeading>
@@ -23,8 +11,7 @@ export default function DurationFilter({setActivities}) {
           id="radioDayTrip"
           name="radioDuration"
           value="DayTrip"
-          onChange={event => setSelectedRadioButton(event.target.value)}
-          onClick={() => filterDuration('short')}
+          onClick={() => onFilterDuration('short')}
         ></input>
         <label htmlFor="radioDayTrip">Day Trip</label>
 
@@ -33,8 +20,7 @@ export default function DurationFilter({setActivities}) {
           id="radioWeekend"
           name="radioDuration"
           value="Weekend"
-          onChange={event => setSelectedRadioButton(event.target.value)}
-          onClick={() => filterDuration('weekend')}
+          onClick={() => onFilterDuration('weekend')}
         ></input>
         <label htmlFor="radioWeekend">Weekend</label>
 
@@ -43,18 +29,10 @@ export default function DurationFilter({setActivities}) {
           id="radioVacation"
           name="radioDuration"
           value="Vacation"
-          onChange={event => setSelectedRadioButton(event.target.value)}
-          onClick={() => filterDuration('vacation')}
+          onClick={() => onFilterDuration('vacation')}
         ></input>
         <label htmlFor="radioVacation">3 Days +</label>
-        <input
-          type="radio"
-          id="radioAll"
-          name="radioDuration"
-          value="All"
-          onChange={event => setSelectedRadioButton(event.target.value)}
-          onClick={() => setActivities(db)}
-        ></input>
+        <input type="radio" id="radioAll" name="radioDuration" value="All" onClick={() => onFilterReset()}></input>
         <label htmlFor="radioAll">All</label>
       </RadioToolbar>
     </>

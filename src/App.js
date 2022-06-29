@@ -8,9 +8,20 @@ import db from './lib/activityDB';
 export default function ActivityApp() {
   const [activities, setActivities] = useState(db);
 
+  function filterDuration(duration) {
+    const results = db.filter(currentData => {
+      return currentData.duration === duration;
+    });
+    setActivities(results);
+  }
+
+  function filterDurationAll() {
+    setActivities(db);
+  }
+
   return (
     <Appcontainer>
-      <DurationFilter activities={activities} setActivities={setActivities} />
+      <DurationFilter activities={activities} onFilterDuration={filterDuration} onFilterReset={filterDurationAll} />
       <ActivityCards activities={activities} />
     </Appcontainer>
   );
