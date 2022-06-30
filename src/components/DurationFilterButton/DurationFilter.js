@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export default function DurationFilter({onFilterDuration, onFilterReset}) {
   return (
     <>
-      <FilterHeading>I&apos;m looking for:</FilterHeading>
-      <RadioToolbar>
+      <FilterHeading id="radioDurationHeading">I&apos;m looking for:</FilterHeading>
+      <RadioDurationForm aria-labelledby="radioDurationHeading">
         <input
           type="radio"
           id="radioDayTrip"
@@ -33,7 +33,7 @@ export default function DurationFilter({onFilterDuration, onFilterReset}) {
         <label htmlFor="radioVacation">3 Days +</label>
         <input type="radio" id="radioAll" name="radioDuration" value="All" onClick={() => onFilterReset()}></input>
         <label htmlFor="radioAll">All</label>
-      </RadioToolbar>
+      </RadioDurationForm>
     </>
   );
 }
@@ -43,7 +43,7 @@ const FilterHeading = styled.h2`
   text-align: left;
   font-size: 1rem;
 `;
-const RadioToolbar = styled.form`
+const RadioDurationForm = styled.form`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
