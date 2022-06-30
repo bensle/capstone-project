@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-export default function DurationFilter({onFilterDuration, onFilterReset}) {
+export default function DurationFilter({onFilterDuration, onFilterDurationReset}) {
   return (
     <>
       <FilterHeading id="radioDurationHeading">I&apos;m looking for:</FilterHeading>
       <RadioDurationForm aria-labelledby="radioDurationHeading">
+        <input
+          type="radio"
+          id="radioAll"
+          name="radioDuration"
+          value="All"
+          onClick={() => onFilterDurationReset()}
+        ></input>
+        <label htmlFor="radioAll">All</label>
         <input
           type="radio"
           id="radioDayTrip"
@@ -31,8 +39,6 @@ export default function DurationFilter({onFilterDuration, onFilterReset}) {
           onClick={() => onFilterDuration('vacation')}
         ></input>
         <label htmlFor="radioVacation">3 Days +</label>
-        <input type="radio" id="radioAll" name="radioDuration" value="All" onClick={() => onFilterReset()}></input>
-        <label htmlFor="radioAll">All</label>
       </RadioDurationForm>
     </>
   );
@@ -40,7 +46,7 @@ export default function DurationFilter({onFilterDuration, onFilterReset}) {
 
 const FilterHeading = styled.h2`
   margin: 10px 0 0 0;
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
 `;
 const RadioDurationForm = styled.form`
@@ -48,6 +54,7 @@ const RadioDurationForm = styled.form`
   flex-wrap: wrap;
   gap: 5px;
   margin: 0 0 10px 0;
+  justify-content: center;
 
   input[type='radio'] {
     opacity: 0;
@@ -58,7 +65,7 @@ const RadioDurationForm = styled.form`
     padding: 5px 5px;
     border: 1px solid;
     border-radius: 5px;
-    flex-grow: 1;
+    flex-basis: 80px;
   }
   input[type='radio']:checked + label {
     background-color: var(--greenish);
