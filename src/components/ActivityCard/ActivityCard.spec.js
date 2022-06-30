@@ -1,17 +1,28 @@
 import {render, screen} from '@testing-library/react';
 
-import db from '../../lib/activityDB';
-
 import ActivityCard from './ActivityCard';
 
 describe('ActivityCard', () => {
-  it('should render props correctly', () => {
-    const singleEvent = db[0];
-    render(<ActivityCard event={singleEvent} />);
-    expect(screen.getByText(singleEvent.name)).toBeInTheDocument();
-    expect(screen.getByText(singleEvent.location)).toBeInTheDocument();
-    expect(singleEvent.infos).toBeDefined();
-    expect(singleEvent.duration).toBeDefined();
-    expect(singleEvent.type).toBeDefined();
+  it('should render correctly', () => {
+    const name = 'Freudenberg';
+    const location = 'Siegerland';
+    const duration = '3 Days +';
+    const type = 'culture';
+    const infos = 'Find out more';
+    render(
+      <ActivityCard name={name} location={location} curation={duration} type={type} infos={infos}>
+        {(name, location, duration, type, infos)}
+      </ActivityCard>
+    );
+    const eventName = screen.getByText(name);
+    const eventLocation = screen.getByText(location);
+    const eventDuration = screen.getByText(duration);
+    const eventType = screen.getByText(type);
+    const eventInfos = screen.getByText(infos);
+    expect(eventName).toBeInTheDocument();
+    expect(eventLocation).toBeInTheDocument();
+    expect(eventDuration).toBeInTheDocument();
+    expect(eventType).toBeInTheDocument();
+    expect(eventInfos).toBeInTheDocument();
   });
 });

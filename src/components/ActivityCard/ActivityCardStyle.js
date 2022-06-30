@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
-const CardWrapper = styled.div`
-  display: grid;
-  gap: 10px;
+const Section = styled.section`
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 
-  section {
-    border: 1px solid;
-    border-radius: 10px;
-    padding-bottom: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
   h2 {
     font-size: 1.25rem;
     margin: 5px 0 0 0;
@@ -42,4 +38,4 @@ const CardWrapper = styled.div`
     color: red;
   }
 `;
-export default CardWrapper;
+export default Section;
