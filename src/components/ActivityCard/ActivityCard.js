@@ -5,6 +5,7 @@ export default function ActivityCard(props) {
     <Section>
       <h2>{props.name}</h2>
       <h3>{props.location}</h3>
+      {/* eslint-disable-next-line */}
       <ul role="list">
         {props.duration === 'short' ? (
           <li>Day trip</li>
