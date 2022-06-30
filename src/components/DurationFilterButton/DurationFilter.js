@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default function DurationFilter({onFilterDuration, onFilterDurationReset}) {
   return (
-    <>
+    <div>
       <FilterHeading id="radioDurationHeading">I&apos;m looking for:</FilterHeading>
       <RadioDurationForm aria-labelledby="radioDurationHeading">
         <input
@@ -10,6 +10,7 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           id="radioAll"
           name="radioDuration"
           value="All"
+          defaultChecked
           onClick={() => onFilterDurationReset()}
         ></input>
         <label htmlFor="radioAll">All</label>
@@ -17,7 +18,7 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           type="radio"
           id="radioDayTrip"
           name="radioDuration"
-          value="DayTrip"
+          value="dayTrip"
           onClick={() => onFilterDuration('short')}
         ></input>
         <label htmlFor="radioDayTrip">Day Trip</label>
@@ -26,7 +27,7 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           type="radio"
           id="radioWeekend"
           name="radioDuration"
-          value="Weekend"
+          value="weekend"
           onClick={() => onFilterDuration('weekend')}
         ></input>
         <label htmlFor="radioWeekend">Weekend</label>
@@ -35,12 +36,12 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           type="radio"
           id="radioVacation"
           name="radioDuration"
-          value="Vacation"
+          value="vacation"
           onClick={() => onFilterDuration('vacation')}
         ></input>
         <label htmlFor="radioVacation">3 Days +</label>
       </RadioDurationForm>
-    </>
+    </div>
   );
 }
 

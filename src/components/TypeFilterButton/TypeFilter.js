@@ -1,11 +1,20 @@
+import {useState} from 'react';
 import styled from 'styled-components';
 
 export default function TypeFilter({onFilterType, onFilterTypeReset}) {
+  const [isChecked, setIsChecked] = useState(false);
   return (
-    <>
+    <div>
       <FilterHeading id="radioTypeHeading">I&apos;m interested in:</FilterHeading>
       <RadioTypeForm aria-labelledby="radioTypeHeading">
-        <input type="radio" id="radioTypeAll" name="radioType" value="all" onClick={() => onFilterTypeReset()}></input>
+        <input
+          type="radio"
+          id="radioTypeAll"
+          name="radioType"
+          value="all"
+          defaultChecked
+          onClick={() => onFilterTypeReset()}
+        ></input>
         <label htmlFor="radioTypeAll">All</label>
 
         <input
@@ -53,7 +62,7 @@ export default function TypeFilter({onFilterType, onFilterTypeReset}) {
         ></input>
         <label htmlFor="radioChallenge">challenge</label>
       </RadioTypeForm>
-    </>
+    </div>
   );
 }
 

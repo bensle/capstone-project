@@ -97,4 +97,5 @@ export default function ActivityApp() {
 const Appcontainer = styled.div`
   display: grid;
   height: 100vh;
+  align-content: start;
 `;
