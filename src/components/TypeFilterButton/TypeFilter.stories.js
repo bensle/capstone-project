@@ -2,7 +2,7 @@ import TypeFilter from './TypeFilter';
 export default {
   title: 'Component/Filter',
   component: TypeFilter,
-  argTypes: {onFilterType: {action: 'click'}, onFilterTypeReset: {action: 'click'}},
+  argTypes: {onFilterTypeValue: {action: 'click'}, onFilterTypeReset: {action: 'click'}},
 };
 
 const template = args => <TypeFilter {...args} />;

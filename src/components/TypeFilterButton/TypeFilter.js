@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function TypeFilter({onFilterType, onFilterTypeReset, onFilterTypeValue}) {
+export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
   return (
     <div>
       <FilterHeading id="radioTypeHeading">I&apos;m interested in:</FilterHeading>
@@ -21,7 +21,6 @@ export default function TypeFilter({onFilterType, onFilterTypeReset, onFilterTyp
           name="radioType"
           value="culture"
           onChange={event => onFilterTypeValue(event.target.value)}
-          onClick={() => onFilterType('culture')}
         ></input>
         <label htmlFor="radioCulture">culture</label>
 
@@ -31,7 +30,6 @@ export default function TypeFilter({onFilterType, onFilterTypeReset, onFilterTyp
           name="radioType"
           value="nature"
           onChange={event => onFilterTypeValue(event.target.value)}
-          onClick={() => onFilterType('nature')}
         ></input>
         <label htmlFor="radioNature">nature</label>
 
@@ -41,7 +39,6 @@ export default function TypeFilter({onFilterType, onFilterTypeReset, onFilterTyp
           name="radioType"
           value="sport"
           onChange={event => onFilterTypeValue(event.target.value)}
-          onClick={() => onFilterType('sport')}
         ></input>
         <label htmlFor="radioSport">sport</label>
 
@@ -51,7 +48,6 @@ export default function TypeFilter({onFilterType, onFilterTypeReset, onFilterTyp
           name="radioType"
           value="recovery"
           onChange={event => onFilterTypeValue(event.target.value)}
-          onClick={() => onFilterType('recovery')}
         ></input>
         <label htmlFor="radioRecovery">recovery</label>
 
@@ -61,7 +57,6 @@ export default function TypeFilter({onFilterType, onFilterTypeReset, onFilterTyp
           name="radioType"
           value="challenge"
           onChange={event => onFilterTypeValue(event.target.value)}
-          onClick={() => onFilterType('challenge')}
         ></input>
         <label htmlFor="radioChallenge">challenge</label>
       </RadioTypeForm>

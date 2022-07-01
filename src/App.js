@@ -11,6 +11,7 @@ export default function ActivityApp() {
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
 
+  //----- Filter (Duration & Type) -----
   const filteredAll = db.filter(data => {
     return (
       (durationFilterValue === 'all' && typeFilterValue === 'all') ||
@@ -28,15 +29,11 @@ export default function ActivityApp() {
     setTypeFiltervalue('all');
     setActivities(db);
   }
-
+  //----- -----
   return (
     <Appcontainer>
-      <DurationFilter
-        onFilterDuration={() => {}}
-        onFilterDurationReset={filterDurationReset}
-        onFilterDurationValue={setDurationFilterValue}
-      />
-      <TypeFilter onFilterType={() => {}} onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
+      <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
+      <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
       <ActivityCards activities={filteredAll} />
     </Appcontainer>
   );
