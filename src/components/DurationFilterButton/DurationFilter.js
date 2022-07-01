@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function DurationFilter({onFilterDuration, onFilterDurationReset}) {
+export default function DurationFilter({onFilterDuration, onFilterDurationReset, onFilterDurationValue}) {
   return (
     <div>
       <FilterHeading id="radioDurationHeading">I&apos;m looking for:</FilterHeading>
@@ -9,8 +9,9 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           type="radio"
           id="radioAll"
           name="radioDuration"
-          value="All"
+          value="all"
           defaultChecked
+          onChange={event => onFilterDurationValue(event.target.value)}
           onClick={() => onFilterDurationReset()}
         ></input>
         <label htmlFor="radioAll">All</label>
@@ -18,7 +19,8 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           type="radio"
           id="radioDayTrip"
           name="radioDuration"
-          value="dayTrip"
+          value="short"
+          onChange={event => onFilterDurationValue(event.target.value)}
           onClick={() => onFilterDuration('short')}
         ></input>
         <label htmlFor="radioDayTrip">Day Trip</label>
@@ -28,6 +30,7 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           id="radioWeekend"
           name="radioDuration"
           value="weekend"
+          onChange={event => onFilterDurationValue(event.target.value)}
           onClick={() => onFilterDuration('weekend')}
         ></input>
         <label htmlFor="radioWeekend">Weekend</label>
@@ -37,6 +40,7 @@ export default function DurationFilter({onFilterDuration, onFilterDurationReset}
           id="radioVacation"
           name="radioDuration"
           value="vacation"
+          onChange={event => onFilterDurationValue(event.target.value)}
           onClick={() => onFilterDuration('vacation')}
         ></input>
         <label htmlFor="radioVacation">3 Days +</label>
