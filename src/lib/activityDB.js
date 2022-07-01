@@ -224,6 +224,46 @@ const db = [
     type: 'sport',
     infos: 'https://eichsfeld.de',
   },
+  {
+    id: nanoid(),
+    name: 'Gleitschirmfliegen',
+    location: 'Oberstdorf',
+    duration: 'short',
+    type: 'challenge',
+    infos: 'https://ok-bergbahnen.com/aktiv-sport/gleitschirmfliegen',
+  },
+  {
+    id: nanoid(),
+    name: 'DAV-kletter-Zentrum',
+    location: 'München',
+    duration: 'short',
+    type: 'challenge',
+    infos: 'https://kbthalkirchen.de',
+  },
+  {
+    id: nanoid(),
+    name: 'Fossilien am Stran',
+    location: 'Rügen',
+    duration: 'vacation',
+    type: 'nature',
+    infos: 'https://ruegen.de',
+  },
+  {
+    id: nanoid(),
+    name: 'Rutschenwelt',
+    location: 'Erding',
+    duration: 'short',
+    type: 'recovery',
+    infos: 'https://therme-erding.de',
+  },
+  {
+    id: nanoid(),
+    name: 'Hexentanz',
+    location: 'Harz',
+    duration: 'vacation',
+    type: 'culture',
+    infos: 'https://harzinfo.de/veranstaltungen/walpurgis-im-harz.html',
+  },
 ];
 
 export default db;

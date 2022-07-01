@@ -6,6 +6,8 @@ const styled = {createGlobalStyle};
 export default styled.createGlobalStyle`
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   :root {
     --bgcolor: #313a40;

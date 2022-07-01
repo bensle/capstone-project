@@ -3,30 +3,43 @@ import styled from 'styled-components';
 
 import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
+import TypeFilter from './components/TypeFilterButton/TypeFilter';
 import db from './lib/activityDB';
 
 export default function ActivityApp() {
   const [activities, setActivities] = useState(db);
+  const [typeFilterValue, setTypeFiltervalue] = useState('all');
+  const [durationFilterValue, setDurationFilterValue] = useState('all');
 
-  function filterDuration(duration) {
-    const results = db.filter(currentData => {
-      return currentData.duration === duration;
-    });
-    setActivities(results);
-  }
+  //----- Filter (Duration & Type) -----
+  const filteredAll = db.filter(data => {
+    return (
+      (durationFilterValue === 'all' && typeFilterValue === 'all') ||
+      ((data.duration === durationFilterValue || durationFilterValue === 'all') &&
+        (data.type === typeFilterValue || typeFilterValue === 'all'))
+    );
+  });
 
-  function filterDurationAll() {
+  function filterDurationReset() {
+    setDurationFilterValue('all');
     setActivities(db);
   }
 
+  function filterTypeReset() {
+    setTypeFiltervalue('all');
+    setActivities(db);
+  }
+  //----- -----
   return (
     <Appcontainer>
-      <DurationFilter activities={activities} onFilterDuration={filterDuration} onFilterReset={filterDurationAll} />
-      <ActivityCards activities={activities} />
+      <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
+      <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
+      <ActivityCards activities={filteredAll} />
     </Appcontainer>
   );
 }
 const Appcontainer = styled.div`
   display: grid;
   height: 100vh;
+  align-content: start;
 `;
