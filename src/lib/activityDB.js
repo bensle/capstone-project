@@ -242,7 +242,7 @@ const db = [
   },
   {
     id: nanoid(),
-    name: 'Fossilien am Stran',
+    name: 'Fossilien am Strand',
     location: 'Rügen',
     duration: 'vacation',
     type: 'nature',

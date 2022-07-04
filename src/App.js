@@ -35,8 +35,7 @@ export default function ActivityApp() {
     <Appcontainer>
       <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
-      <ActivityCards activities={filteredAll} />
-      {/* <ModalInput /> */}
+      <ActivityCards activities={filteredAll} onSetActivities={setActivities} />
     </Appcontainer>
   );
 }

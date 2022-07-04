@@ -1,3 +1,4 @@
+import {nanoid} from 'nanoid';
 import {useState} from 'react';
 import styled from 'styled-components';
 
@@ -7,8 +8,19 @@ import ModalInput from '../ModalInput/ModalInput';
 import ActivityCard from './ActivityCard';
 import WrapperDiv from './WrapperDivStyle';
 
-export default function ActivityCards({activities}) {
+export default function ActivityCards({activities, onSetActivities}) {
   const [showModal, setShowModal] = useState();
+  const [formInput, setFormInput] = useState({id: nanoid(), name: '', location: '', duration: '', type: '', infos: ''});
+
+  const handleChange = event => {
+    setFormInput({...formInput, [event.target.name]: event.target.value});
+  };
+  const handleSubmit = event => {
+    event.preventDefault();
+    closeModalHandler();
+    onSetActivities([...activities, formInput]);
+    // console.log('Created', formInput);
+  };
 
   function showModalHandler() {
     setShowModal(true);
@@ -28,7 +40,9 @@ export default function ActivityCards({activities}) {
       </WrapperDiv>
       <button onClick={showModalHandler}>Add Activity</button>
       {showModal && <Backdrop onClick={closeModalHandler} />}
-      {showModal && <ModalInput onClose={closeModalHandler} />}
+      {showModal && (
+        <ModalInput onClose={closeModalHandler} onHandleChange={handleChange} onHandleSubmit={handleSubmit} />
+      )}
     </WrapperDiv>
   );
 }
