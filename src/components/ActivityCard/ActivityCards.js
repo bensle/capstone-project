@@ -21,16 +21,14 @@ export default function ActivityCards({activities, onSetActivities}) {
       ...current,
       {
         id: nanoid(),
-        name: formInput.name,
-        location: formInput.location,
+        name: formInput.name.trim(),
+        location: formInput.location.trim(),
         duration: formInput.duration,
         type: formInput.type,
         infos: formInput.infos,
       },
     ]);
     closeModalHandler();
-    console.log('Created', formInput);
-    console.log(activities);
   };
 
   function showModalHandler() {

@@ -10,9 +10,25 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         <MdClose onClick={onClose} />
       </CancelSpan>
       <label htmlFor="name"> Name of your activity</label>
-      <input type="text" name="name" id="name" required autoComplete="off" onChange={onHandleChange}></input>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        autoComplete="off"
+        maxLength={30}
+        onChange={onHandleChange}
+      ></input>
       <label htmlFor="location">Location of your activity</label>
-      <input type="text" name="location" id="location" required autoComplete="off" onChange={onHandleChange}></input>
+      <input
+        type="text"
+        name="location"
+        id="location"
+        required
+        autoComplete="off"
+        maxLength={30}
+        onChange={onHandleChange}
+      ></input>
       <label htmlFor="duration">
         Duration of your Activity?
         <StyledSelectDuration>
@@ -56,8 +72,8 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
       </label>
       <label htmlFor="infos"> Add an URL for more Infos</label>
       <input
-        data-val="true"
-        data-val-url="The URL field is not a valid fully-qualified http, https, or ftp URL."
+        // data-val="true"
+        // data-val-url="The URL field is not a valid fully-qualified http, https, or ftp URL."
         type="url"
         name="infos"
         id="infos"
