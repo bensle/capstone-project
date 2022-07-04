@@ -10,16 +10,27 @@ import WrapperDiv from './WrapperDivStyle';
 
 export default function ActivityCards({activities, onSetActivities}) {
   const [showModal, setShowModal] = useState();
-  const [formInput, setFormInput] = useState({id: nanoid(), name: '', location: '', duration: '', type: '', infos: ''});
+  const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
 
   const handleChange = event => {
     setFormInput({...formInput, [event.target.name]: event.target.value});
   };
   const handleSubmit = event => {
     event.preventDefault();
+    onSetActivities(current => [
+      ...current,
+      {
+        id: nanoid(),
+        name: formInput.name,
+        location: formInput.location,
+        duration: formInput.duration,
+        type: formInput.type,
+        infos: formInput.infos,
+      },
+    ]);
     closeModalHandler();
-    onSetActivities([...activities, formInput]);
-    // console.log('Created', formInput);
+    console.log('Created', formInput);
+    console.log(activities);
   };
 
   function showModalHandler() {
