@@ -11,6 +11,7 @@ export default styled.createGlobalStyle`
   }
   :root {
     --bgcolor: #313a40;
+    --modalbg: #516069;
     --textcolor: #ffffff;
     --greenish: #04bfad;
     --orange: #d9663d;

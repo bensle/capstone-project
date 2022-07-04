@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
-import ModalInput from './components/ModalInput/ModalInput';
+// import ModalInput from './components/ModalInput/ModalInput';
 import TypeFilter from './components/TypeFilterButton/TypeFilter';
 import db from './lib/activityDB';
 
@@ -13,7 +13,7 @@ export default function ActivityApp() {
   const [durationFilterValue, setDurationFilterValue] = useState('all');
 
   //----- Filter (Duration & Type) -----
-  const filteredAll = db.filter(data => {
+  const filteredAll = activities.filter(data => {
     return (
       (durationFilterValue === 'all' && typeFilterValue === 'all') ||
       ((data.duration === durationFilterValue || durationFilterValue === 'all') &&
@@ -23,12 +23,12 @@ export default function ActivityApp() {
 
   function filterDurationReset() {
     setDurationFilterValue('all');
-    setActivities(db);
+    setActivities(activities);
   }
 
   function filterTypeReset() {
     setTypeFiltervalue('all');
-    setActivities(db);
+    setActivities(activities);
   }
   //----- -----
   return (
@@ -36,7 +36,7 @@ export default function ActivityApp() {
       <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
       <ActivityCards activities={filteredAll} />
-      <ModalInput />
+      {/* <ModalInput /> */}
     </Appcontainer>
   );
 }
