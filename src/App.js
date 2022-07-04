@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
+import ModalInput from './components/ModalInput/ModalInput';
 import TypeFilter from './components/TypeFilterButton/TypeFilter';
 import db from './lib/activityDB';
 
@@ -35,6 +36,7 @@ export default function ActivityApp() {
       <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
       <ActivityCards activities={filteredAll} />
+      <ModalInput />
     </Appcontainer>
   );
 }
