@@ -24,7 +24,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         id="name"
         required
         autoComplete="off"
-        maxLength={30}
+        maxLength="30"
         onChange={onHandleChange}
       ></input>
       <label htmlFor="location">Location of your activity</label>
@@ -34,7 +34,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         id="location"
         required
         autoComplete="off"
-        maxLength={30}
+        maxLength="30"
         onChange={onHandleChange}
       ></input>
       <label htmlFor="duration">
