@@ -6,4 +6,4 @@ export default {
 
 const template = args => <ModalInput {...args} />;
 
-export const Duration = template.bind({});
+export const Default = template.bind({});

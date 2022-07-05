@@ -15,19 +15,26 @@ export default function ActivityCards({activities, onSetActivities}) {
   const handleChange = event => {
     setFormInput({...formInput, [event.target.name]: event.target.value});
   };
+
   const handleSubmit = event => {
     event.preventDefault();
+    const newInfos =
+      formInput.infos.indexOf('https://') !== 0
+        ? (formInput.infos = 'https://' + formInput.infos.trim().toLowerCase())
+        : formInput.infos.trim().toLowerCase();
+
     onSetActivities(current => [
       ...current,
       {
         id: nanoid(),
-        name: formInput.name.trim(),
-        location: formInput.location.trim(),
+        name: formInput.name.trim().replace(/[^a-z]/gi, ' '),
+        location: formInput.location.trim().replace(/[^a-z]/gi, ' '),
         duration: formInput.duration,
         type: formInput.type,
-        infos: formInput.infos,
+        infos: newInfos,
       },
     ]);
+    console.log(activities);
     closeModalHandler();
   };
 

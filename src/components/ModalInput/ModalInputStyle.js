@@ -51,7 +51,7 @@ export const Heading = styled.h2`
   font-size: 1.25rem;
 `;
 
-export const StyledSelectDuration = styled.div`
+export const StyledSelectDurationWrapper = styled.div`
   display: flex;
   justify-content: center;
 
@@ -66,7 +66,7 @@ export const StyledSelectDuration = styled.div`
   }
 `;
 
-export const StyledSelectType = styled.div`
+export const StyledSelectTypeWrapper = styled.div`
   display: flex;
   justify-content: center;
 

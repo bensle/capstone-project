@@ -1,6 +1,14 @@
 import {MdClose, MdOutlineAdd} from 'react-icons/md';
 
-import {Form, Heading, StyledSelectDuration, StyledSelectType, Button, CancelSpan, AddSpan} from './ModalInputStyle';
+import {
+  Form,
+  Heading,
+  StyledSelectDurationWrapper,
+  StyledSelectTypeWrapper,
+  Button,
+  CancelSpan,
+  AddSpan,
+} from './ModalInputStyle';
 
 export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
   return (
@@ -31,35 +39,29 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
       ></input>
       <label htmlFor="duration">
         Duration of your Activity?
-        <StyledSelectDuration>
+        <StyledSelectDurationWrapper>
           <select
+            required
             name="duration"
             id="duration"
             onChange={onHandleChange}
             placeholder="Select Option"
-            defaultValue="default"
+            defaultValue=""
           >
-            <option value="default" disabled hidden>
+            <option value="" disabled hidden>
               Duration
             </option>
             <option value="short">Day Trip</option>
             <option value="weekend">Weekend</option>
             <option value="vacation">3 Days +</option>
           </select>
-        </StyledSelectDuration>
+        </StyledSelectDurationWrapper>
       </label>
       <label htmlFor="type">
         Type of your Activity?
-        <StyledSelectType>
-          <select
-            required
-            name="type"
-            id="type"
-            onChange={onHandleChange}
-            placeholder="Select Option"
-            defaultValue="default"
-          >
-            <option value="default" disabled hidden>
+        <StyledSelectTypeWrapper>
+          <select required name="type" id="type" onChange={onHandleChange} placeholder="Select Option" defaultValue="">
+            <option value="" disabled hidden>
               Type
             </option>
             <option value="culture">Culture</option>
@@ -68,18 +70,17 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
             <option value="recovery">Recovery</option>
             <option value="challenge">Challenge</option>
           </select>
-        </StyledSelectType>
+        </StyledSelectTypeWrapper>
       </label>
       <label htmlFor="infos"> Add an URL for more Infos</label>
       <input
-        // data-val="true"
-        // data-val-url="The URL field is not a valid fully-qualified http, https, or ftp URL."
-        type="url"
+        type="text"
         name="infos"
         id="infos"
         autoComplete="off"
-        placeholder="https://example.com"
-        pattern="https://.*"
+        placeholder="https://example.de"
+        // value="https://"
+        // pattern="https://.*"
         onChange={onHandleChange}
       ></input>
       <Button type="submit">
