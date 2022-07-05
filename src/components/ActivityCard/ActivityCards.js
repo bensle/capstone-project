@@ -22,7 +22,6 @@ export default function ActivityCards({activities, onSetActivities}) {
       formInput.infos.indexOf('https://') !== 0
         ? (formInput.infos = 'https://' + formInput.infos.trim().toLowerCase())
         : formInput.infos.trim().toLowerCase();
-
     onSetActivities(current => [
       ...current,
       {
@@ -34,7 +33,6 @@ export default function ActivityCards({activities, onSetActivities}) {
         infos: newInfos,
       },
     ]);
-    console.log(activities);
     closeModalHandler();
   };
 

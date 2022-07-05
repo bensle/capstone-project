@@ -79,12 +79,10 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         id="infos"
         autoComplete="off"
         placeholder="https://example.de"
-        // value="https://"
-        // pattern="https://.*"
         onChange={onHandleChange}
       ></input>
       <Button type="submit">
-        Add activity
+        Add Activity
         <AddSpan>
           <MdOutlineAdd />
         </AddSpan>
