@@ -12,10 +12,10 @@ export default function ActivityApp() {
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
   const [favorite, setFavorite] = useState([]);
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
 
   //----- Filter (Duration & Type) -----
-  const filteredAll = activities.filter(data => {
+  const filteredActivities = activities.filter(data => {
     return (
       (durationFilterValue === 'all' && typeFilterValue === 'all') ||
       ((data.duration === durationFilterValue || durationFilterValue === 'all') &&
@@ -36,21 +36,21 @@ export default function ActivityApp() {
   return (
     <Appcontainer>
       {isHidden === false && (
-        <FavoritesPage activities={activities} favorite={favorite} isHidden={isHidden} onSetIsHidden={setIsHidden} />
-      )}
-      {isHidden === true && (
         <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       )}
-      {isHidden === true && <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />}
-      {isHidden === true && (
+      {isHidden === false && <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />}
+      {isHidden === false && (
         <ActivityCards
-          activities={filteredAll}
+          activities={filteredActivities}
           onSetActivities={setActivities}
           favorite={favorite}
           onSetFavorite={setFavorite}
           isHidden={isHidden}
           onSetIsHidden={setIsHidden}
         />
+      )}
+      {isHidden && (
+        <FavoritesPage activities={activities} favorite={favorite} isHidden={isHidden} onSetIsHidden={setIsHidden} />
       )}
     </Appcontainer>
   );

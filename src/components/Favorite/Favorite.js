@@ -2,28 +2,22 @@ import {MdOutlineBookmarkAdd} from 'react-icons/md';
 
 import {FavDiv, FavButton, Section} from './FavoriteStyle';
 
-export default function Favorite(props) {
+export default function Favorite({name, location, duration, type, infos}) {
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => props.onAddFavorite(props.id)}>
+        <FavButton>
           <MdOutlineBookmarkAdd />
         </FavButton>
       </FavDiv>
-      <h2>{props.name}</h2>
-      <h3>{props.location}</h3>
+      <h2>{name}</h2>
+      <h3>{location}</h3>
       {/* eslint-disable-next-line */}
       <ul role="list">
-        {props.duration === 'short' ? (
-          <li>Day trip</li>
-        ) : props.duration === 'weekend' ? (
-          <li>Weekend Trip</li>
-        ) : (
-          <li>3 Days +</li>
-        )}
-        <li>{props.type}</li>
+        {duration === 'short' ? <li>Day trip</li> : duration === 'weekend' ? <li>Weekend Trip</li> : <li>3 Days +</li>}
+        <li>{type}</li>
       </ul>
-      <a href={props.infos}>Find out more</a>
+      <a href={infos}>Find out more</a>
     </Section>
   );
 }
