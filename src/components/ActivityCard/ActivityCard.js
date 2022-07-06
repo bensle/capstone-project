@@ -1,8 +1,16 @@
+import {MdOutlineBookmarkAdd} from 'react-icons/md';
+import styled from 'styled-components';
+
 import Section from './ActivityCardStyle';
 
 export default function ActivityCard(props) {
   return (
     <Section>
+      <FavDiv>
+        <FavButton>
+          <MdOutlineBookmarkAdd />
+        </FavButton>
+      </FavDiv>
       <h2>{props.name}</h2>
       <h3>{props.location}</h3>
       {/* eslint-disable-next-line */}
@@ -20,3 +28,16 @@ export default function ActivityCard(props) {
     </Section>
   );
 }
+
+const FavDiv = styled.div`
+  position: relative;
+`;
+const FavButton = styled.button`
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 28px;
+  color: white;
+`;
