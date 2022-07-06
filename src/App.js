@@ -48,7 +48,7 @@ export default function ActivityApp() {
           onSetActivities={setActivities}
           favorite={favorite}
           onSetFavorite={setFavorite}
-          ishidden={isHidden}
+          isHidden={isHidden}
           onSetIsHidden={setIsHidden}
         />
       )}
