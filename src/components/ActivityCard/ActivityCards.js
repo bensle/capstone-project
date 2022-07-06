@@ -8,14 +8,21 @@ import ModalInput from '../ModalInput/ModalInput';
 import ActivityCard from './ActivityCard';
 import WrapperDiv from './WrapperDivStyle';
 
-export default function ActivityCards({activities, onSetActivities}) {
+export default function ActivityCards({activities, onSetActivities, favorite, onSetFavorite, ishidden, onSetIsHidden}) {
   const [showModal, setShowModal] = useState();
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
 
+  //----- Handling Favorites -----
+  const addToFavorite = id => {
+    if (!favorite.includes(id)) onSetFavorite(favorite.concat(id));
+    onSetIsHidden(!ishidden);
+  };
+
+  //----- Data from Input -----
   const handleChange = event => {
     setFormInput({...formInput, [event.target.name]: event.target.value});
   };
-
+  //----- Submithandler (add all input as object to state and closes modal after submit) -----
   const handleSubmit = event => {
     event.preventDefault();
     const newInfos =
@@ -35,7 +42,7 @@ export default function ActivityCards({activities, onSetActivities}) {
     ]);
     closeModalHandler();
   };
-
+  //----- Show & Hide Input Modal -----
   function showModalHandler() {
     setShowModal(true);
   }
@@ -49,7 +56,16 @@ export default function ActivityCards({activities, onSetActivities}) {
       <Heading>Activities</Heading>
       <WrapperDiv>
         {activities.map(({id, name, location, duration, type, infos}) => (
-          <ActivityCard key={id} name={name} location={location} duration={duration} type={type} infos={infos} />
+          <ActivityCard
+            id={id}
+            key={id}
+            name={name}
+            location={location}
+            duration={duration}
+            type={type}
+            infos={infos}
+            onAddFavorite={addToFavorite}
+          />
         ))}
       </WrapperDiv>
       <button onClick={showModalHandler}>Add Activity</button>
