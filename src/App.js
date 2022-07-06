@@ -12,7 +12,7 @@ export default function ActivityApp() {
   const [durationFilterValue, setDurationFilterValue] = useState('all');
 
   //----- Filter (Duration & Type) -----
-  const filteredAll = db.filter(data => {
+  const filteredAll = activities.filter(data => {
     return (
       (durationFilterValue === 'all' && typeFilterValue === 'all') ||
       ((data.duration === durationFilterValue || durationFilterValue === 'all') &&
@@ -22,19 +22,19 @@ export default function ActivityApp() {
 
   function filterDurationReset() {
     setDurationFilterValue('all');
-    setActivities(db);
+    setActivities(activities);
   }
 
   function filterTypeReset() {
     setTypeFiltervalue('all');
-    setActivities(db);
+    setActivities(activities);
   }
   //----- -----
   return (
     <Appcontainer>
       <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
-      <ActivityCards activities={filteredAll} />
+      <ActivityCards activities={filteredAll} onSetActivities={setActivities} />
     </Appcontainer>
   );
 }

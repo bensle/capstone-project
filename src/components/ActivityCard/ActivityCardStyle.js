@@ -7,9 +7,10 @@ const Section = styled.section`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  gap: 5px;
 
   h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin: 5px 0 0 0;
   }
   h3 {
