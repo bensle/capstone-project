@@ -1,4 +1,5 @@
 import {render, screen} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import ActivityCard from './ActivityCard';
 
@@ -19,10 +20,21 @@ describe('ActivityCard', () => {
     const eventDuration = screen.getByText(duration);
     const eventType = screen.getByText(type);
     const eventInfos = screen.getByText(infos);
+    const favoriteButton = screen.getByRole('button');
     expect(eventName).toBeInTheDocument();
     expect(eventLocation).toBeInTheDocument();
     expect(eventDuration).toBeInTheDocument();
     expect(eventType).toBeInTheDocument();
     expect(eventInfos).toBeInTheDocument();
+    expect(favoriteButton).toBeInTheDocument();
+  });
+  it('calls onAddFavorite on click', async () => {
+    const user = userEvent.setup();
+    const callback = jest.fn();
+    render(<ActivityCard onAddFavorite={callback} />);
+
+    const favoriteButton = screen.getByRole('button');
+    await user.click(favoriteButton);
+    expect(callback).toHaveBeenCalled();
   });
 });
