@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
 import TypeFilter from './components/TypeFilterButton/TypeFilter';
-import db from './lib/activityDB';
 import FavoritesPage from './pages/FavoritesPage';
+import db from './services/activityDB';
 
-export default function ActivityApp() {
+export default function App() {
   const [activities, setActivities] = useState(db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
@@ -35,17 +35,16 @@ export default function ActivityApp() {
 
   const removeFromFavorites = id => {
     const index = favorite.indexOf(id);
-    console.log(index);
-    const temp = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
-    setFavorite(temp);
+    const tempFavorites = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
+    setFavorite(tempFavorites);
   };
   return (
     <Appcontainer>
-      {isHidden === false && (
+      {isHidden || (
         <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       )}
-      {isHidden === false && <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />}
-      {isHidden === false && (
+      {isHidden || <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />}
+      {isHidden || (
         <ActivityCards
           activities={filteredActivities}
           onSetActivities={setActivities}

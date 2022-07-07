@@ -10,8 +10,19 @@ describe('ActivityCard', () => {
     const duration = '3 Days +';
     const type = 'culture';
     const infos = 'Find out more';
+    const id = 1;
+    const favorite = [1, 2, 3];
+
     render(
-      <ActivityCard name={name} location={location} curation={duration} type={type} infos={infos}>
+      <ActivityCard
+        name={name}
+        location={location}
+        curation={duration}
+        type={type}
+        infos={infos}
+        id={id}
+        favorite={favorite}
+      >
         {(name, location, duration, type, infos)}
       </ActivityCard>
     );
@@ -28,10 +39,13 @@ describe('ActivityCard', () => {
     expect(eventInfos).toBeInTheDocument();
     expect(favoriteButton).toBeInTheDocument();
   });
+
   it('calls onAddFavorite on click', async () => {
     const user = userEvent.setup();
     const callback = jest.fn();
-    render(<ActivityCard onAddFavorite={callback} />);
+    const id = 1;
+    const favorite = [1, 2, 3];
+    render(<ActivityCard onAddFavorite={callback} favorite={favorite} id={id} />);
 
     const favoriteButton = screen.getByRole('button');
     await user.click(favoriteButton);
