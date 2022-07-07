@@ -22,17 +22,23 @@ export default function ActivityApp() {
         (data.type === typeFilterValue || typeFilterValue === 'all'))
     );
   });
-
   function filterDurationReset() {
     setDurationFilterValue('all');
-    setActivities(activities);
   }
-
   function filterTypeReset() {
     setTypeFiltervalue('all');
-    setActivities(activities);
   }
-  //----- -----
+  //-----HandleFavorites -----
+  const addToFavorites = id => {
+    if (!favorite.includes(id)) setFavorite(favorite.concat(id));
+  };
+
+  const removeFromFavorites = id => {
+    const index = favorite.indexOf(id);
+    console.log(index);
+    const temp = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
+    setFavorite(temp);
+  };
   return (
     <Appcontainer>
       {isHidden === false && (
@@ -46,11 +52,18 @@ export default function ActivityApp() {
           favorite={favorite}
           onSetFavorite={setFavorite}
           isHidden={isHidden}
-          onSetIsHidden={setIsHidden}
+          onSetIsHidden={() => setIsHidden(!isHidden)}
+          onAddToFavorites={addToFavorites}
         />
       )}
+
       {isHidden && (
-        <FavoritesPage activities={activities} favorite={favorite} isHidden={isHidden} onSetIsHidden={setIsHidden} />
+        <FavoritesPage
+          activities={activities}
+          favorite={favorite}
+          onSetIsHidden={() => setIsHidden(!isHidden)}
+          onRemoveFromFavorites={removeFromFavorites}
+        />
       )}
     </Appcontainer>
   );

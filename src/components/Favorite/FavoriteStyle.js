@@ -10,7 +10,7 @@ export const FavButton = styled.button`
   top: 0;
   right: 0;
   font-size: 28px;
-  color: white;
+  color: red;
 `;
 
 export const Section = styled.section`

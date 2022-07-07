@@ -8,15 +8,9 @@ import ModalInput from '../ModalInput/ModalInput';
 import ActivityCard from './ActivityCard';
 import WrapperDiv from './WrapperDivStyle';
 
-export default function ActivityCards({activities, onSetActivities, favorite, onSetFavorite, isHidden, onSetIsHidden}) {
+export default function ActivityCards({activities, onSetActivities, onAddToFavorites, favorite, onSetIsHidden}) {
   const [showModal, setShowModal] = useState();
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
-
-  //----- Handling Favorites -----
-  const addToFavorite = id => {
-    if (!favorite.includes(id)) onSetFavorite(favorite.concat(id));
-    onSetIsHidden(!isHidden);
-  };
 
   //----- Data from Input -----
   const handleChange = event => {
@@ -64,11 +58,15 @@ export default function ActivityCards({activities, onSetActivities, favorite, on
             duration={duration}
             type={type}
             infos={infos}
-            onAddFavorite={addToFavorite}
+            onAddFavorite={onAddToFavorites}
+            favorite={favorite}
           />
         ))}
       </WrapperDiv>
-      <button onClick={showModalHandler}>Add Activity</button>
+      <div>
+        <button onClick={showModalHandler}>Add Activity</button>
+        <button onClick={onSetIsHidden}>Favorites</button>
+      </div>
       {showModal && <Backdrop onClick={closeModalHandler} />}
       {showModal && (
         <ModalInput onClose={closeModalHandler} onHandleChange={handleChange} onHandleSubmit={handleSubmit} />

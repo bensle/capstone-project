@@ -1,14 +1,23 @@
 import {MdOutlineBookmarkAdd} from 'react-icons/md';
+import {MdOutlineBookmarkAdded} from 'react-icons/md';
 import styled from 'styled-components';
 
 import Section from './ActivityCardStyle';
 
-export default function ActivityCard({id, name, location, duration, type, infos, onAddFavorite}) {
+export default function ActivityCard({id, name, location, duration, type, infos, onAddFavorite, favorite}) {
   return (
     <Section>
       <FavDiv>
         <FavButton onClick={() => onAddFavorite(id)}>
-          <MdOutlineBookmarkAdd />
+          {favorite.includes(id) ? (
+            <SpanAdded>
+              <MdOutlineBookmarkAdded />
+            </SpanAdded>
+          ) : (
+            <SpanAdd>
+              <MdOutlineBookmarkAdd />
+            </SpanAdd>
+          )}
         </FavButton>
       </FavDiv>
       <h2>{name}</h2>
@@ -30,8 +39,12 @@ const FavButton = styled.button`
   background: none;
   border: none;
   position: absolute;
-  top: 0;
   right: 0;
   font-size: 28px;
   color: white;
+`;
+
+const SpanAdd = styled.span``;
+const SpanAdded = styled.span`
+  color: lime;
 `;
