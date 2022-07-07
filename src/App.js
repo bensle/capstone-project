@@ -38,6 +38,7 @@ export default function App() {
     const tempFavorites = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
     setFavorite(tempFavorites);
   };
+
   return (
     <Appcontainer>
       {isHidden || (
@@ -49,8 +50,6 @@ export default function App() {
           activities={filteredActivities}
           onSetActivities={setActivities}
           favorite={favorite}
-          onSetFavorite={setFavorite}
-          isHidden={isHidden}
           onSetIsHidden={() => setIsHidden(!isHidden)}
           onAddToFavorites={addToFavorites}
         />
