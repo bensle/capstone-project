@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 import ActivityCards from './components/ActivityCard/ActivityCards';
@@ -14,6 +14,7 @@ export default function App() {
   const [durationFilterValue, setDurationFilterValue] = useState('all');
   const [favorite, setFavorite] = useState([]);
   const [isHidden, setIsHidden] = useState(false);
+  const [savedFavorites, setSavedFavorites] = useLocalStorage('Favorites', []);
 
   //----- Filter (Duration & Type) -----
   const filteredActivities = activities.filter(data => {
@@ -30,15 +31,27 @@ export default function App() {
     setTypeFiltervalue('all');
   }
   //-----HandleFavorites -----
-  const addToFavorites = id => {
+  // const addToFavorites = id => {
+  //   if (!favorite.includes(id)) setFavorite(favorite.concat(id));
+  // };
+
+  function baddToFavorites(id) {
+    const newFavorite = activities.find(acti => acti.id !== id);
     if (!favorite.includes(id)) setFavorite(favorite.concat(id));
-  };
+    setSavedFavorites([...savedFavorites, newFavorite]);
+    console.log(savedFavorites);
+  }
 
   const removeFromFavorites = id => {
     const index = favorite.indexOf(id);
     const tempFavorites = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
     setFavorite(tempFavorites);
   };
+
+  useEffect(
+    () => setSavedFavorites(() => activities.filter(activity => favorite.includes(activity.id))),
+    [activities, favorite] // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   return (
     <Appcontainer>
@@ -52,12 +65,13 @@ export default function App() {
           onSetActivities={setActivities}
           favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onAddToFavorites={addToFavorites}
+          onAddToFavorites={baddToFavorites}
           onRemoveFromFavorites={removeFromFavorites}
         />
       )}
       {isHidden && (
         <FavoritesPage
+          savedFavorites={savedFavorites}
           activities={activities}
           favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
