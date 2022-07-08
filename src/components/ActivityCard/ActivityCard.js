@@ -1,21 +1,44 @@
-import {MdOutlineBookmarkAdd} from 'react-icons/md';
-import {MdOutlineBookmarkAdded} from 'react-icons/md';
+import {useState} from 'react';
+import {MdWbSunny} from 'react-icons/md';
+import {MdOutlineWbSunny} from 'react-icons/md';
 import styled from 'styled-components';
 
 import Section from './ActivityCardStyle';
 
-export default function ActivityCard({id, name, location, duration, type, infos, onAddFavorite, favorite}) {
+export default function ActivityCard({
+  id,
+  name,
+  location,
+  duration,
+  type,
+  infos,
+  onAddFavorite,
+  favorite,
+  onRemoveFromFavorites,
+}) {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const toggleBookmark = id => {
+    if (isBookmarked) {
+      onRemoveFromFavorites(id);
+      setIsBookmarked(false);
+    } else {
+      onAddFavorite(id);
+      setIsBookmarked(true);
+    }
+  };
+
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => onAddFavorite(id)}>
+        <FavButton onClick={() => toggleBookmark(id)}>
           {favorite.includes(id) ? (
             <SpanAdded>
-              <MdOutlineBookmarkAdded />
+              <MdWbSunny />
             </SpanAdded>
           ) : (
             <SpanAdd>
-              <MdOutlineBookmarkAdd />
+              <MdOutlineWbSunny />
             </SpanAdd>
           )}
         </FavButton>
@@ -46,5 +69,5 @@ const FavButton = styled.button`
 
 const SpanAdd = styled.span``;
 const SpanAdded = styled.span`
-  color: lime;
+  color: yellow;
 `;

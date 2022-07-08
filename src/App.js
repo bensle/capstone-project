@@ -52,6 +52,7 @@ export default function App() {
           favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
           onAddToFavorites={addToFavorites}
+          onRemoveFromFavorites={removeFromFavorites}
         />
       )}
 

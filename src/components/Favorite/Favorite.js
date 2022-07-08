@@ -1,4 +1,4 @@
-import {MdOutlineBookmarkRemove} from 'react-icons/md';
+import {MdWbSunny} from 'react-icons/md';
 
 import {FavDiv, FavButton, Section} from './FavoriteStyle';
 
@@ -7,7 +7,7 @@ export default function Favorite({name, location, duration, type, infos, id, onR
     <Section>
       <FavDiv>
         <FavButton onClick={() => onRemoveFromFavorites(id)}>
-          <MdOutlineBookmarkRemove />
+          <MdWbSunny />
         </FavButton>
       </FavDiv>
       <h2>{name}</h2>

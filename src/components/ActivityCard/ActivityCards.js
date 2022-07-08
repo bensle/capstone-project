@@ -8,7 +8,14 @@ import ModalInput from '../ModalInput/ModalInput';
 import ActivityCard from './ActivityCard';
 import WrapperDiv from './WrapperDivStyle';
 
-export default function ActivityCards({activities, onSetActivities, onAddToFavorites, favorite, onSetIsHidden}) {
+export default function ActivityCards({
+  activities,
+  onSetActivities,
+  onAddToFavorites,
+  favorite,
+  onSetIsHidden,
+  onRemoveFromFavorites,
+}) {
   const [showModal, setShowModal] = useState();
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
 
@@ -60,6 +67,7 @@ export default function ActivityCards({activities, onSetActivities, onAddToFavor
             infos={infos}
             onAddFavorite={onAddToFavorites}
             favorite={favorite}
+            onRemoveFromFavorites={onRemoveFromFavorites}
           />
         ))}
       </WrapperDiv>
