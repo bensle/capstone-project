@@ -16,7 +16,7 @@ export default function App() {
   const [isHidden, setIsHidden] = useState(false);
   const [savedFavorites, setSavedFavorites] = useLocalStorage('Favorites', []);
 
-  //----- Filter (Duration & Type) -----
+  //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
   const filteredActivities = activities.filter(data => {
     return (
       (durationFilterValue === 'all' && typeFilterValue === 'all') ||
@@ -30,16 +30,29 @@ export default function App() {
   function filterTypeReset() {
     setTypeFiltervalue('all');
   }
-  //-----HandleFavorites -----
+  //-----HandleFavorites ---------------------------------------------------------------------------------------------------
   // const addToFavorites = id => {
   //   if (!favorite.includes(id)) setFavorite(favorite.concat(id));
   // };
+
+  const toggleFavorite = id => {
+    const index = activities.findIndex(el => el.id === id); // returns the index of element of activities
+    const newFavorite = activities.find(acti => acti.id === id); // returns the value of element of activties
+
+    const tempFavorites = [
+      ...activities.slice(0, index), //slice activities from 0 to found index
+      {...newFavorite, isFavorite: !newFavorite.isFavorite}, // sets the found value inbetween and toggles isFavorite
+      ...activities.slice(index + 1), //rest of activities from found index +1
+    ];
+    setActivities(tempFavorites); // sets state with new array
+    console.log('newFav', newFavorite);
+  };
 
   function baddToFavorites(id) {
     const newFavorite = activities.find(acti => acti.id !== id);
     if (!favorite.includes(id)) setFavorite(favorite.concat(id));
     setSavedFavorites([...savedFavorites, newFavorite]);
-    console.log(savedFavorites);
+    console.log(favorite);
   }
 
   const removeFromFavorites = id => {
@@ -65,8 +78,8 @@ export default function App() {
           onSetActivities={setActivities}
           favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onAddToFavorites={baddToFavorites}
-          onRemoveFromFavorites={removeFromFavorites}
+          onAddToFavorites={toggleFavorite}
+          onRemoveFromFavorites={toggleFavorite}
         />
       )}
       {isHidden && (
@@ -75,7 +88,7 @@ export default function App() {
           activities={activities}
           favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onRemoveFromFavorites={removeFromFavorites}
+          onRemoveFromFavorites={toggleFavorite}
         />
       )}
     </Appcontainer>

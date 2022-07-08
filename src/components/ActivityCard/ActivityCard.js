@@ -15,24 +15,13 @@ export default function ActivityCard({
   onAddFavorite,
   favorite,
   onRemoveFromFavorites,
+  isFavorite,
 }) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-
-  const toggleBookmark = id => {
-    if (isBookmarked) {
-      onRemoveFromFavorites(id);
-      setIsBookmarked(false);
-    } else {
-      onAddFavorite(id);
-      setIsBookmarked(true);
-    }
-  };
-
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => toggleBookmark(id)}>
-          {favorite.includes(id) ? (
+        <FavButton onClick={() => onAddFavorite(id)}>
+          {isFavorite ? (
             <SpanAdded>
               <MdWbSunny />
             </SpanAdded>

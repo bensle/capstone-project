@@ -39,6 +39,7 @@ export default function ActivityCards({
         duration: formInput.duration,
         type: formInput.type,
         infos: newInfos,
+        isFavorite: false,
       },
     ]);
     closeModalHandler();
@@ -56,8 +57,9 @@ export default function ActivityCards({
     <WrapperDiv>
       <Heading>Activities</Heading>
       <WrapperDiv>
-        {activities.map(({id, name, location, duration, type, infos}) => (
+        {activities.map(({id, name, location, duration, type, infos, isFavorite}) => (
           <ActivityCard
+            isFavorite={isFavorite}
             id={id}
             key={id}
             name={name}

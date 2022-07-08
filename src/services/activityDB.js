@@ -2,6 +2,7 @@ import {nanoid} from 'nanoid';
 const db = [
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Freudenberg',
     location: 'Siegerland',
     duration: 'short',
@@ -10,6 +11,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Kreidedampfbad',
     location: 'Binz',
     duration: 'vacation',
@@ -18,6 +20,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Luftkurort',
     location: 'Mittenwald',
     duration: 'weekend',
@@ -26,6 +29,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Drei Kilometer Spass',
     location: 'Bremen',
     duration: 'short',
@@ -35,6 +39,7 @@ const db = [
   {
     id: nanoid(),
     name: 'Fatbike',
+    isFavorite: false,
     location: 'Vogelsberg',
     duration: 'short',
     type: 'sport',
@@ -42,6 +47,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Stocherkahnrennen',
     location: 'Tübingen',
     duration: 'short',
@@ -50,6 +56,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Wattwanderung',
     location: 'Neuwerk',
     duration: 'short',
@@ -58,6 +65,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Skywalk',
     location: 'Allgäu',
     duration: 'short',
@@ -66,6 +74,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Karl-May-Spiele',
     location: 'Bad Segeberg',
     duration: 'weekend',
@@ -74,6 +83,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Lummensprung',
     location: 'Helgoland',
     duration: 'weekend',
@@ -82,6 +92,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Wörnitz Flussbad',
     location: 'Oettingen',
     duration: 'short',
@@ -90,6 +101,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Dackelmuseum',
     location: 'Passau',
     duration: 'short',
@@ -98,6 +110,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Opern-Festspiele',
     location: 'Heidenheim',
     duration: 'weekend',
@@ -106,6 +119,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Blautopf',
     location: 'Blaubeuren',
     duration: 'short',
@@ -114,6 +128,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Übernachten im Baumzelt',
     location: 'Witzenhausen',
     duration: 'weekend',
@@ -122,6 +137,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Filmnächte am Elbufer',
     location: 'Dresden',
     duration: 'short',
@@ -130,6 +146,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Weisse Düne',
     location: 'Norderney',
     duration: 'vacation',
@@ -138,6 +155,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Stoneman Miriquidi',
     location: 'Erzgebirge',
     duration: 'vacation',
@@ -146,6 +164,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Schnelle Runden',
     location: 'Nürburgring',
     duration: 'weekend',
@@ -154,6 +173,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Flaeming-Skate',
     location: 'Brandenburg',
     duration: 'weekend',
@@ -162,6 +182,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Sternschnuppen',
     location: 'Nationalpark Eifel',
     duration: 'weekend',
@@ -170,6 +191,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Klettern im Ith',
     location: 'Ith',
     duration: 'weekend',
@@ -178,6 +200,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Drachenfels',
     location: 'Königswinter',
     duration: 'short',
@@ -186,6 +209,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Noctalis',
     location: 'Bad Segeberg',
     duration: 'short',
@@ -194,6 +218,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Hüttentour um den Watzmann',
     location: 'Watzmann',
     duration: 'vacation',
@@ -202,6 +227,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Burg Teck',
     location: 'Hohenneuffen',
     duration: 'short',
@@ -210,6 +236,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Museum Marta',
     location: 'Herford',
     duration: 'short',
@@ -218,6 +245,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Radfahren im Eichsfeld',
     location: 'Eichsfeld',
     duration: 'vacation',
@@ -226,6 +254,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Gleitschirmfliegen',
     location: 'Oberstdorf',
     duration: 'short',
@@ -234,6 +263,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'DAV-kletter-Zentrum',
     location: 'München',
     duration: 'short',
@@ -242,6 +272,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Fossilien am Strand',
     location: 'Rügen',
     duration: 'vacation',
@@ -250,6 +281,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Rutschenwelt',
     location: 'Erding',
     duration: 'short',
@@ -258,6 +290,7 @@ const db = [
   },
   {
     id: nanoid(),
+    isFavorite: false,
     name: 'Hexentanz',
     location: 'Harz',
     duration: 'vacation',
