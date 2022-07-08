@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
 import TypeFilter from './components/TypeFilterButton/TypeFilter';
+import useLocalStorage from './hooks/useLocalStorage';
 import FavoritesPage from './pages/FavoritesPage';
 import db from './services/activityDB';
 
 export default function App() {
-  const [activities, setActivities] = useState(db);
+  const [activities, setActivities] = useLocalStorage('activities', db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
   const [favorite, setFavorite] = useState([]);
@@ -55,7 +56,6 @@ export default function App() {
           onRemoveFromFavorites={removeFromFavorites}
         />
       )}
-
       {isHidden && (
         <FavoritesPage
           activities={activities}
