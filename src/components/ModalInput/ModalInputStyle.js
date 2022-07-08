@@ -34,8 +34,8 @@ export const CancelSpan = styled.span`
   font-size: 32px;
   color: red;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
 `;
 
 export const AddSpan = styled.span`

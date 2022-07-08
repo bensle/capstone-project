@@ -1,6 +1,16 @@
-# React App
+# Roam!
 
-This is a template for a [Create React App](https://create-react-app.dev/) with additional tools.
+## This is my Capstone project for the Web Development Bootcamp at [neuefische GmbH](https://www.neuefische.de)
+
+## Description - What is Roam!?
+
+follows - in progress
+
+## Demo
+
+You can have a look at the hosted version on Vercel: [Roam! -- still in progress](https://capstone-project-bensle.vercel.app/)
+
+<!-- This is a template for a [Create React App](https://create-react-app.dev/) with additional tools.
 
 - [Tech-Stack](#tech-stack)
 - [Project Setup](#project-setup)
@@ -9,19 +19,23 @@ This is a template for a [Create React App](https://create-react-app.dev/) with 
 - [Test Driven Development](#test-driven-development)
 - [Commands](#commands)
 
-It uses the following tools/libraries:
+It uses the following tools/libraries: -->
 
 ## Tech-Stack
 
+- [React](https://reactjs.org)
+- [React Testing Library](https://testing-library.com)
+- [styled-components](https://www.styled-components.com)
+- [Node.js](https://nodejs.org)
 - [Storybook](https://storybook.js.org/)
 - [Jest](https://jestjs.io/)
 - [Stylelint](https://stylelint.io/)
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 
-## Project Setup
+<!-- ## Project Setup -->
 
-This project uses different deployments to make code reviews easier:
+<!-- This project uses different deployments to make code reviews easier:
 
 - Vercel (App Production)
 - Vercel (App Preview)
@@ -97,4 +111,4 @@ npm run eslint
 
 ```shell
 npm run lint
-```
+``` -->

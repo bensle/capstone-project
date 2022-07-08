@@ -1,9 +1,9 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ActivityCard from './ActivityCard';
+import Favorite from './Favorite';
 
-describe('ActivityCard', () => {
+describe('Favorite', () => {
   it('should render correctly', () => {
     const name = 'Freudenberg';
     const location = 'Siegerland';
@@ -11,20 +11,11 @@ describe('ActivityCard', () => {
     const type = 'culture';
     const infos = 'Find out more';
     const id = 1;
-    const favorite = [1, 2, 3];
 
     render(
-      <ActivityCard
-        name={name}
-        location={location}
-        curation={duration}
-        type={type}
-        infos={infos}
-        id={id}
-        favorite={favorite}
-      >
+      <Favorite name={name} location={location} curation={duration} type={type} infos={infos} id={id}>
         {(name, location, duration, type, infos)}
-      </ActivityCard>
+      </Favorite>
     );
     const eventName = screen.getByText(name);
     const eventLocation = screen.getByText(location);
@@ -40,12 +31,12 @@ describe('ActivityCard', () => {
     expect(favoriteButton).toBeInTheDocument();
   });
 
-  it('calls onAddFavorite on click', async () => {
+  it('calls onRemoveFromFavorites on click', async () => {
     const user = userEvent.setup();
     const callback = jest.fn();
     const id = 1;
-    const favorite = [1, 2, 3];
-    render(<ActivityCard onAddFavorite={callback} favorite={favorite} id={id} />);
+
+    render(<Favorite onRemoveFromFavorites={callback} id={id} />);
 
     const favoriteButton = screen.getByRole('button');
     await user.click(favoriteButton);
