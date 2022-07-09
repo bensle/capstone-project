@@ -9,12 +9,13 @@ Default.args = {
   duration: 'Day Trip',
   type: 'culture',
   infos: 'link',
-  favorite: [],
+  isFavorite: true,
 };
 
 const story = {
   title: 'Component/ActivityCard',
   component: 'ActivityCard',
-  argTypes: {onAddFavorite: {action: 'click'}},
+  argTypes: {onToggleFavorites: {action: 'clicked'}},
 };
+
 export default story;
