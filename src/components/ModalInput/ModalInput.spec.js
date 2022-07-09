@@ -14,7 +14,7 @@ describe('ModalInput', () => {
 
   it('calls onHandleSubmit on submit', async () => {
     const user = userEvent.setup();
-    const callback = jest.fn();
+    const callback = jest.fn(e => e.preventDefault());
     render(<ModalInput onHandleSubmit={callback} />);
 
     const input1 = screen.getByLabelText('Name of your activity');

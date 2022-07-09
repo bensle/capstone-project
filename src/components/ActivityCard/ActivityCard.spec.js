@@ -11,7 +11,6 @@ describe('ActivityCard', () => {
     const type = 'culture';
     const infos = 'Find out more';
     const id = 1;
-    const favorite = [1, 2, 3];
 
     render(
       <ActivityCard
@@ -21,7 +20,7 @@ describe('ActivityCard', () => {
         type={type}
         infos={infos}
         id={id}
-        favorite={favorite}
+        isFavorite={true}
       >
         {(name, location, duration, type, infos)}
       </ActivityCard>
@@ -45,7 +44,7 @@ describe('ActivityCard', () => {
     const callback = jest.fn();
     const id = 1;
     const favorite = [1, 2, 3];
-    render(<ActivityCard onAddFavorite={callback} favorite={favorite} id={id} />);
+    render(<ActivityCard onToggleFavorites={callback} favorite={favorite} id={id} />);
 
     const favoriteButton = screen.getByRole('button');
     await user.click(favoriteButton);
