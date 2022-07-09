@@ -1,26 +1,14 @@
-import {useState} from 'react';
 import {MdWbSunny} from 'react-icons/md';
 import {MdOutlineWbSunny} from 'react-icons/md';
 import styled from 'styled-components';
 
 import Section from './ActivityCardStyle';
 
-export default function ActivityCard({
-  id,
-  name,
-  location,
-  duration,
-  type,
-  infos,
-  onAddFavorite,
-  favorite,
-  onRemoveFromFavorites,
-  isFavorite,
-}) {
+export default function ActivityCard({id, name, location, duration, type, infos, onToggleFavorites, isFavorite}) {
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => onAddFavorite(id)}>
+        <FavButton onClick={() => onToggleFavorites(id)}>
           {isFavorite ? (
             <SpanAdded>
               <MdWbSunny />

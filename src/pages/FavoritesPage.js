@@ -1,8 +1,7 @@
 import Favorite from '../components/Favorite/Favorite';
 
-export default function FavoritesPage({activities, favorite, onSetIsHidden, onRemoveFromFavorites, savedFavorites}) {
+export default function FavoritesPage({activities, onSetIsHidden, onToggleFavorites}) {
   //----- Find favorites for Mapping -----
-  // const showFavorite = activities.filter(activity => favorite.includes(activity.id));
   const savedFavorite = activities.filter(activity => activity.isFavorite);
 
   return (
@@ -18,7 +17,7 @@ export default function FavoritesPage({activities, favorite, onSetIsHidden, onRe
           duration={duration}
           type={type}
           infos={infos}
-          onRemoveFromFavorites={onRemoveFromFavorites}
+          onToggleFavorites={onToggleFavorites}
         />
       ))}
     </div>

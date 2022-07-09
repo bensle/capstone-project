@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import styled from 'styled-components';
 
 import ActivityCards from './components/ActivityCard/ActivityCards';
@@ -12,9 +12,7 @@ export default function App() {
   const [activities, setActivities] = useLocalStorage('activities', db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
-  const [favorite, setFavorite] = useState([]);
   const [isHidden, setIsHidden] = useState(false);
-  const [savedFavorites, setSavedFavorites] = useLocalStorage('Favorites', []);
 
   //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
   const filteredActivities = activities.filter(data => {
@@ -30,41 +28,19 @@ export default function App() {
   function filterTypeReset() {
     setTypeFiltervalue('all');
   }
-  //-----HandleFavorites ---------------------------------------------------------------------------------------------------
-  // const addToFavorites = id => {
-  //   if (!favorite.includes(id)) setFavorite(favorite.concat(id));
-  // };
-
-  const toggleFavorite = id => {
-    const index = activities.findIndex(el => el.id === id); // returns the index of element of activities
-    const newFavorite = activities.find(acti => acti.id === id); // returns the value of element of activties
+  //----- Toggle Favorites & set to state/localstorage -----------------------------------------------------------------------------------------
+  const toggleFavorites = id => {
+    const index = activities.findIndex(activity => activity.id === id);
+    const newFavorite = activities.find(activity => activity.id === id);
 
     const tempFavorites = [
-      ...activities.slice(0, index), //slice activities from 0 to found index
-      {...newFavorite, isFavorite: !newFavorite.isFavorite}, // sets the found value inbetween and toggles isFavorite
-      ...activities.slice(index + 1), //rest of activities from found index +1
+      ...activities.slice(0, index),
+      {...newFavorite, isFavorite: !newFavorite.isFavorite},
+      ...activities.slice(index + 1),
     ];
-    setActivities(tempFavorites); // sets state with new array
+    setActivities(tempFavorites);
     console.log('newFav', newFavorite);
   };
-
-  function baddToFavorites(id) {
-    const newFavorite = activities.find(acti => acti.id !== id);
-    if (!favorite.includes(id)) setFavorite(favorite.concat(id));
-    setSavedFavorites([...savedFavorites, newFavorite]);
-    console.log(favorite);
-  }
-
-  const removeFromFavorites = id => {
-    const index = favorite.indexOf(id);
-    const tempFavorites = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
-    setFavorite(tempFavorites);
-  };
-
-  useEffect(
-    () => setSavedFavorites(() => activities.filter(activity => favorite.includes(activity.id))),
-    [activities, favorite] // eslint-disable-line react-hooks/exhaustive-deps
-  );
 
   return (
     <Appcontainer>
@@ -76,19 +52,15 @@ export default function App() {
         <ActivityCards
           activities={filteredActivities}
           onSetActivities={setActivities}
-          favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onAddToFavorites={toggleFavorite}
-          onRemoveFromFavorites={toggleFavorite}
+          onToggleFavorites={toggleFavorites}
         />
       )}
       {isHidden && (
         <FavoritesPage
-          savedFavorites={savedFavorites}
           activities={activities}
-          favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onRemoveFromFavorites={toggleFavorite}
+          onToggleFavorites={toggleFavorites}
         />
       )}
     </Appcontainer>

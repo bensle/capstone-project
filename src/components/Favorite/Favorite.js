@@ -2,11 +2,11 @@ import {MdWbSunny} from 'react-icons/md';
 
 import {FavDiv, FavButton, Section} from './FavoriteStyle';
 
-export default function Favorite({name, location, duration, type, infos, id, onRemoveFromFavorites}) {
+export default function Favorite({name, location, duration, type, infos, id, onToggleFavorites}) {
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => onRemoveFromFavorites(id)}>
+        <FavButton onClick={() => onToggleFavorites(id)}>
           <MdWbSunny />
         </FavButton>
       </FavDiv>
