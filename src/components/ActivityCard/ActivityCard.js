@@ -25,7 +25,7 @@ export default function ActivityCard({
     <Section>
       {isFavorite ? (
         <FavDiv>
-          <FavButton onClick={() => onToggleFavorites(id)}>
+          <FavButton aria-label="Added to Favorites" onClick={() => onToggleFavorites(id)}>
             <SpanAdded>
               <MdWbSunny />
             </SpanAdded>
@@ -38,12 +38,12 @@ export default function ActivityCard({
         </FavDiv>
       ) : (
         <FavDiv>
-          <FavButton onClick={() => onToggleFavorites(id)}>
+          <FavButton aria-label="Add to Favorites" onClick={() => onToggleFavorites(id)}>
             <SpanAdd>
               <MdOutlineWbSunny />
             </SpanAdd>
           </FavButton>
-          <FavButtonDelete onClick={() => onShowConfirmationModal(id)}>
+          <FavButtonDelete aria-label="Delete Activity" onClick={() => onShowConfirmationModal(id)}>
             <SpanAdd>
               <MdDeleteForever />
             </SpanAdd>
