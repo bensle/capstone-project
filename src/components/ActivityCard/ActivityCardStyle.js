@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Section = styled.section`
+export const Section = styled.section`
   border: 1px solid;
   border-radius: 5px;
   padding: 5px;
@@ -39,4 +39,28 @@ const Section = styled.section`
     color: red;
   }
 `;
-export default Section;
+export const FavDiv = styled.div`
+  position: relative;
+`;
+export const FavButton = styled.button`
+  background: none;
+  border: none;
+  position: absolute;
+  right: -5px;
+  font-size: 24px;
+  color: white;
+`;
+export const FavButtonDelete = styled.button`
+  background: none;
+  border: none;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  font-size: 24px;
+  color: red;
+`;
+
+export const SpanAdd = styled.span``;
+export const SpanAdded = styled.span`
+  color: yellow;
+`;

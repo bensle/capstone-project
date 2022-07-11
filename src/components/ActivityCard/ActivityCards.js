@@ -11,6 +11,7 @@ import WrapperDiv from './WrapperDivStyle';
 export default function ActivityCards({activities, onSetActivities, onSetIsHidden, onToggleFavorites}) {
   const [showModal, setShowModal] = useState();
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
+  const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null});
 
   //----- Data from Input -----
   const handleChange = event => {
@@ -37,7 +38,8 @@ export default function ActivityCards({activities, onSetActivities, onSetIsHidde
     ]);
     closeModalHandler();
   };
-  //----- Show & Hide Input Modal -----
+  //----- handle Input Modal show and hide -----------------------------------------------------------------------------------------
+
   function showModalHandler() {
     setShowModal(true);
   }
@@ -45,6 +47,26 @@ export default function ActivityCards({activities, onSetActivities, onSetIsHidde
   function closeModalHandler() {
     setShowModal(false);
   }
+  //----- handle delete Activities & confirmation Modal -----------------------------------------------------------------------------------------
+
+  const deleteActivity = () => {
+    if (showModalConfirmation.show && showModalConfirmation.id) {
+      const temp = activities.filter(acti => acti.id !== showModalConfirmation.id);
+      onSetActivities(temp);
+      console.log('deleteF', temp);
+      setShowModalConfirmation({
+        show: false,
+        id: null,
+      });
+    }
+  };
+  const showModalConfirmationHandler = id => {
+    setShowModalConfirmation({show: true, id});
+  };
+
+  const closeModalConfirmationHandler = () => {
+    setShowModalConfirmation({show: false, id: null});
+  };
 
   return (
     <WrapperDiv>
@@ -61,6 +83,10 @@ export default function ActivityCards({activities, onSetActivities, onSetIsHidde
             type={type}
             infos={infos}
             onToggleFavorites={onToggleFavorites}
+            onDelete={() => deleteActivity(id)}
+            onShowConfirmationModal={() => showModalConfirmationHandler(id)}
+            onCloseConfirmationModal={closeModalConfirmationHandler}
+            showModalConfirmation={showModalConfirmation}
           />
         ))}
       </WrapperDiv>

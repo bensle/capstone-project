@@ -1,25 +1,56 @@
 import {MdWbSunny} from 'react-icons/md';
 import {MdOutlineWbSunny} from 'react-icons/md';
-import styled from 'styled-components';
+import {MdDeleteForever} from 'react-icons/md';
 
-import Section from './ActivityCardStyle';
+import Backdrop from '../ComfirmationModal/Backdrop';
+import ConfirmationModal from '../ComfirmationModal/ConfirmationModal';
 
-export default function ActivityCard({id, name, location, duration, type, infos, onToggleFavorites, isFavorite}) {
+import {Section, FavDiv, FavButton, FavButtonDelete, SpanAdd, SpanAdded} from './ActivityCardStyle';
+
+export default function ActivityCard({
+  id,
+  name,
+  location,
+  duration,
+  type,
+  infos,
+  onToggleFavorites,
+  isFavorite,
+  onDelete,
+  onShowConfirmationModal,
+  onCloseConfirmationModal,
+  showModalConfirmation,
+}) {
   return (
     <Section>
-      <FavDiv>
-        <FavButton onClick={() => onToggleFavorites(id)}>
-          {isFavorite ? (
+      {isFavorite ? (
+        <FavDiv>
+          <FavButton onClick={() => onToggleFavorites(id)}>
             <SpanAdded>
               <MdWbSunny />
             </SpanAdded>
-          ) : (
+          </FavButton>
+          <FavButtonDelete onClick={() => onShowConfirmationModal(id)}>
+            <SpanAdd>
+              <MdDeleteForever />
+            </SpanAdd>
+          </FavButtonDelete>
+        </FavDiv>
+      ) : (
+        <FavDiv>
+          <FavButton onClick={() => onToggleFavorites(id)}>
             <SpanAdd>
               <MdOutlineWbSunny />
             </SpanAdd>
-          )}
-        </FavButton>
-      </FavDiv>
+          </FavButton>
+          <FavButtonDelete onClick={() => onShowConfirmationModal(id)}>
+            <SpanAdd>
+              <MdDeleteForever />
+            </SpanAdd>
+          </FavButtonDelete>
+        </FavDiv>
+      )}
+
       <h2>{name}</h2>
       <h3>{location}</h3>
       {/* eslint-disable-next-line */}
@@ -28,23 +59,8 @@ export default function ActivityCard({id, name, location, duration, type, infos,
         <li>{type}</li>
       </ul>
       <a href={infos}>Find out more</a>
+      {showModalConfirmation.show && <Backdrop onClick={onCloseConfirmationModal} />}
+      {showModalConfirmation.show && <ConfirmationModal onClose={onCloseConfirmationModal} onDelete={onDelete} />}
     </Section>
   );
 }
-
-const FavDiv = styled.div`
-  position: relative;
-`;
-const FavButton = styled.button`
-  background: none;
-  border: none;
-  position: absolute;
-  right: 0;
-  font-size: 28px;
-  color: white;
-`;
-
-const SpanAdd = styled.span``;
-const SpanAdded = styled.span`
-  color: yellow;
-`;
