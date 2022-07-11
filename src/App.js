@@ -39,7 +39,6 @@ export default function App() {
       ...activities.slice(index + 1),
     ];
     setActivities(tempFavorites);
-    console.log('newFav', newFavorite);
   };
 
   return (
