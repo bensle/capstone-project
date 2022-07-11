@@ -12,7 +12,6 @@ export const CancelDiv = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); */
   border: 2px solid white;
   border-radius: 6px;
   background-color: var(--modalbg);
