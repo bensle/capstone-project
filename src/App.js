@@ -4,17 +4,17 @@ import styled from 'styled-components';
 import ActivityCards from './components/ActivityCard/ActivityCards';
 import DurationFilter from './components/DurationFilterButton/DurationFilter';
 import TypeFilter from './components/TypeFilterButton/TypeFilter';
+import useLocalStorage from './hooks/useLocalStorage';
 import FavoritesPage from './pages/FavoritesPage';
 import db from './services/activityDB';
 
 export default function App() {
-  const [activities, setActivities] = useState(db);
+  const [activities, setActivities] = useLocalStorage('activities', db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
-  const [favorite, setFavorite] = useState([]);
   const [isHidden, setIsHidden] = useState(false);
 
-  //----- Filter (Duration & Type) -----
+  //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
   const filteredActivities = activities.filter(data => {
     return (
       (durationFilterValue === 'all' && typeFilterValue === 'all') ||
@@ -28,15 +28,17 @@ export default function App() {
   function filterTypeReset() {
     setTypeFiltervalue('all');
   }
-  //-----HandleFavorites -----
-  const addToFavorites = id => {
-    if (!favorite.includes(id)) setFavorite(favorite.concat(id));
-  };
+  //----- Toggle Favorites & set to state/localstorage -----------------------------------------------------------------------------------------
+  const toggleFavorites = id => {
+    const index = activities.findIndex(activity => activity.id === id);
+    const newFavorite = activities.find(activity => activity.id === id);
 
-  const removeFromFavorites = id => {
-    const index = favorite.indexOf(id);
-    const tempFavorites = [...favorite.slice(0, index), ...favorite.slice(index + 1)];
-    setFavorite(tempFavorites);
+    const tempFavorites = [
+      ...activities.slice(0, index),
+      {...newFavorite, isFavorite: !newFavorite.isFavorite},
+      ...activities.slice(index + 1),
+    ];
+    setActivities(tempFavorites);
   };
 
   return (
@@ -49,19 +51,15 @@ export default function App() {
         <ActivityCards
           activities={filteredActivities}
           onSetActivities={setActivities}
-          favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onAddToFavorites={addToFavorites}
-          onRemoveFromFavorites={removeFromFavorites}
+          onToggleFavorites={toggleFavorites}
         />
       )}
-
       {isHidden && (
         <FavoritesPage
           activities={activities}
-          favorite={favorite}
           onSetIsHidden={() => setIsHidden(!isHidden)}
-          onRemoveFromFavorites={removeFromFavorites}
+          onToggleFavorites={toggleFavorites}
         />
       )}
     </Appcontainer>

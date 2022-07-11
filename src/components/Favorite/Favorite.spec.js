@@ -31,12 +31,12 @@ describe('Favorite', () => {
     expect(favoriteButton).toBeInTheDocument();
   });
 
-  it('calls onRemoveFromFavorites on click', async () => {
+  it('calls onToggleFavorites on click', async () => {
     const user = userEvent.setup();
     const callback = jest.fn();
     const id = 1;
 
-    render(<Favorite onRemoveFromFavorites={callback} id={id} />);
+    render(<Favorite onToggleFavorites={callback} id={id} />);
 
     const favoriteButton = screen.getByRole('button');
     await user.click(favoriteButton);

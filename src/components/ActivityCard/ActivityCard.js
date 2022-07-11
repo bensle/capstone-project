@@ -1,38 +1,15 @@
-import {useState} from 'react';
 import {MdWbSunny} from 'react-icons/md';
 import {MdOutlineWbSunny} from 'react-icons/md';
 import styled from 'styled-components';
 
 import Section from './ActivityCardStyle';
 
-export default function ActivityCard({
-  id,
-  name,
-  location,
-  duration,
-  type,
-  infos,
-  onAddFavorite,
-  favorite,
-  onRemoveFromFavorites,
-}) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-
-  const toggleBookmark = id => {
-    if (isBookmarked) {
-      onRemoveFromFavorites(id);
-      setIsBookmarked(false);
-    } else {
-      onAddFavorite(id);
-      setIsBookmarked(true);
-    }
-  };
-
+export default function ActivityCard({id, name, location, duration, type, infos, onToggleFavorites, isFavorite}) {
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => toggleBookmark(id)}>
-          {favorite.includes(id) ? (
+        <FavButton onClick={() => onToggleFavorites(id)}>
+          {isFavorite ? (
             <SpanAdded>
               <MdWbSunny />
             </SpanAdded>
