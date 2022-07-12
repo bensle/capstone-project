@@ -8,9 +8,19 @@ import ModalInput from '../ModalInput/ModalInput';
 import ActivityCard from './ActivityCard';
 import WrapperDiv from './WrapperDivStyle';
 
-export default function ActivityCards({activities, onSetActivities, onSetIsHidden, onToggleFavorites}) {
+export default function ActivityCards({
+  activities,
+  onSetActivities,
+  onSetIsHidden,
+  onToggleFavorites,
+  onCloseConfirmationModal,
+  onShowConfirmationHandler,
+  onDeleteActivity,
+  showModalConfirmation,
+}) {
   const [showModal, setShowModal] = useState();
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
+  // const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null});
 
   //----- Data from Input -----
   const handleChange = event => {
@@ -37,7 +47,8 @@ export default function ActivityCards({activities, onSetActivities, onSetIsHidde
     ]);
     closeModalHandler();
   };
-  //----- Show & Hide Input Modal -----
+  //----- handle Input Modal show and hide -----------------------------------------------------------------------------------------
+
   function showModalHandler() {
     setShowModal(true);
   }
@@ -61,6 +72,10 @@ export default function ActivityCards({activities, onSetActivities, onSetIsHidde
             type={type}
             infos={infos}
             onToggleFavorites={onToggleFavorites}
+            onDelete={() => onDeleteActivity(id)}
+            onShowConfirmationModal={() => onShowConfirmationHandler(id)}
+            onCloseConfirmationModal={onCloseConfirmationModal}
+            showModalConfirmation={showModalConfirmation}
           />
         ))}
       </WrapperDiv>

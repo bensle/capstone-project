@@ -2,8 +2,8 @@ import Favorite from './Favorite';
 
 const Template = args => <Favorite {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Card = Template.bind({});
+Card.args = {
   name: 'Freudenberg',
   location: 'Siegerland',
   duration: 'Day Trip',

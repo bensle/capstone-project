@@ -21,6 +21,7 @@ describe('ActivityCard', () => {
         infos={infos}
         id={id}
         isFavorite={true}
+        showModalConfirmation={{show: true, id}}
       >
         {(name, location, duration, type, infos)}
       </ActivityCard>
@@ -30,7 +31,7 @@ describe('ActivityCard', () => {
     const eventDuration = screen.getByText(duration);
     const eventType = screen.getByText(type);
     const eventInfos = screen.getByText(infos);
-    const favoriteButton = screen.getByRole('button');
+    const favoriteButton = screen.getByRole('button', {name: 'Added to Favorites'});
     expect(eventName).toBeInTheDocument();
     expect(eventLocation).toBeInTheDocument();
     expect(eventDuration).toBeInTheDocument();
@@ -39,14 +40,16 @@ describe('ActivityCard', () => {
     expect(favoriteButton).toBeInTheDocument();
   });
 
-  it('calls onAddFavorite on click', async () => {
+  it('calls onToggleFavorite on click', async () => {
     const user = userEvent.setup();
     const callback = jest.fn();
     const id = 1;
     const favorite = [1, 2, 3];
-    render(<ActivityCard onToggleFavorites={callback} favorite={favorite} id={id} />);
+    render(
+      <ActivityCard showModalConfirmation={{show: true, id}} onToggleFavorites={callback} favorite={favorite} id={id} />
+    );
 
-    const favoriteButton = screen.getByRole('button');
+    const favoriteButton = screen.getByRole('button', {name: 'Add to Favorites'});
     await user.click(favoriteButton);
     expect(callback).toHaveBeenCalledWith(id);
   });

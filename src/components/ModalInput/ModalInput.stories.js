@@ -1,9 +1,9 @@
 import ModalInput from './ModalInput';
 export default {
-  title: 'Component/Input',
+  title: 'Component/Modal',
   component: ModalInput,
 };
 
 const template = args => <ModalInput {...args} />;
 
-export const Default = template.bind({});
+export const FormInput = template.bind({});

@@ -13,6 +13,7 @@ export default function App() {
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
   const [isHidden, setIsHidden] = useState(false);
+  const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null});
 
   //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
   const filteredActivities = activities.filter(data => {
@@ -32,13 +33,31 @@ export default function App() {
   const toggleFavorites = id => {
     const index = activities.findIndex(activity => activity.id === id);
     const newFavorite = activities.find(activity => activity.id === id);
-
     const tempFavorites = [
       ...activities.slice(0, index),
       {...newFavorite, isFavorite: !newFavorite.isFavorite},
       ...activities.slice(index + 1),
     ];
     setActivities(tempFavorites);
+  };
+
+  //----- handle delete Activities & confirmation Modal -----------------------------------------------------------------------------------------
+
+  function deleteActivity(id) {
+    if (showModalConfirmation.show && showModalConfirmation.id) {
+      const newActivities = activities.filter(acti => acti.id !== showModalConfirmation.id);
+      setActivities(newActivities);
+      setShowModalConfirmation({
+        show: false,
+        id: null,
+      });
+    }
+  }
+  const showModalConfirmationHandler = id => {
+    setShowModalConfirmation({show: true, id});
+  };
+  const closeModalConfirmationHandler = () => {
+    setShowModalConfirmation({show: false, id: null});
   };
 
   return (
@@ -53,6 +72,10 @@ export default function App() {
           onSetActivities={setActivities}
           onSetIsHidden={() => setIsHidden(!isHidden)}
           onToggleFavorites={toggleFavorites}
+          onCloseConfirmationModal={closeModalConfirmationHandler}
+          onShowConfirmationHandler={showModalConfirmationHandler}
+          onDeleteActivity={deleteActivity}
+          showModalConfirmation={showModalConfirmation}
         />
       )}
       {isHidden && (
@@ -60,6 +83,10 @@ export default function App() {
           activities={activities}
           onSetIsHidden={() => setIsHidden(!isHidden)}
           onToggleFavorites={toggleFavorites}
+          onCloseConfirmationModal={closeModalConfirmationHandler}
+          onShowConfirmationHandler={showModalConfirmationHandler}
+          onDeleteActivity={deleteActivity}
+          showModalConfirmation={showModalConfirmation}
         />
       )}
     </Appcontainer>
