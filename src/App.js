@@ -6,6 +6,7 @@ import DurationFilter from './components/DurationFilterButton/DurationFilter';
 import TypeFilter from './components/TypeFilterButton/TypeFilter';
 import useLocalStorage from './hooks/useLocalStorage';
 import FavoritesPage from './pages/FavoritesPage';
+import Map from './pages/Map';
 import db from './services/activityDB';
 
 export default function App() {
@@ -89,6 +90,7 @@ export default function App() {
           showModalConfirmation={showModalConfirmation}
         />
       )}
+      {isHidden && <Map activities={activities} />}
     </Appcontainer>
   );
 }

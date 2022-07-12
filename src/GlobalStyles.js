@@ -33,4 +33,8 @@ export default styled.createGlobalStyle`
   textarea {
     font: inherit;
   }
+  .leaflet-container {
+    width: 90vw;
+    height: 50vh;
+  }
 `;

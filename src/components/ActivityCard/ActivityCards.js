@@ -82,6 +82,7 @@ export default function ActivityCards({
       <div>
         <button onClick={showModalHandler}>Add Activity</button>
         <button onClick={onSetIsHidden}>Favorites</button>
+        <button onClick={onSetIsHidden}>Map</button>
       </div>
       {showModal && <Backdrop onClick={closeModalHandler} />}
       {showModal && (
