@@ -13,7 +13,7 @@ export default function App() {
   const [activities, setActivities] = useLocalStorage('activities', db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
-  const [isHidden, setIsHidden] = useState(false);
+  const [currentPage, setCurrentPage] = useState('activity');
   const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null});
 
   //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
@@ -63,15 +63,18 @@ export default function App() {
 
   return (
     <Appcontainer>
-      {isHidden || (
+      {currentPage === 'activity' && (
         <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={setDurationFilterValue} />
       )}
-      {isHidden || <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />}
-      {isHidden || (
+      {currentPage === 'activity' && (
+        <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={setTypeFiltervalue} />
+      )}
+      {currentPage === 'activity' && (
         <ActivityCards
           activities={filteredActivities}
           onSetActivities={setActivities}
-          onSetIsHidden={() => setIsHidden(!isHidden)}
+          onSetIsHidden={() => setCurrentPage('favorites')}
+          onSetIsHidden1={() => setCurrentPage('map')}
           onToggleFavorites={toggleFavorites}
           onCloseConfirmationModal={closeModalConfirmationHandler}
           onShowConfirmationHandler={showModalConfirmationHandler}
@@ -79,10 +82,10 @@ export default function App() {
           showModalConfirmation={showModalConfirmation}
         />
       )}
-      {isHidden && (
+      {currentPage === 'favorites' && (
         <FavoritesPage
           activities={activities}
-          onSetIsHidden={() => setIsHidden(!isHidden)}
+          onSetIsHidden={() => setCurrentPage('activity')}
           onToggleFavorites={toggleFavorites}
           onCloseConfirmationModal={closeModalConfirmationHandler}
           onShowConfirmationHandler={showModalConfirmationHandler}
@@ -90,7 +93,7 @@ export default function App() {
           showModalConfirmation={showModalConfirmation}
         />
       )}
-      {isHidden && <Map activities={activities} />}
+      {currentPage === 'map' && <Map onSetIsHidden={() => setCurrentPage('activity')} />}
     </Appcontainer>
   );
 }

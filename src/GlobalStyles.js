@@ -35,6 +35,6 @@ export default styled.createGlobalStyle`
   }
   .leaflet-container {
     width: 90vw;
-    height: 50vh;
+    height: 90vh;
   }
 `;

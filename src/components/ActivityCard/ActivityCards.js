@@ -12,6 +12,7 @@ export default function ActivityCards({
   activities,
   onSetActivities,
   onSetIsHidden,
+  onSetIsHidden1,
   onToggleFavorites,
   onCloseConfirmationModal,
   onShowConfirmationHandler,
@@ -82,7 +83,7 @@ export default function ActivityCards({
       <div>
         <button onClick={showModalHandler}>Add Activity</button>
         <button onClick={onSetIsHidden}>Favorites</button>
-        <button onClick={onSetIsHidden}>Map</button>
+        <button onClick={onSetIsHidden1}>Map</button>
       </div>
       {showModal && <Backdrop onClick={closeModalHandler} />}
       {showModal && (
