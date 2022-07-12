@@ -7,6 +7,8 @@ const db = [
     location: 'Siegerland',
     duration: 'short',
     type: 'culture',
+    lat: 50.89735,
+    long: 7.87637,
     infos: 'https://www.freudenberg-wirkt.de/',
   },
   {
@@ -16,6 +18,8 @@ const db = [
     location: 'Binz',
     duration: 'vacation',
     type: 'recovery',
+    lat: 54.399841,
+    long: 13.60998,
     infos: 'https://www.ruegen.de',
   },
   {
@@ -25,6 +29,8 @@ const db = [
     location: 'Mittenwald',
     duration: 'weekend',
     type: 'recovery',
+    lat: 47.4429543,
+    long: 11.2655684,
     infos: 'https://alpenwelt-karwendel.de',
   },
   {
@@ -34,6 +40,8 @@ const db = [
     location: 'Bremen',
     duration: 'short',
     type: 'nature',
+    lat: 53.0758196,
+    long: 8.8071646,
     infos: 'https://bremer-eisverein.de',
   },
   {
@@ -43,6 +51,8 @@ const db = [
     location: 'Vogelsberg',
     duration: 'short',
     type: 'sport',
+    lat: 50.4932938,
+    long: 9.2400745,
     infos: 'https://koko-pelli.de',
   },
   {
@@ -52,6 +62,8 @@ const db = [
     location: 'Tübingen',
     duration: 'short',
     type: 'culture',
+    lat: 48.5236164,
+    long: 9.0535531,
     infos: 'https://tuebingen-info.de',
   },
   {
@@ -61,6 +73,8 @@ const db = [
     location: 'Neuwerk',
     duration: 'short',
     type: 'nature',
+    lat: 53.9224223,
+    long: 8.5028594,
     infos: 'https://cuxhaven-neuwerk.de',
   },
   {
@@ -70,6 +84,8 @@ const db = [
     location: 'Allgäu',
     duration: 'short',
     type: 'sport',
+    lat: 47.5926009,
+    long: 10.209156,
     infos: 'https://skywalk-allgaeu.de',
   },
   {
@@ -79,6 +95,8 @@ const db = [
     location: 'Bad Segeberg',
     duration: 'weekend',
     type: 'culture',
+    lat: 53.9422672,
+    long: 10.3137943,
     infos: 'https://karl-may-spiele.de',
   },
   {
@@ -88,6 +106,8 @@ const db = [
     location: 'Helgoland',
     duration: 'weekend',
     type: 'nature',
+    lat: 54.1800452,
+    long: 7.8853621,
     infos: 'https://helgoland.de',
   },
   {
@@ -97,6 +117,8 @@ const db = [
     location: 'Oettingen',
     duration: 'short',
     type: 'recovery',
+    lat: 48.95526885986328,
+    long: 10.605217933654785,
     infos: 'https://oettingen.de/woernitz-flussfreibad',
   },
   {
@@ -106,6 +128,8 @@ const db = [
     location: 'Passau',
     duration: 'short',
     type: 'culture',
+    lat: 48.5748229,
+    long: 13.4609744,
     infos: 'https://dackelmuseum.de',
   },
   {
@@ -115,6 +139,8 @@ const db = [
     location: 'Heidenheim',
     duration: 'weekend',
     type: 'culture',
+    lat: 48.6767637,
+    long: 10.152923,
     infos: 'https://opernfestspiele.de',
   },
   {
@@ -124,6 +150,8 @@ const db = [
     location: 'Blaubeuren',
     duration: 'short',
     type: 'nature',
+    lat: 48.4121233,
+    long: 9.7847091,
     infos: 'https://blautopf.de',
   },
   {
@@ -133,6 +161,8 @@ const db = [
     location: 'Witzenhausen',
     duration: 'weekend',
     type: 'nature',
+    lat: 51.3331901,
+    long: 9.8434192,
     infos: 'https://robins-nest.de',
   },
   {
@@ -142,6 +172,8 @@ const db = [
     location: 'Dresden',
     duration: 'short',
     type: 'culture',
+    lat: 51.0493286,
+    long: 13.7381437,
     infos: 'https://dresden.filmnaechte.de',
   },
   {
@@ -151,6 +183,8 @@ const db = [
     location: 'Norderney',
     duration: 'vacation',
     type: 'recovery',
+    lat: 53.7122885,
+    long: 7.2357795,
     infos: 'https://norderney.de',
   },
   {
@@ -160,6 +194,8 @@ const db = [
     location: 'Erzgebirge',
     duration: 'vacation',
     type: 'sport',
+    lat: 50.4355522,
+    long: 12.9489367,
     infos: 'https://stoneman-miriquidi.com',
   },
   {
@@ -169,6 +205,8 @@ const db = [
     location: 'Nürburgring',
     duration: 'weekend',
     type: 'challenge',
+    lat: 50.3309196,
+    long: 6.9406742,
     infos: 'https://nuerburgring.de',
   },
   {
@@ -178,6 +216,8 @@ const db = [
     location: 'Brandenburg',
     duration: 'weekend',
     type: 'sport',
+    lat: 52.8455492,
+    long: 13.2461296,
     infos: 'https://flaeming-skate.de',
   },
   {
@@ -187,6 +227,8 @@ const db = [
     location: 'Nationalpark Eifel',
     duration: 'weekend',
     type: 'nature',
+    lat: 50.61957931518555,
+    long: 6.411393165588379,
     infos: 'https://nationalpark-eifel.de/de/nationalpark-erleben/sternenpark',
   },
   {
@@ -196,6 +238,8 @@ const db = [
     location: 'Ith',
     duration: 'weekend',
     type: 'challenge',
+    lat: 52.002215,
+    long: 9.6023941,
     infos: 'https://ig-klettern-niedersachsen.de',
   },
   {
@@ -205,6 +249,8 @@ const db = [
     location: 'Königswinter',
     duration: 'short',
     type: 'nature',
+    lat: 50.6739719,
+    long: 7.1930989,
     infos: 'https://der-drachenfels.de',
   },
   {
@@ -214,6 +260,8 @@ const db = [
     location: 'Bad Segeberg',
     duration: 'short',
     type: 'nature',
+    lat: 53.9422672,
+    long: 10.3137943,
     infos: 'https://noctalis.de',
   },
   {
@@ -223,6 +271,8 @@ const db = [
     location: 'Watzmann',
     duration: 'vacation',
     type: 'challenge',
+    lat: 47.5736495,
+    long: 12.9429063,
     infos: 'https://berchtesgaden.de/berge-gipfel/watzmann/watzmann-huettentour',
   },
   {
@@ -232,6 +282,8 @@ const db = [
     location: 'Hohenneuffen',
     duration: 'short',
     type: 'nature',
+    lat: 48.5557598,
+    long: 9.3927261,
     infos: 'https://schwaebischealb.org/schloesser-burgen/burg-teck',
   },
   {
@@ -241,6 +293,8 @@ const db = [
     location: 'Herford',
     duration: 'short',
     type: 'culture',
+    lat: 52.1152245,
+    long: 8.6711118,
     infos: 'https://marta-herford.de',
   },
   {
@@ -250,6 +304,8 @@ const db = [
     location: 'Eichsfeld',
     duration: 'vacation',
     type: 'sport',
+    lat: 50.556082,
+    long: 9.6716646,
     infos: 'https://eichsfeld.de',
   },
   {
@@ -259,15 +315,19 @@ const db = [
     location: 'Oberstdorf',
     duration: 'short',
     type: 'challenge',
+    lat: 47.4118318,
+    long: 10.2781005,
     infos: 'https://ok-bergbahnen.com/aktiv-sport/gleitschirmfliegen',
   },
   {
     id: nanoid(),
     isFavorite: false,
-    name: 'DAV-kletter-Zentrum',
+    name: 'DAV-Kletter-Zentrum',
     location: 'München',
     duration: 'short',
     type: 'challenge',
+    lat: 48.1371079,
+    long: 11.5753822,
     infos: 'https://kbthalkirchen.de',
   },
   {
@@ -277,6 +337,8 @@ const db = [
     location: 'Rügen',
     duration: 'vacation',
     type: 'nature',
+    lat: 54.4224525,
+    long: 13.3315713,
     infos: 'https://ruegen.de',
   },
   {
@@ -286,6 +348,8 @@ const db = [
     location: 'Erding',
     duration: 'short',
     type: 'recovery',
+    lat: 48.3064441,
+    long: 11.9076579,
     infos: 'https://therme-erding.de',
   },
   {
@@ -295,6 +359,8 @@ const db = [
     location: 'Harz',
     duration: 'vacation',
     type: 'culture',
+    lat: 51.7249376,
+    long: 10.6948924,
     infos: 'https://harzinfo.de/veranstaltungen/walpurgis-im-harz.html',
   },
 ];
