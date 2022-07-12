@@ -33,7 +33,6 @@ export default function App() {
   const toggleFavorites = id => {
     const index = activities.findIndex(activity => activity.id === id);
     const newFavorite = activities.find(activity => activity.id === id);
-    console.log(index);
     const tempFavorites = [
       ...activities.slice(0, index),
       {...newFavorite, isFavorite: !newFavorite.isFavorite},
@@ -84,6 +83,10 @@ export default function App() {
           activities={activities}
           onSetIsHidden={() => setIsHidden(!isHidden)}
           onToggleFavorites={toggleFavorites}
+          onCloseConfirmationModal={closeModalConfirmationHandler}
+          onShowConfirmationHandler={showModalConfirmationHandler}
+          onDeleteActivity={deleteActivity}
+          showModalConfirmation={showModalConfirmation}
         />
       )}
     </Appcontainer>
