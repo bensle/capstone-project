@@ -45,7 +45,6 @@ describe('ActivityCard', () => {
     const callback = jest.fn();
     const id = 1;
     const favorite = [1, 2, 3];
-    // const showModalConfirmation = {show: true, id};
     render(
       <ActivityCard showModalConfirmation={{show: true, id}} onToggleFavorites={callback} favorite={favorite} id={id} />
     );

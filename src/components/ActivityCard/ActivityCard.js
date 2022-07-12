@@ -30,7 +30,7 @@ export default function ActivityCard({
               <MdWbSunny />
             </SpanAdded>
           </FavButton>
-          <FavButtonDelete onClick={() => onShowConfirmationModal(id)}>
+          <FavButtonDelete aria-label="Delete Activity" onClick={() => onShowConfirmationModal(id)}>
             <SpanAdd>
               <MdDeleteForever />
             </SpanAdd>
