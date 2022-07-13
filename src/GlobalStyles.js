@@ -20,7 +20,7 @@ export default styled.createGlobalStyle`
   }
 
   body {
-    margin: 0 20px;
+    /* margin: 0 20px; */
     padding: 0;
     background-color: var(--bgcolor);
     color: var(--textcolor);
