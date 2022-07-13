@@ -5,7 +5,7 @@ export default function Backdrop(props) {
 
 const BackdropDiv = styled.div`
   position: fixed;
-  z-index: 1;
+  /* z-index: 1; */
   backdrop-filter: blur(5px);
   background-color: transparent;
   width: 100%;

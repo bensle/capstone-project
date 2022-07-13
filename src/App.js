@@ -3,10 +3,6 @@ import {Route, Routes} from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './components/Header/Header';
-// import ActivityCards from './components/ActivityCard/ActivityCards';
-// import DurationFilter from './components/DurationFilterButton/DurationFilter';
-// import Header from './components/Header/Header';
-// import TypeFilter from './components/TypeFilterButton/TypeFilter';
 import useLocalStorage from './hooks/useLocalStorage';
 import ActivityPage from './pages/ActivityPage';
 import FavoritesPage from './pages/FavoritesPage';
@@ -77,7 +73,6 @@ export default function App() {
             <ActivityPage
               activities={filteredActivities}
               onSetActivities={setActivities}
-              // onNavigate={page => setCurrentPage(page)}
               onToggleFavorites={toggleFavorites}
               onCloseConfirmationModal={closeModalConfirmationHandler}
               onShowConfirmationHandler={showModalConfirmationHandler}
@@ -95,7 +90,6 @@ export default function App() {
           element={
             <FavoritesPage
               activities={activities}
-              // onNavigate={page => setCurrentPage(page)}
               onToggleFavorites={toggleFavorites}
               onCloseConfirmationModal={closeModalConfirmationHandler}
               onShowConfirmationHandler={showModalConfirmationHandler}
@@ -105,7 +99,6 @@ export default function App() {
           }
         />
         <Route path="/map" element={<Map />} />
-        {/* <Route path="/map" element={<Map onSetIsHidden={() => setCurrentPage('activity')} />} /> */}
       </Routes>
     </Appcontainer>
   );

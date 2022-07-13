@@ -12,6 +12,7 @@ export default function Header() {
 const StyledHeader = styled.header`
   position: sticky;
   top: 0;
-  background-color: hotpink;
+  background-color: var(--bgcolor);
   display: block;
+  z-index: 2000;
 `;

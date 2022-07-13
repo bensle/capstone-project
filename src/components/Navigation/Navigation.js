@@ -23,14 +23,14 @@ export default function Navigation() {
         <NavMenu isOpen={showSidebar}>
           <MenuList>
             <MenuItem>
-              <MenuLink to="#">
+              <MenuLinkClose to="#">
                 <MdIcons.MdClose onClick={toggleSidebar} />
-              </MenuLink>
+              </MenuLinkClose>
             </MenuItem>
             {NavigationData.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={item.path}>
+                  <Link to={item.path} onClick={toggleSidebar}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>
@@ -45,7 +45,6 @@ export default function Navigation() {
 }
 
 const MenuDiv = styled.div`
-  /* background-color: black; */
   height: 80px;
   display: flex;
   justify-content: start;
@@ -56,23 +55,30 @@ const MenuLink = styled(Link)`
   background: none;
   font-size: 1.25rem;
 `;
+//------------------------------------------------
+const MenuLinkClose = styled(Link)`
+  margin-left: 1.25rem;
+  background: none;
+  font-size: 1.25rem;
+  height: 5rem;
+`;
 
 const MenuList = styled.ul`
   width: 100%;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 `;
 const MenuItem = styled.li`
-  background-color: hotpink;
+  background-color: var(--bgcolor);
   width: 100%;
   height: 80px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
 `;
 
 const NavMenu = styled.nav`
-  background-color: hotpink;
-  width: 250px;
+  background-color: var(--bgcolor);
+  width: 200px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -84,8 +90,17 @@ const NavMenu = styled.nav`
     isOpen &&
     `
   left: 0;
-  transition: 350ms;`}
+  transition: 350ms;
+  `}
+  a {
+    text-decoration: none;
+    color: var(--textcolor);
+    font-size: 1.25rem;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+    gap: 10px;
+  }
 `;
-
-// left: 0;
-//   transition: 350ms;

@@ -34,8 +34,8 @@ export default styled.createGlobalStyle`
     font: inherit;
   }
   .leaflet-container {
-    width: 90vw;
-    height: 90vh;
+    height: 70vh;
+    margin: 20px;
   }
   .custom-popup .leaflet-popup-content-wrapper {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);

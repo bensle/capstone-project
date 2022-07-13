@@ -12,7 +12,6 @@ export default function ActivityPage({
   onShowConfirmationHandler,
   onCloseConfirmationModal,
   onToggleFavorites,
-  onNavigate,
   onSetActivities,
   activities,
 }) {
@@ -23,7 +22,6 @@ export default function ActivityPage({
       <ActivityCards
         activities={activities}
         onSetActivities={onSetActivities}
-        onNavigate={page => onNavigate(page)}
         onToggleFavorites={onToggleFavorites}
         onCloseConfirmationModal={onCloseConfirmationModal}
         onShowConfirmationHandler={onShowConfirmationHandler}
