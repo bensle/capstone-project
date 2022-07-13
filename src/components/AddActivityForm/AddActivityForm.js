@@ -2,9 +2,16 @@ import {nanoid} from 'nanoid';
 import {useState} from 'react';
 import {MdOutlineAdd} from 'react-icons/md';
 
-import {Form, Heading, StyledSelectDurationWrapper, StyledSelectTypeWrapper, Button, AddSpan} from './ModalInputStyle';
+import {
+  Form,
+  Heading,
+  StyledSelectDurationWrapper,
+  StyledSelectTypeWrapper,
+  Button,
+  AddSpan,
+} from './AddActivityFormStyle';
 
-export default function ModalInput({onSetActivities}) {
+export default function AddActivityForm({onSetActivities}) {
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
 
   //----- Data from Input -----

@@ -1,11 +1,11 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ModalInput from './ModalInput';
+import AddActivityForm from './AddActivityForm';
 
 describe('ModalInput', () => {
   it('is an accessible form', () => {
-    render(<ModalInput />);
+    render(<AddActivityForm />);
 
     screen.getByRole('form');
     screen.getByLabelText('Add your Activity');
@@ -15,7 +15,7 @@ describe('ModalInput', () => {
   it('calls onHandleSubmit on submit', async () => {
     const user = userEvent.setup();
     const callback = jest.fn(e => e.preventDefault());
-    render(<ModalInput onHandleSubmit={callback} />);
+    render(<AddActivityForm onHandleSubmit={callback} />);
 
     const input1 = screen.getByLabelText('Name of your activity');
     const input2 = screen.getByLabelText('Location of your activity');
