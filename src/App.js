@@ -73,8 +73,7 @@ export default function App() {
         <ActivityCards
           activities={filteredActivities}
           onSetActivities={setActivities}
-          onSetIsHidden={() => setCurrentPage('favorites')}
-          onSetIsHidden1={() => setCurrentPage('map')}
+          onNavigate={page => setCurrentPage(page)}
           onToggleFavorites={toggleFavorites}
           onCloseConfirmationModal={closeModalConfirmationHandler}
           onShowConfirmationHandler={showModalConfirmationHandler}
@@ -85,7 +84,7 @@ export default function App() {
       {currentPage === 'favorites' && (
         <FavoritesPage
           activities={activities}
-          onSetIsHidden={() => setCurrentPage('activity')}
+          onNavigate={page => setCurrentPage(page)}
           onToggleFavorites={toggleFavorites}
           onCloseConfirmationModal={closeModalConfirmationHandler}
           onShowConfirmationHandler={showModalConfirmationHandler}

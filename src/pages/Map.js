@@ -15,14 +15,12 @@ export default function Map({onSetIsHidden}) {
 
         {db.map(({id, name, infos, location, longitude, latitude}) => (
           <Marker key={id} position={[latitude, longitude]}>
-            <Popup>
-              <Popupspan>{name}</Popupspan>
-              <br />
-              {location}
-              <br />
-              <br />
-              <a href={infos}>Find out more</a>
-              <br />
+            <Popup className="custom-popup">
+              <PopupContentDiv>
+                <Popupspan>{name}</Popupspan>
+                {location}
+                <a href={infos}>Find out more</a>
+              </PopupContentDiv>
             </Popup>
           </Marker>
         ))}
@@ -36,4 +34,9 @@ const Popupspan = styled.span`
 `;
 const Button = styled.button`
   margin-bottom: 10px;
+`;
+const PopupContentDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;

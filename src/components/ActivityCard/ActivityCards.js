@@ -11,13 +11,12 @@ import WrapperDiv from './WrapperDivStyle';
 export default function ActivityCards({
   activities,
   onSetActivities,
-  onSetIsHidden,
-  onSetIsHidden1,
   onToggleFavorites,
   onCloseConfirmationModal,
   onShowConfirmationHandler,
   onDeleteActivity,
   showModalConfirmation,
+  onNavigate,
 }) {
   const [showModal, setShowModal] = useState();
   const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
@@ -82,8 +81,8 @@ export default function ActivityCards({
       </WrapperDiv>
       <div>
         <button onClick={showModalHandler}>Add Activity</button>
-        <button onClick={onSetIsHidden}>Favorites</button>
-        <button onClick={onSetIsHidden1}>Map</button>
+        <button onClick={() => onNavigate('favorites')}>Favorites</button>
+        <button onClick={() => onNavigate('map')}>Map</button>
       </div>
       {showModal && <Backdrop onClick={closeModalHandler} />}
       {showModal && (

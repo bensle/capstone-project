@@ -6,12 +6,12 @@ import Favorite from '../components/Favorite/Favorite';
 
 export default function FavoritesPage({
   activities,
-  onSetIsHidden,
   onToggleFavorites,
   onCloseConfirmationModal,
   onShowConfirmationHandler,
   onDeleteActivity,
   showModalConfirmation,
+  onNavigate,
 }) {
   //----- Find favorites for Mapping -----
   const savedFavorite = activities.filter(activity => activity.isFavorite);
@@ -20,7 +20,7 @@ export default function FavoritesPage({
   return (
     <div>
       <h2>Favorites</h2>
-      <button onClick={onSetIsHidden}>go back</button>
+      <button onClick={() => onNavigate('activity')}>Activities</button>
       <StyledP>
         See your favorite Activities here. To delete them directly click on the{' '}
         <DelSpan>

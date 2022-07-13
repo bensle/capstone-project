@@ -37,4 +37,8 @@ export default styled.createGlobalStyle`
     width: 90vw;
     height: 90vh;
   }
+  .custom-popup .leaflet-popup-content-wrapper {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+  }
 `;
