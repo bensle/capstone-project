@@ -8,6 +8,7 @@ export const Section = styled.section`
   flex-wrap: wrap;
   flex-direction: column;
   gap: 5px;
+  margin: 0 20px;
 
   h2 {
     font-size: 1.2rem;

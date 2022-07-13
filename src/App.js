@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Header from './components/Header/Header';
 import useLocalStorage from './hooks/useLocalStorage';
 import ActivityPage from './pages/ActivityPage';
+import AddActivityPage from './pages/AddActivityPage';
 import FavoritesPage from './pages/FavoritesPage';
 import Map from './pages/Map';
 import db from './services/activityDB';
@@ -13,7 +14,6 @@ export default function App() {
   const [activities, setActivities] = useLocalStorage('activities', db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
-  // const [currentPage, setCurrentPage] = useState('activity');
   const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null});
 
   //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
@@ -99,6 +99,7 @@ export default function App() {
           }
         />
         <Route path="/map" element={<Map />} />
+        <Route path="/addactivity" element={<AddActivityPage />} />
       </Routes>
     </Appcontainer>
   );

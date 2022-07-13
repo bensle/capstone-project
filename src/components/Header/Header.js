@@ -13,6 +13,6 @@ const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   background-color: var(--bgcolor);
-  display: block;
+  height: 2rem;
   z-index: 2000;
 `;

@@ -79,15 +79,10 @@ export default function ActivityCards({
           />
         ))}
       </WrapperDiv>
-      {/* <div>
-        <button onClick={showModalHandler}>Add Activity</button>
-        <button onClick={() => onNavigate('favorites')}>Favorites</button>
-        <button onClick={() => onNavigate('map')}>Map</button>
-      </div> */}
-      {showModal && <Backdrop onClick={closeModalHandler} />}
+      {/* {showModal && <Backdrop onClick={closeModalHandler} />}
       {showModal && (
         <ModalInput onClose={closeModalHandler} onHandleChange={handleChange} onHandleSubmit={handleSubmit} />
-      )}
+      )} */}
     </WrapperDiv>
   );
 }

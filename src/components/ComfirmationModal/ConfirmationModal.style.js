@@ -17,7 +17,7 @@ export const CancelDiv = styled.div`
   background-color: var(--modalbg);
   padding: 0.8rem;
   text-align: center;
-  /* z-index: 10; */
+  z-index: 3000;
   position: fixed;
   top: 10%;
   left: 10%;
