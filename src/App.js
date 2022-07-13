@@ -64,9 +64,25 @@ export default function App() {
   return (
     <Appcontainer>
       <Header />
-
-      <Routes path="/" element={<div>Hallo world</div>} />
       <Routes>
+        <Route
+          path="/"
+          element={
+            <ActivityPage
+              activities={filteredActivities}
+              onSetActivities={setActivities}
+              onToggleFavorites={toggleFavorites}
+              onCloseConfirmationModal={closeModalConfirmationHandler}
+              onShowConfirmationHandler={showModalConfirmationHandler}
+              onDeleteActivity={deleteActivity}
+              showModalConfirmation={showModalConfirmation}
+              onFilterTypeReset={filterTypeReset}
+              onFilterTypeValue={setTypeFiltervalue}
+              onFilterDurationReset={filterDurationReset}
+              onFilterDurationValue={setDurationFilterValue}
+            />
+          }
+        />
         <Route
           path="/activities"
           element={
@@ -99,7 +115,7 @@ export default function App() {
           }
         />
         <Route path="/map" element={<Map />} />
-        <Route path="/addactivity" element={<AddActivityPage onSetActivities={setActivities} />} />
+        <Route path="/addActivity" element={<AddActivityPage onSetActivities={setActivities} />} />
       </Routes>
     </Appcontainer>
   );

@@ -1,13 +1,13 @@
-// import * as FaIcons from 'react-icons/fa';
+import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 import * as MdIcons from 'react-icons/md';
 
 export const NavigationData = [
-  //   {
-  //     title: 'Home',
-  //     path: '/activities',
-  //     icon: <FaIcons.FaHome />,
-  //   },
+  {
+    title: 'Home',
+    path: '/',
+    icon: <FaIcons.FaHome />,
+  },
   {
     title: 'Activities',
     path: '/activities',

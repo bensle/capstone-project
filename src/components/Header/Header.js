@@ -13,6 +13,8 @@ const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   background-color: var(--bgcolor);
-  height: 2rem;
   z-index: 2000;
+  border-bottom: solid 2px white;
+  padding: 0rem 0rem 0.625rem 0rem;
+  display: grid;
 `;

@@ -19,12 +19,13 @@ export default function Navigation() {
             <FaIcons.FaBars onClick={toggleSidebar} />
           </MenuLink>
         </MenuDiv>
-
         <NavMenu isOpen={showSidebar}>
           <MenuList>
             <MenuItem>
               <MenuLinkClose to="#">
-                <MdIcons.MdClose onClick={toggleSidebar} />
+                <SpanClose>
+                  <MdIcons.MdClose onClick={toggleSidebar} />
+                </SpanClose>
               </MenuLinkClose>
             </MenuItem>
             {NavigationData.map((item, index) => {
@@ -45,7 +46,7 @@ export default function Navigation() {
 }
 
 const MenuDiv = styled.div`
-  height: 80px;
+  padding: 0.625rem 0rem 0rem 0rem;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -59,10 +60,13 @@ const MenuLink = styled(Link)`
 const MenuLinkClose = styled(Link)`
   margin-left: 1.25rem;
   background: none;
-  font-size: 1.25rem;
-  height: 5rem;
+  position: relative;
+  right: -8rem;
+  top: -1rem;
 `;
-
+const SpanClose = styled.span`
+  font-size: 2rem;
+`;
 const MenuList = styled.ul`
   width: 100%;
   padding: 0;
@@ -74,8 +78,8 @@ const MenuItem = styled.li`
   background-color: var(--bgcolor);
   width: 100%;
   height: 80px;
+  display: flex;
 `;
-
 const NavMenu = styled.nav`
   background-color: var(--bgcolor);
   width: 200px;
@@ -95,12 +99,10 @@ const NavMenu = styled.nav`
   a {
     text-decoration: none;
     color: var(--textcolor);
-    font-size: 1.25rem;
-    width: 95%;
+    font-size: 0.925rem;
     display: flex;
     align-items: center;
     padding: 0 16px;
-    border-radius: 4px;
     gap: 10px;
   }
 `;

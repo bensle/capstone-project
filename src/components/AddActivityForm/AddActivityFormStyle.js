@@ -10,18 +10,12 @@ export const Form = styled.form`
   border: 2px solid white;
   border-radius: 6px;
   background-color: var(--modalbg);
-  padding: 0.8rem;
+  margin: 20px;
   text-align: center;
-  z-index: 10;
-  position: fixed;
-  top: 10%;
-  left: 10%;
-  right: 10%;
-  bottom: auto;
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     position: absolute;
     top: 0;
-  }
+  } */
   input {
     border: none;
     border-radius: 6px;
