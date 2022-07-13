@@ -99,7 +99,7 @@ export default function App() {
           }
         />
         <Route path="/map" element={<Map />} />
-        <Route path="/addactivity" element={<AddActivityPage />} />
+        <Route path="/addactivity" element={<AddActivityPage onSetActivities={setActivities} />} />
       </Routes>
     </Appcontainer>
   );
