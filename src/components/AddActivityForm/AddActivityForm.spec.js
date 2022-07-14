@@ -14,12 +14,9 @@ describe('AddActivityForm', () => {
 
   it('calls handleSubmit on submit', async () => {
     const user = userEvent.setup();
-    const callback = jest.fn(e => e.preventDefault());
     const callbackSetActivities = jest.fn();
-    const callbackChange = jest.fn();
-    render(
-      <AddActivityForm handleChange={callbackChange} handleSubmit={callback} onSetActivities={callbackSetActivities} />
-    );
+
+    render(<AddActivityForm onSetActivities={callbackSetActivities} />);
 
     const input1 = screen.getByLabelText('Name of your activity');
     const input2 = screen.getByLabelText('Location of your activity');

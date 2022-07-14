@@ -24,12 +24,18 @@ export default function App() {
         (data.type === typeFilterValue || typeFilterValue === 'all'))
     );
   });
-  function filterDurationReset() {
+  const filterDurationReset = () => {
     setDurationFilterValue('all');
-  }
-  function filterTypeReset() {
+  };
+  const filterTypeReset = () => {
     setTypeFiltervalue('all');
-  }
+  };
+  const durationValue = value => {
+    setDurationFilterValue(value);
+  };
+  const typeValue = value => {
+    setTypeFiltervalue(value);
+  };
   //----- Toggle Favorites & set to state/localstorage -----------------------------------------------------------------------------------------
   const toggleFavorites = id => {
     const index = activities.findIndex(activity => activity.id === id);
@@ -61,6 +67,9 @@ export default function App() {
     setShowModalConfirmation({show: false, id: null});
   };
 
+  function setActivityHandler(value) {
+    setActivities(value);
+  }
   return (
     <Appcontainer>
       <Header />
@@ -70,16 +79,15 @@ export default function App() {
           element={
             <ActivityPage
               activities={filteredActivities}
-              onSetActivities={setActivities}
               onToggleFavorites={toggleFavorites}
               onCloseConfirmationModal={closeModalConfirmationHandler}
-              onShowConfirmationHandler={showModalConfirmationHandler}
+              onShowConfirmationModal={showModalConfirmationHandler}
               onDeleteActivity={deleteActivity}
               showModalConfirmation={showModalConfirmation}
               onFilterTypeReset={filterTypeReset}
-              onFilterTypeValue={setTypeFiltervalue}
               onFilterDurationReset={filterDurationReset}
-              onFilterDurationValue={setDurationFilterValue}
+              onFilterTypeValue={typeValue}
+              onFilterDurationValue={durationValue}
             />
           }
         />
@@ -88,16 +96,15 @@ export default function App() {
           element={
             <ActivityPage
               activities={filteredActivities}
-              onSetActivities={setActivities}
               onToggleFavorites={toggleFavorites}
               onCloseConfirmationModal={closeModalConfirmationHandler}
-              onShowConfirmationHandler={showModalConfirmationHandler}
+              onShowConfirmationModal={showModalConfirmationHandler}
               onDeleteActivity={deleteActivity}
               showModalConfirmation={showModalConfirmation}
               onFilterTypeReset={filterTypeReset}
-              onFilterTypeValue={setTypeFiltervalue}
               onFilterDurationReset={filterDurationReset}
-              onFilterDurationValue={setDurationFilterValue}
+              onFilterTypeValue={typeValue}
+              onFilterDurationValue={durationValue}
             />
           }
         />
@@ -108,14 +115,14 @@ export default function App() {
               activities={activities}
               onToggleFavorites={toggleFavorites}
               onCloseConfirmationModal={closeModalConfirmationHandler}
-              onShowConfirmationHandler={showModalConfirmationHandler}
+              onShowConfirmationModal={showModalConfirmationHandler}
               onDeleteActivity={deleteActivity}
               showModalConfirmation={showModalConfirmation}
             />
           }
         />
         <Route path="/map" element={<Map />} />
-        <Route path="/addActivity" element={<AddActivityPage onSetActivities={setActivities} />} />
+        <Route path="/addActivity" element={<AddActivityPage onSetActivities={value => setActivityHandler(value)} />} />
       </Routes>
     </Appcontainer>
   );

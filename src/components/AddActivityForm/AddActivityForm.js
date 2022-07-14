@@ -12,27 +12,27 @@ import {
 } from './AddActivityFormStyle';
 
 export default function AddActivityForm({onSetActivities}) {
-  const [formInput, setFormInput] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
+  const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
 
   //----- Data from Input -----
   const handleChange = event => {
-    setFormInput({...formInput, [event.target.name]: event.target.value});
+    setFormData({...formData, [event.target.name]: event.target.value});
   };
   //----- Submithandler (add all input as object to state and closes modal after submit) -----
   const handleSubmit = event => {
     event.preventDefault();
     const newInfos =
-      formInput.infos.indexOf('https://') !== 0
-        ? (formInput.infos = 'https://' + formInput.infos.trim().toLowerCase())
-        : formInput.infos.trim().toLowerCase();
+      formData.infos.indexOf('https://') !== 0
+        ? (formData.infos = 'https://' + formData.infos.trim().toLowerCase())
+        : formData.infos.trim().toLowerCase();
     onSetActivities(current => [
       ...current,
       {
         id: nanoid(),
-        name: formInput.name.trim(),
-        location: formInput.location.trim().replace(/[^a-z]/gi, ' '),
-        duration: formInput.duration,
-        type: formInput.type,
+        name: formData.name.trim(),
+        location: formData.location.trim().replace(/[^a-z]/gi, ' '),
+        duration: formData.duration,
+        type: formData.type,
         infos: newInfos,
         isFavorite: false,
       },
@@ -40,7 +40,7 @@ export default function AddActivityForm({onSetActivities}) {
   };
 
   return (
-    <Form aria-labelledby="addActivity" onSubmit={event => handleSubmit(event)}>
+    <Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
       <Heading id="addActivity">Add your Activity</Heading>
 
       <label htmlFor="name"> Name of your activity</label>
@@ -51,7 +51,7 @@ export default function AddActivityForm({onSetActivities}) {
         required
         autoComplete="off"
         maxLength="30"
-        onChange={event => handleChange(event)}
+        onChange={handleChange}
       ></input>
       <label htmlFor="location">Location of your activity</label>
       <input
@@ -61,7 +61,7 @@ export default function AddActivityForm({onSetActivities}) {
         required
         autoComplete="off"
         maxLength="30"
-        onChange={event => handleChange(event)}
+        onChange={handleChange}
       ></input>
       <label htmlFor="duration">
         Duration of your Activity?
@@ -70,7 +70,7 @@ export default function AddActivityForm({onSetActivities}) {
             required
             name="duration"
             id="duration"
-            onChange={event => handleChange(event)}
+            onChange={handleChange}
             placeholder="Select Option"
             defaultValue=""
           >
@@ -86,14 +86,7 @@ export default function AddActivityForm({onSetActivities}) {
       <label htmlFor="type">
         Type of your Activity?
         <StyledSelectTypeWrapper>
-          <select
-            required
-            name="type"
-            id="type"
-            onChange={event => handleChange(event)}
-            placeholder="Select Option"
-            defaultValue=""
-          >
+          <select required name="type" id="type" onChange={handleChange} placeholder="Select Option" defaultValue="">
             <option value="" disabled hidden>
               Type
             </option>
@@ -112,7 +105,7 @@ export default function AddActivityForm({onSetActivities}) {
         id="infos"
         autoComplete="off"
         placeholder="https://example.de"
-        onChange={event => handleChange(event)}
+        onChange={handleChange}
       ></input>
       <Button type="submit">
         Add Activity

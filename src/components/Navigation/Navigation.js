@@ -15,23 +15,23 @@ export default function Navigation() {
     <>
       <IconContext.Provider value={{color: '#FFF'}}>
         <MenuDiv>
-          <MenuLink to="#">
-            <FaIcons.FaBars onClick={toggleSidebar} />
-          </MenuLink>
+          <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
+            <FaIcons.FaBars />
+          </MenuOpenButton>
         </MenuDiv>
         <NavMenu isOpen={showSidebar}>
-          <MenuList>
+          <MenuList onClick={toggleSidebar}>
             <MenuItem>
-              <MenuLinkClose to="#">
-                <SpanClose>
-                  <MdIcons.MdClose onClick={toggleSidebar} />
-                </SpanClose>
-              </MenuLinkClose>
+              <MenuDiv>
+                <MenuCloseButton aria-label="Open menu" onClick={toggleSidebar}>
+                  <MdIcons.MdClose />
+                </MenuCloseButton>
+              </MenuDiv>
             </MenuItem>
             {NavigationData.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={item.path} onClick={toggleSidebar}>
+                  <Link to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>
@@ -51,21 +51,21 @@ const MenuDiv = styled.div`
   justify-content: start;
   align-items: center;
 `;
-const MenuLink = styled(Link)`
+const MenuOpenButton = styled.button`
   margin-left: 1.25rem;
   background: none;
-  font-size: 1.25rem;
+  font-size: 1.325rem;
+  border: none;
 `;
 //------------------------------------------------
-const MenuLinkClose = styled(Link)`
+const MenuCloseButton = styled.button`
   margin-left: 1.25rem;
   background: none;
+  border: none;
+  font-size: 1.325rem;
   position: relative;
   right: -8rem;
   top: -1rem;
-`;
-const SpanClose = styled.span`
-  font-size: 2rem;
 `;
 const MenuList = styled.ul`
   width: 100%;

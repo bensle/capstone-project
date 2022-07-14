@@ -7,7 +7,7 @@ export default function ActivityCards({
   activities,
   onToggleFavorites,
   onCloseConfirmationModal,
-  onShowConfirmationHandler,
+  onShowConfirmationModal,
   onDeleteActivity,
   showModalConfirmation,
 }) {
@@ -27,7 +27,7 @@ export default function ActivityCards({
             infos={infos}
             onToggleFavorites={onToggleFavorites}
             onDelete={() => onDeleteActivity(id)}
-            onShowConfirmationModal={() => onShowConfirmationHandler(id)}
+            onShowConfirmationModal={() => onShowConfirmationModal(id)}
             onCloseConfirmationModal={onCloseConfirmationModal}
             showModalConfirmation={showModalConfirmation}
           />

@@ -8,7 +8,7 @@ export default function FavoritesPage({
   activities,
   onToggleFavorites,
   onCloseConfirmationModal,
-  onShowConfirmationHandler,
+  onShowConfirmationModal,
   onDeleteActivity,
   showModalConfirmation,
 }) {
@@ -40,7 +40,7 @@ export default function FavoritesPage({
           infos={infos}
           onToggleFavorites={onToggleFavorites}
           onDelete={() => onDeleteActivity(id)}
-          onShowConfirmationModal={() => onShowConfirmationHandler(id)}
+          onShowConfirmationModal={() => onShowConfirmationModal(id)}
           onCloseConfirmationModal={onCloseConfirmationModal}
           showModalConfirmation={showModalConfirmation}
         />

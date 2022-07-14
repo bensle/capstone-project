@@ -9,10 +9,9 @@ export default function ActivityPage({
   onFilterTypeReset,
   showModalConfirmation,
   onDeleteActivity,
-  onShowConfirmationHandler,
+  onShowConfirmationModal,
   onCloseConfirmationModal,
   onToggleFavorites,
-  onSetActivities,
   activities,
 }) {
   return (
@@ -21,10 +20,9 @@ export default function ActivityPage({
       <TypeFilter onFilterTypeReset={onFilterTypeReset} onFilterTypeValue={onFilterTypeValue} />
       <ActivityCards
         activities={activities}
-        onSetActivities={onSetActivities}
         onToggleFavorites={onToggleFavorites}
         onCloseConfirmationModal={onCloseConfirmationModal}
-        onShowConfirmationHandler={onShowConfirmationHandler}
+        onShowConfirmationModal={onShowConfirmationModal}
         onDeleteActivity={onDeleteActivity}
         showModalConfirmation={showModalConfirmation}
       />
