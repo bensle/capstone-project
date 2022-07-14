@@ -6,18 +6,20 @@ export const Card = Template.bind({});
 Card.args = {
   name: 'Freudenberg',
   location: 'Siegerland',
-  duration: 'Day Trip',
+  duration: 'short',
   type: 'culture',
-  infos: 'link',
-  isFavorite: true,
+  infos: 'https://test.de',
+  isFavorite: false,
 };
 
 const story = {
   title: 'Component/ActivityCard',
   component: 'ActivityCard',
   argTypes: {
-    onToggleFavorites: {action: 'click'},
+    onToggleFavorites: {action: '!click'},
     showModalConfirmation: {action: 'click'},
+    onDelete: {action: 'click'},
+    onShowConfirmationModal: {action: 'click'},
   },
 };
 
