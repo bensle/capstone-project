@@ -46,7 +46,7 @@ export default function Navigation() {
 }
 
 const MenuDiv = styled.div`
-  padding: 0.625rem 0rem 0rem 0rem;
+  padding: 0.625rem 0 0 0;
   display: flex;
   justify-content: start;
   align-items: center;

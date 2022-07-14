@@ -12,6 +12,7 @@ export const Form = styled.form`
   background-color: var(--modalbg);
   margin: 20px;
   text-align: center;
+
   /* @media (min-width: 600px) {
     position: absolute;
     top: 0;
