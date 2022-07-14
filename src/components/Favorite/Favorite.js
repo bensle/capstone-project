@@ -23,7 +23,7 @@ export default function Favorite({
   return (
     <Section>
       <FavDiv>
-        <FavButton onClick={() => onToggleFavorites(id)}>
+        <FavButton aria-label="Add Favorite" onClick={() => onToggleFavorites(id)}>
           <MdWbSunny />
         </FavButton>
         <FavButtonDelete aria-label="Delete Activity" onClick={() => onShowConfirmationModal(id)}>
