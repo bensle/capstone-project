@@ -1,8 +1,7 @@
 import {useState} from 'react';
-import {IconContext} from 'react-icons';
 import * as FaIcons from 'react-icons/fa';
 import * as MdIcons from 'react-icons/md';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {NavigationData} from './NavigationData';
@@ -10,6 +9,7 @@ import {NavigationData} from './NavigationData';
 export default function Navigation() {
   const [showSidebar, setShowSidebar] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navigateToPage = path => {
     navigate(path);
@@ -19,35 +19,37 @@ export default function Navigation() {
   const toggleSidebar = () => setShowSidebar(!showSidebar);
   return (
     <>
-      <IconContext.Provider value={{color: 'var(--textcolor)'}}>
-        <MenuDiv>
-          <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
-            <FaIcons.FaBars />
-          </MenuOpenButton>
-        </MenuDiv>
-        <NavMenu isOpen={showSidebar}>
-          <MenuList role="list" onClick={toggleSidebar}>
-            <MenuItem>
-              <MenuDiv>
-                <MenuCloseButton aria-label="Open menu" onClick={toggleSidebar}>
-                  <MdIcons.MdClose />
-                </MenuCloseButton>
-              </MenuDiv>
-            </MenuItem>
+      <MenuDiv>
+        <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
+          <FaIcons.FaBars />
+        </MenuOpenButton>
+      </MenuDiv>
+      <NavMenu isOpen={showSidebar}>
+        <MenuList role="list" onClick={toggleSidebar}>
+          <MenuItem>
+            <MenuDiv>
+              <MenuCloseButton aria-label="Open menu" onClick={toggleSidebar}>
+                <MdIcons.MdClose />
+              </MenuCloseButton>
+            </MenuDiv>
+          </MenuItem>
 
-            {NavigationData.map((item, index) => {
-              return (
-                <li key={index}>
-                  <NavigateToButton aria-label="Navigate to" onClick={() => navigateToPage(item.path)}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </NavigateToButton>
-                </li>
-              );
-            })}
-          </MenuList>
-        </NavMenu>
-      </IconContext.Provider>
+          {NavigationData.map((item, index) => {
+            return (
+              <li key={index}>
+                <NavigateToButton
+                  isActive={location.pathname === item.path}
+                  aria-label="Navigate to"
+                  onClick={() => navigateToPage(item.path)}
+                >
+                  {item.icon}
+                  <span>{item.title}</span>
+                </NavigateToButton>
+              </li>
+            );
+          })}
+        </MenuList>
+      </NavMenu>
     </>
   );
 }
@@ -59,6 +61,7 @@ const MenuDiv = styled.div`
   align-items: center;
 `;
 const MenuOpenButton = styled.button`
+  color: var(--textcolor);
   margin-left: 1.25rem;
   background: none;
   font-size: 1.325rem;
@@ -67,6 +70,7 @@ const MenuOpenButton = styled.button`
 `;
 //------------------------------------------------
 const MenuCloseButton = styled.button`
+  color: var(--textcolor);
   margin-left: 1.25rem;
   background: none;
   border: none;
@@ -86,7 +90,6 @@ const MenuList = styled.ul`
   list-style: none;
 `;
 const MenuItem = styled.li`
-  background-color: var(--bgcolor);
   width: 100%;
   height: 80px;
   display: flex;
@@ -101,7 +104,13 @@ const NavigateToButton = styled.button`
   font-size: 0.925rem;
   cursor: pointer;
   width: 9rem;
-  padding: 0.75rem 0rem;
+  padding: 0.75rem 0;
+  ${({isActive}) =>
+    isActive &&
+    `
+  color:var(--linkcoloractive);;
+  fill:var(--linkcoloractive);;
+  `}
 `;
 const NavMenu = styled.nav`
   background-color: var(--bgcolor);

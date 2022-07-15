@@ -13,6 +13,8 @@ export default styled.createGlobalStyle`
     --bgcolor: #313a40;
     --modalbg: #516069;
     --textcolor: #ffffff;
+    --linkcolor: #ffffff;
+    --linkcoloractive: #bf4f36;
     --greenish: #04bfad;
     --orange: #d9663d;
     --red: #bf4f36;
