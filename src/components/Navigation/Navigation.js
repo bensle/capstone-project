@@ -38,7 +38,7 @@ export default function Navigation() {
             {NavigationData.map((item, index) => {
               return (
                 <li key={index}>
-                  <NavigateToButton onClick={() => navigateToPage(item.path)}>
+                  <NavigateToButton aria-label="Navigate to" onClick={() => navigateToPage(item.path)}>
                     {item.icon}
                     <span>{item.title}</span>
                   </NavigateToButton>
