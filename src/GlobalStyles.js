@@ -13,6 +13,8 @@ export default styled.createGlobalStyle`
     --bgcolor: #313a40;
     --modalbg: #516069;
     --textcolor: #ffffff;
+    --linkcolor: #ffffff;
+    --linkcoloractive: #bf4f36;
     --greenish: #04bfad;
     --orange: #d9663d;
     --red: #bf4f36;
@@ -20,7 +22,6 @@ export default styled.createGlobalStyle`
   }
 
   body {
-    margin: 0 20px;
     padding: 0;
     background-color: var(--bgcolor);
     color: var(--textcolor);
@@ -34,8 +35,8 @@ export default styled.createGlobalStyle`
     font: inherit;
   }
   .leaflet-container {
-    width: 90vw;
-    height: 90vh;
+    height: 70vh;
+    margin: 20px;
   }
   .custom-popup .leaflet-popup-content-wrapper {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);

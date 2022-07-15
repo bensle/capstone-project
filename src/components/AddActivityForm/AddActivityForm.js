@@ -1,4 +1,6 @@
-import {MdClose, MdOutlineAdd} from 'react-icons/md';
+import {nanoid} from 'nanoid';
+import {useState} from 'react';
+import {MdOutlineAdd} from 'react-icons/md';
 
 import {
   Form,
@@ -6,17 +8,37 @@ import {
   StyledSelectDurationWrapper,
   StyledSelectTypeWrapper,
   Button,
-  CancelSpan,
   AddSpan,
-} from './ModalInputStyle';
+} from './AddActivityFormStyle';
 
-export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
+export default function AddActivityForm({onSetActivities}) {
+  const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
+
+  //----- Data from Input -----
+  const handleChange = event => {
+    setFormData({...formData, [event.target.name]: event.target.value});
+  };
+  //----- Submithandler (add all input as object to state and closes modal after submit) -----
+  const handleSubmit = event => {
+    event.preventDefault();
+    const newInfos =
+      formData.infos.indexOf('https://') !== 0
+        ? (formData.infos = 'https://' + formData.infos.trim().toLowerCase())
+        : formData.infos.trim().toLowerCase();
+    onSetActivities({
+      id: nanoid(),
+      name: formData.name.trim(),
+      location: formData.location.trim().replace(/[^a-z]/gi, ' '),
+      duration: formData.duration,
+      type: formData.type,
+      infos: newInfos,
+      isFavorite: false,
+    });
+  };
   return (
-    <Form aria-labelledby="addActivity" onSubmit={onHandleSubmit}>
+    <Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
       <Heading id="addActivity">Add your Activity</Heading>
-      <CancelSpan>
-        <MdClose onClick={onClose} />
-      </CancelSpan>
+
       <label htmlFor="name"> Name of your activity</label>
       <input
         type="text"
@@ -25,7 +47,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         required
         autoComplete="off"
         maxLength="30"
-        onChange={onHandleChange}
+        onChange={handleChange}
       ></input>
       <label htmlFor="location">Location of your activity</label>
       <input
@@ -35,7 +57,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         required
         autoComplete="off"
         maxLength="30"
-        onChange={onHandleChange}
+        onChange={handleChange}
       ></input>
       <label htmlFor="duration">
         Duration of your Activity?
@@ -44,7 +66,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
             required
             name="duration"
             id="duration"
-            onChange={onHandleChange}
+            onChange={handleChange}
             placeholder="Select Option"
             defaultValue=""
           >
@@ -60,7 +82,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
       <label htmlFor="type">
         Type of your Activity?
         <StyledSelectTypeWrapper>
-          <select required name="type" id="type" onChange={onHandleChange} placeholder="Select Option" defaultValue="">
+          <select required name="type" id="type" onChange={handleChange} placeholder="Select Option" defaultValue="">
             <option value="" disabled hidden>
               Type
             </option>
@@ -79,7 +101,7 @@ export default function ModalInput({onHandleChange, onHandleSubmit, onClose}) {
         id="infos"
         autoComplete="off"
         placeholder="https://example.de"
-        onChange={onHandleChange}
+        onChange={handleChange}
       ></input>
       <Button type="submit">
         Add Activity

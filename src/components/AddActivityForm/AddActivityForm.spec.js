@@ -1,21 +1,22 @@
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ModalInput from './ModalInput';
+import AddActivityForm from './AddActivityForm';
 
-describe('ModalInput', () => {
+describe('AddActivityForm', () => {
   it('is an accessible form', () => {
-    render(<ModalInput />);
+    render(<AddActivityForm />);
 
     screen.getByRole('form');
     screen.getByLabelText('Add your Activity');
     screen.getByRole('button', {name: 'Add Activity'});
   });
 
-  it('calls onHandleSubmit on submit', async () => {
+  it('calls handleSubmit on submit', async () => {
     const user = userEvent.setup();
-    const callback = jest.fn(e => e.preventDefault());
-    render(<ModalInput onHandleSubmit={callback} />);
+    const callbackSetActivities = jest.fn();
+
+    render(<AddActivityForm onSetActivities={callbackSetActivities} />);
 
     const input1 = screen.getByLabelText('Name of your activity');
     const input2 = screen.getByLabelText('Location of your activity');
@@ -29,6 +30,6 @@ describe('ModalInput', () => {
     await user.selectOptions(select2, 'culture');
     await user.type(infos, 'test.de');
     await user.click(button);
-    expect(callback).toHaveBeenCalled();
+    expect(callbackSetActivities).toHaveBeenCalled();
   });
 });

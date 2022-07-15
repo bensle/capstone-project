@@ -8,26 +8,23 @@ export default function FavoritesPage({
   activities,
   onToggleFavorites,
   onCloseConfirmationModal,
-  onShowConfirmationHandler,
+  onShowConfirmationModal,
   onDeleteActivity,
   showModalConfirmation,
-  onNavigate,
 }) {
   //----- Find favorites for Mapping -----
   const savedFavorite = activities.filter(activity => activity.isFavorite);
-  console.log(savedFavorite);
 
   return (
     <div>
       <h2>Favorites</h2>
-      <button onClick={() => onNavigate('activity')}>Activities</button>
       <StyledP>
-        See your favorite Activities here. To delete them directly click on the{' '}
+        See your favorite Activities here. To delete them directly click on the
         <DelSpan>
           <MdDeleteForever />
         </DelSpan>
         . <br />
-        To remove an activity from your favorites click{' '}
+        To remove an activity from your favorites click
         <FavSpan>
           <MdWbSunny />
         </FavSpan>
@@ -43,7 +40,7 @@ export default function FavoritesPage({
           infos={infos}
           onToggleFavorites={onToggleFavorites}
           onDelete={() => onDeleteActivity(id)}
-          onShowConfirmationModal={() => onShowConfirmationHandler(id)}
+          onShowConfirmationModal={() => onShowConfirmationModal(id)}
           onCloseConfirmationModal={onCloseConfirmationModal}
           showModalConfirmation={showModalConfirmation}
         />
