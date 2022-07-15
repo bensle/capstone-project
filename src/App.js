@@ -68,7 +68,7 @@ export default function App() {
   };
 
   function setActivityHandler(value) {
-    setActivities(value);
+    setActivities(current => [...current, value]);
   }
   return (
     <Appcontainer>

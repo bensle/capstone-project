@@ -25,20 +25,16 @@ export default function AddActivityForm({onSetActivities}) {
       formData.infos.indexOf('https://') !== 0
         ? (formData.infos = 'https://' + formData.infos.trim().toLowerCase())
         : formData.infos.trim().toLowerCase();
-    onSetActivities(current => [
-      ...current,
-      {
-        id: nanoid(),
-        name: formData.name.trim(),
-        location: formData.location.trim().replace(/[^a-z]/gi, ' '),
-        duration: formData.duration,
-        type: formData.type,
-        infos: newInfos,
-        isFavorite: false,
-      },
-    ]);
+    onSetActivities({
+      id: nanoid(),
+      name: formData.name.trim(),
+      location: formData.location.trim().replace(/[^a-z]/gi, ' '),
+      duration: formData.duration,
+      type: formData.type,
+      infos: newInfos,
+      isFavorite: false,
+    });
   };
-
   return (
     <Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
       <Heading id="addActivity">Add your Activity</Heading>

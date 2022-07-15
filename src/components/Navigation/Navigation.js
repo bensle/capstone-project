@@ -2,13 +2,19 @@ import {useState} from 'react';
 import {IconContext} from 'react-icons';
 import * as FaIcons from 'react-icons/fa';
 import * as MdIcons from 'react-icons/md';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {NavigationData} from './NavigationData';
 
 export default function Navigation() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const navigate = useNavigate();
+
+  const navigateToPage = path => {
+    navigate(path);
+    setShowSidebar(false);
+  };
 
   const toggleSidebar = () => setShowSidebar(!showSidebar);
   return (
@@ -28,13 +34,14 @@ export default function Navigation() {
                 </MenuCloseButton>
               </MenuDiv>
             </MenuItem>
+
             {NavigationData.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={item.path}>
+                  <NavigateToButton onClick={() => navigateToPage(item.path)}>
                     {item.icon}
                     <span>{item.title}</span>
-                  </Link>
+                  </NavigateToButton>
                 </li>
               );
             })}
@@ -69,16 +76,27 @@ const MenuCloseButton = styled.button`
 `;
 const MenuList = styled.ul`
   width: 100%;
-  padding: 0;
+  margin-left: 1.25rem;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   gap: 1.25rem;
+  list-style: none;
 `;
 const MenuItem = styled.li`
   background-color: var(--bgcolor);
   width: 100%;
   height: 80px;
   display: flex;
+`;
+const NavigateToButton = styled.button`
+  background: none;
+  border: none;
+  color: var(--textcolor);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.925rem;
 `;
 const NavMenu = styled.nav`
   background-color: var(--bgcolor);
@@ -96,13 +114,4 @@ const NavMenu = styled.nav`
   left: 0;
   transition: 350ms;
   `}
-  a {
-    text-decoration: none;
-    color: var(--textcolor);
-    font-size: 0.925rem;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    gap: 10px;
-  }
 `;
