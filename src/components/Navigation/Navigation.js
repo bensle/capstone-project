@@ -19,14 +19,14 @@ export default function Navigation() {
   const toggleSidebar = () => setShowSidebar(!showSidebar);
   return (
     <>
-      <IconContext.Provider value={{color: '#FFF'}}>
+      <IconContext.Provider value={{color: 'var(--textcolor)'}}>
         <MenuDiv>
           <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
             <FaIcons.FaBars />
           </MenuOpenButton>
         </MenuDiv>
         <NavMenu isOpen={showSidebar}>
-          <MenuList onClick={toggleSidebar}>
+          <MenuList role="list" onClick={toggleSidebar}>
             <MenuItem>
               <MenuDiv>
                 <MenuCloseButton aria-label="Open menu" onClick={toggleSidebar}>
@@ -63,6 +63,7 @@ const MenuOpenButton = styled.button`
   background: none;
   font-size: 1.325rem;
   border: none;
+  cursor: pointer;
 `;
 //------------------------------------------------
 const MenuCloseButton = styled.button`
@@ -73,6 +74,7 @@ const MenuCloseButton = styled.button`
   position: relative;
   right: -8rem;
   top: -1rem;
+  cursor: pointer;
 `;
 const MenuList = styled.ul`
   width: 100%;
@@ -97,6 +99,7 @@ const NavigateToButton = styled.button`
   align-items: center;
   gap: 1.25rem;
   font-size: 0.925rem;
+  cursor: pointer;
 `;
 const NavMenu = styled.nav`
   background-color: var(--bgcolor);
