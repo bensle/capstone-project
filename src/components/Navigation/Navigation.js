@@ -100,6 +100,8 @@ const NavigateToButton = styled.button`
   gap: 1.25rem;
   font-size: 0.925rem;
   cursor: pointer;
+  width: 9rem;
+  padding: 0.75rem 0rem;
 `;
 const NavMenu = styled.nav`
   background-color: var(--bgcolor);
