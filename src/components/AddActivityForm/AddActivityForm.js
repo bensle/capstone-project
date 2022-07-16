@@ -14,9 +14,9 @@ import {
 } from './AddActivityFormStyle';
 
 export default function AddActivityForm({onSetActivities}) {
-  const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
-  const [location, setLocation] = useState([]);
-  const [locationData, setLocationData] = useState({location: '', latitude: '', longitude: ''});
+  const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''}); //has InputData from all inputs except location
+  const [location, setLocation] = useState([]); //has all locationInputSearchData
+  const [locationData, setLocationData] = useState({location: '', latitude: '', longitude: ''}); // has Data chosen from listed results
   const refInput = useRef();
 
   const EMAIL = process.env.EMAIL;
@@ -31,9 +31,8 @@ export default function AddActivityForm({onSetActivities}) {
     },
   });
 
-  //added geklickte location. useRef setzt input auf das Value, locationData hat ort, lat und long.
+  //add clicked to locationResults; useRef sets input to clicked value; locationData has location, lat & long.
   function addLocation(x) {
-    // const indexLocation = location.findIndex(loc => loc.x === x);
     const newLocation = location.find(loc => loc.x === x);
     refInput.current.value = newLocation.label.substring(0, newLocation.label.indexOf(','));
     setLocationData({
@@ -42,7 +41,7 @@ export default function AddActivityForm({onSetActivities}) {
       longitude: newLocation.x,
     });
   }
-  // locationInputHandler -
+  // locationInputHandler - geosearch -------------------------------------------------------------------------------------
   const handleChangeLocation = async event => {
     const inputLocation = event.target.value;
     const results = await provider.search({query: inputLocation});
