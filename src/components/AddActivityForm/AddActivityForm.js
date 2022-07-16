@@ -21,7 +21,7 @@ export default function AddActivityForm({onSetActivities}) {
 
   const EMAIL = process.env.EMAIL;
 
-  //------------------HANDLER FÜR LOCATIONSEARCHBAR------------------------------------------------------------------------------------------------------
+  //------------------set Provider and specify data---------------------------------------------------------
   const provider = new OpenStreetMapProvider({
     params: {
       email: EMAIL,
