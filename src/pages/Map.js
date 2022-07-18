@@ -1,28 +1,31 @@
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import styled from 'styled-components';
 
-// import db from '../services/activityDB';
+import Header from '../components/Header/Header';
 
 export default function Map({activities}) {
   return (
-    <MapContainer center={[50.937531, 6.960279]} zoom={9} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <>
+      <Header />
+      <MapContainer center={[50.937531, 6.960279]} zoom={9} scrollWheelZoom={true}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      {activities.map(({id, name, infos, location, longitude, latitude}) => (
-        <Marker key={id} position={[latitude, longitude]}>
-          <Popup className="custom-popup">
-            <PopupContentDiv>
-              <Popupspan>{name}</Popupspan>
-              {location}
-              <a href={infos}>Find out more</a>
-            </PopupContentDiv>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+        {activities.map(({id, name, infos, location, longitude, latitude}) => (
+          <Marker key={id} position={[latitude, longitude]}>
+            <Popup className="custom-popup">
+              <PopupContentDiv>
+                <Popupspan>{name}</Popupspan>
+                {location}
+                <a href={infos}>Find out more</a>
+              </PopupContentDiv>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </>
   );
 }
 
