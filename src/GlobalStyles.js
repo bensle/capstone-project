@@ -10,11 +10,24 @@ export default styled.createGlobalStyle`
     padding: 0;
   }
   :root {
-    --bgcolor: #313a40;
+    --bgcolor: #181a21;
+    --bgcolorlight: #262a34;
+    --bgcolorcard: #262a34;
+    --textcolor: #fbfbfc;
+    --textcolordarker: #7f7f84;
+
     --modalbg: #516069;
-    --textcolor: #ffffff;
-    --linkcolor: #ffffff;
-    --linkcoloractive: #bf4f36;
+    --iconTypecolor: #fbfbfc;
+    --colorAll: #966bf2;
+    --colorShort: #a9bf04;
+    --colorMiddle: #276bf2;
+    --colorLong: #f2a007;
+    --colorsidebar: #171718;
+
+    --linkcolor: #fbfbfc;
+    --linkcoloractive: #966bf2;
+    --deleteButton: red;
+    --isFavorite: red;
     --greenish: #04bfad;
     --orange: #d9663d;
     --red: #bf4f36;
@@ -25,7 +38,6 @@ export default styled.createGlobalStyle`
     padding: 0;
     background-color: var(--bgcolor);
     color: var(--textcolor);
-    text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
   }
 

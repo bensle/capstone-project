@@ -1,8 +1,6 @@
 import {useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import styled from 'styled-components';
 
-import Header from './components/Header/Header';
 import useLocalStorage from './hooks/useLocalStorage';
 import ActivityPage from './pages/ActivityPage';
 import AddActivityPage from './pages/AddActivityPage';
@@ -71,64 +69,56 @@ export default function App() {
     setActivities(current => [...current, value]);
   }
   return (
-    <Appcontainer>
-      <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ActivityPage
-              activities={filteredActivities}
-              onToggleFavorites={toggleFavorites}
-              onCloseConfirmationModal={closeModalConfirmationHandler}
-              onShowConfirmationModal={showModalConfirmationHandler}
-              onDeleteActivity={deleteActivity}
-              showModalConfirmation={showModalConfirmation}
-              onFilterTypeReset={filterTypeReset}
-              onFilterDurationReset={filterDurationReset}
-              onFilterTypeValue={typeValue}
-              onFilterDurationValue={durationValue}
-            />
-          }
-        />
-        <Route
-          path="/activities"
-          element={
-            <ActivityPage
-              activities={filteredActivities}
-              onToggleFavorites={toggleFavorites}
-              onCloseConfirmationModal={closeModalConfirmationHandler}
-              onShowConfirmationModal={showModalConfirmationHandler}
-              onDeleteActivity={deleteActivity}
-              showModalConfirmation={showModalConfirmation}
-              onFilterTypeReset={filterTypeReset}
-              onFilterDurationReset={filterDurationReset}
-              onFilterTypeValue={typeValue}
-              onFilterDurationValue={durationValue}
-            />
-          }
-        />
-        <Route
-          path="/favorites"
-          element={
-            <FavoritesPage
-              activities={activities}
-              onToggleFavorites={toggleFavorites}
-              onCloseConfirmationModal={closeModalConfirmationHandler}
-              onShowConfirmationModal={showModalConfirmationHandler}
-              onDeleteActivity={deleteActivity}
-              showModalConfirmation={showModalConfirmation}
-            />
-          }
-        />
-        <Route path="/map" element={<Map activities={activities} />} />
-        <Route path="/addActivity" element={<AddActivityPage onSetActivities={value => setActivityHandler(value)} />} />
-      </Routes>
-    </Appcontainer>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <ActivityPage
+            activities={filteredActivities}
+            onToggleFavorites={toggleFavorites}
+            onCloseConfirmationModal={closeModalConfirmationHandler}
+            onShowConfirmationModal={showModalConfirmationHandler}
+            onDeleteActivity={deleteActivity}
+            showModalConfirmation={showModalConfirmation}
+            onFilterTypeReset={filterTypeReset}
+            onFilterDurationReset={filterDurationReset}
+            onFilterTypeValue={typeValue}
+            onFilterDurationValue={durationValue}
+          />
+        }
+      />
+      <Route
+        path="/activities"
+        element={
+          <ActivityPage
+            activities={filteredActivities}
+            onToggleFavorites={toggleFavorites}
+            onCloseConfirmationModal={closeModalConfirmationHandler}
+            onShowConfirmationModal={showModalConfirmationHandler}
+            onDeleteActivity={deleteActivity}
+            showModalConfirmation={showModalConfirmation}
+            onFilterTypeReset={filterTypeReset}
+            onFilterDurationReset={filterDurationReset}
+            onFilterTypeValue={typeValue}
+            onFilterDurationValue={durationValue}
+          />
+        }
+      />
+      <Route
+        path="/favorites"
+        element={
+          <FavoritesPage
+            activities={activities}
+            onToggleFavorites={toggleFavorites}
+            onCloseConfirmationModal={closeModalConfirmationHandler}
+            onShowConfirmationModal={showModalConfirmationHandler}
+            onDeleteActivity={deleteActivity}
+            showModalConfirmation={showModalConfirmation}
+          />
+        }
+      />
+      <Route path="/map" element={<Map activities={activities} />} />
+      <Route path="/addActivity" element={<AddActivityPage onSetActivities={value => setActivityHandler(value)} />} />
+    </Routes>
   );
 }
-const Appcontainer = styled.div`
-  display: grid;
-  height: 100vh;
-  align-content: start;
-`;

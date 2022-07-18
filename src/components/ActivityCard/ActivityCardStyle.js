@@ -1,67 +1,104 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 5px;
+  display: grid;
+  justify-items: start;
+  grid-template-columns: 2.3fr 1.5fr 0.2fr;
+  grid-template-rows: 1fr;
+  padding: 10px 10px;
+  background: var(--bgcolorcard);
+  border-radius: 10px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+`;
+
+export const TypeSpan = styled.span`
+  color: var(--iconTypecolor);
+`;
+
+export const DescriptionDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  align-items: flex-start;
   gap: 5px;
-  margin: 0 20px;
-
   h2 {
-    font-size: 1.2rem;
-    margin: 5px 0 0 0;
+    font-size: 0.975rem;
+    text-align: left;
   }
-  h3 {
-    font-size: 1rem;
-    font-style: italic;
-    margin: 0;
-  }
-  ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-  }
-  li {
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 7px;
-  }
+`;
+export const ActionsDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-items: flex-end;
+  gap: 5px;
+`;
 
-  p {
-    border: 1px solid;
-    border-radius: 10px;
-  }
+export const ShortLi = styled.li`
+  color: var(--colorShort);
+  font-size: 1.25rem;
+  display: flex;
+  gap: 2rem;
+`;
+export const MiddleLi = styled.li`
+  color: var(--colorMiddle);
+  font-size: 1.25rem;
+  display: flex;
+  gap: 2rem;
+`;
+export const LongLi = styled.li`
+  color: var(--colorLong);
+  font-size: 1.25rem;
+  display: flex;
+  gap: 2rem;
+`;
+export const InfoLi = styled.li`
   a {
-    color: red;
+    color: var(--linkcolor);
+    border-radius: 5px;
+    &:active {
+      color: var(--linkcoloractive);
+    }
+    &:visited {
+      color: var(--colorAll);
+    }
+    &:hover {
+      color: var(--textcolor);
+      display: block;
+      transform: translateX(5px);
+    }
   }
 `;
-export const FavDiv = styled.div`
-  position: relative;
+export const Linkspan = styled.span`
+  padding-left: 5px;
 `;
+
 export const FavButton = styled.button`
   background: none;
   border: none;
-  position: absolute;
-  right: -5px;
-  font-size: 24px;
   color: white;
+  cursor: pointer;
 `;
 export const FavButtonDelete = styled.button`
   background: none;
   border: none;
-  position: absolute;
-  left: -5px;
-  top: -5px;
-  font-size: 24px;
-  color: red;
+  color: var(--deleteButton);
+  cursor: pointer;
 `;
 
-export const SpanAdd = styled.span``;
+export const SpanAdd = styled.span`
+  font-size: 1.25rem;
+`;
 export const SpanAdded = styled.span`
-  color: yellow;
+  color: var(--isFavorite);
+  font-size: 1.25rem;
 `;
