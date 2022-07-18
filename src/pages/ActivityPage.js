@@ -43,10 +43,6 @@ const Main = styled.main`
   @media (min-width: 600px) {
     grid-template-columns: 0.1fr 0.8fr 2.1fr;
   }
-  @media (min-width: 900px) {
-  }
-  @media (min-width: 1200px) {
-  }
 `;
 const FilterWrapper = styled.div`
   display: grid;
@@ -61,9 +57,5 @@ const FilterWrapper = styled.div`
     width: 25vw;
     overflow-y: auto;
     padding-bottom: 20px;
-  }
-  @media (min-width: 900px) {
-  }
-  @media (min-width: 1200px) {
   }
 `;

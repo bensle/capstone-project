@@ -64,7 +64,6 @@ export const LongLi = styled.li`
 export const InfoLi = styled.li`
   a {
     color: var(--linkcolor);
-    /* padding: 5px; */
     border-radius: 5px;
     &:active {
       color: var(--linkcoloractive);

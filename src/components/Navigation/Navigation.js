@@ -108,6 +108,7 @@ const NavigateToButton = styled.button`
   &:hover {
     background: var(--bgcolorlight);
   }
+
   ${({isActive}) =>
     isActive &&
     `

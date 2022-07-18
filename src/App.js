@@ -1,8 +1,6 @@
 import {useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import styled from 'styled-components';
 
-import Header from './components/Header/Header';
 import useLocalStorage from './hooks/useLocalStorage';
 import ActivityPage from './pages/ActivityPage';
 import AddActivityPage from './pages/AddActivityPage';
