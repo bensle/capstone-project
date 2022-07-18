@@ -1,8 +1,14 @@
+import {FaDumbbell} from 'react-icons/fa'; //sport
+import {FaRegThumbsUp} from 'react-icons/fa';
+import {GiMountainClimbing} from 'react-icons/gi'; //challenge
+import {ImLeaf} from 'react-icons/im'; //nature
+import {TbBuildingMonument} from 'react-icons/tb'; //culture
+import {TbBeach} from 'react-icons/tb'; //recovery
 import styled from 'styled-components';
 
 export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
   return (
-    <div>
+    <TypeSection>
       <FilterHeading id="radioTypeHeading">I&apos;m interested in:</FilterHeading>
       <RadioTypeForm aria-labelledby="radioTypeHeading">
         <input
@@ -13,7 +19,12 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           defaultChecked
           onClick={() => onFilterTypeReset()}
         ></input>
-        <label htmlFor="radioTypeAll">All</label>
+        <label htmlFor="radioTypeAll">
+          <TypeSpan>
+            <FaRegThumbsUp />
+          </TypeSpan>
+          All
+        </label>
 
         <input
           type="radio"
@@ -22,7 +33,12 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           value="culture"
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
-        <label htmlFor="radioCulture">culture</label>
+        <label htmlFor="radioCulture">
+          <TypeSpan>
+            <TbBuildingMonument />
+          </TypeSpan>
+          Culture
+        </label>
 
         <input
           type="radio"
@@ -31,7 +47,12 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           value="nature"
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
-        <label htmlFor="radioNature">nature</label>
+        <label htmlFor="radioNature">
+          <TypeSpan>
+            <ImLeaf />
+          </TypeSpan>
+          Nature
+        </label>
 
         <input
           type="radio"
@@ -40,7 +61,12 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           value="sport"
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
-        <label htmlFor="radioSport">sport</label>
+        <label htmlFor="radioSport">
+          <TypeSpan>
+            <FaDumbbell />
+          </TypeSpan>
+          Sport
+        </label>
 
         <input
           type="radio"
@@ -49,7 +75,12 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           value="recovery"
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
-        <label htmlFor="radioRecovery">recovery</label>
+        <label htmlFor="radioRecovery">
+          <TypeSpan>
+            <TbBeach />
+          </TypeSpan>
+          Recovery
+        </label>
 
         <input
           type="radio"
@@ -58,23 +89,38 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           value="challenge"
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
-        <label htmlFor="radioChallenge">challenge</label>
+        <label htmlFor="radioChallenge">
+          <TypeSpan>
+            <GiMountainClimbing />
+          </TypeSpan>
+          Challenge
+        </label>
       </RadioTypeForm>
-    </div>
+    </TypeSection>
   );
 }
 
+const TypeSection = styled.section`
+  padding: 0 10px;
+`;
+const TypeSpan = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const FilterHeading = styled.h2`
-  margin: 10px 0 0 0;
-  text-align: center;
-  font-size: 1rem;
+  text-align: left;
+  font-size: 0.925rem;
+  font-weight: 500;
+  @media (min-width: 600px) {
+    margin-top: 10px;
+  }
 `;
 const RadioTypeForm = styled.form`
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin: 0 0 10px 0;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 
   input[type='radio'] {
     opacity: 0;
@@ -82,12 +128,16 @@ const RadioTypeForm = styled.form`
     width: 0;
   }
   label {
+    display: flex;
+    align-items: center;
+    font-size: 0.925rem;
+    gap: 1.25rem;
     padding: 5px 5px;
-    border: 1px solid;
-    border-radius: 5px;
-    flex-basis: 80px;
+    background: var(--bgcolorcard);
+    border-radius: 10px;
+    cursor: pointer;
   }
   input[type='radio']:checked + label {
-    background-color: var(--orange);
+    background-color: var(--colorAll);
   }
 `;

@@ -55,7 +55,7 @@ export default function Navigation() {
 }
 
 const MenuDiv = styled.div`
-  padding: 0.625rem 0 0 0;
+  /* padding: 0.625rem 0 0 0; */
   display: flex;
   justify-content: start;
   align-items: center;
@@ -63,6 +63,7 @@ const MenuDiv = styled.div`
 const MenuOpenButton = styled.button`
   color: var(--textcolor);
   margin-left: 1.25rem;
+  margin-top: 1.25rem;
   background: none;
   font-size: 1.325rem;
   border: none;
@@ -95,21 +96,24 @@ const MenuItem = styled.li`
   display: flex;
 `;
 const NavigateToButton = styled.button`
-  background: none;
+  background: var(--bgcolor);
   border: none;
-  color: var(--textcolor);
+  color: var(--textcolordarker);
   display: flex;
   align-items: center;
   gap: 1.25rem;
   font-size: 0.925rem;
   cursor: pointer;
-  width: 9rem;
-  padding: 0.75rem 0;
+  width: 10.5rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  &:hover {
+    background: var(--bgcolorlight);
+  }
   ${({isActive}) =>
     isActive &&
     `
-  color:var(--linkcoloractive);;
-  fill:var(--linkcoloractive);;
+  color:var(--textcolor);;
   `}
 `;
 const NavMenu = styled.nav`
