@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import * as FaIcons from 'react-icons/fa';
 import * as MdIcons from 'react-icons/md';
+import {TbDots} from 'react-icons/tb';
 import {useNavigate, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ export default function Navigation() {
     <>
       <MenuDiv>
         <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
-          <FaIcons.FaBars />
+          <TbDots />
         </MenuOpenButton>
       </MenuDiv>
       <NavMenu isOpen={showSidebar}>
@@ -55,7 +55,6 @@ export default function Navigation() {
 }
 
 const MenuDiv = styled.div`
-  /* padding: 0.625rem 0 0 0; */
   display: flex;
   justify-content: start;
   align-items: center;
@@ -69,7 +68,6 @@ const MenuOpenButton = styled.button`
   border: none;
   cursor: pointer;
 `;
-//------------------------------------------------
 const MenuCloseButton = styled.button`
   color: var(--textcolor);
   margin-left: 1.25rem;

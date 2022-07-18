@@ -1,4 +1,5 @@
 import {FaDumbbell} from 'react-icons/fa'; //sport
+import {FiExternalLink} from 'react-icons/fi';
 import {GiMountainClimbing} from 'react-icons/gi'; //challenge
 import {ImLeaf} from 'react-icons/im'; //nature
 import {IoMdHeartEmpty} from 'react-icons/io';
@@ -135,7 +136,12 @@ export default function ActivityCard({
             </Style.LongLi>
           )}
           <Style.InfoLi>
-            <a href={infos}>Find out more</a>
+            <a href={infos}>
+              More infos
+              <Style.Linkspan>
+                <FiExternalLink />
+              </Style.Linkspan>
+            </a>
           </Style.InfoLi>
         </ul>
       </div>

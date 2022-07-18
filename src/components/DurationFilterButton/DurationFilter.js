@@ -104,6 +104,9 @@ const AllLabel = styled.label`
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    transform: translateX(-7px);
+  }
 `;
 const AllInput = styled.input`
   &:checked + label {
@@ -119,6 +122,9 @@ const ShortLabel = styled.label`
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    transform: translateX(-7px);
+  }
 `;
 
 const ShortInput = styled.input`
@@ -135,6 +141,9 @@ const MiddleLabel = styled.label`
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    transform: translateX(-7px);
+  }
 `;
 
 const MiddleInput = styled.input`
@@ -151,6 +160,9 @@ const LongLabel = styled.label`
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    transform: translateX(-7px);
+  }
 `;
 
 const LongInput = styled.input`

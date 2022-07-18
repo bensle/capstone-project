@@ -136,6 +136,9 @@ const RadioTypeForm = styled.form`
     background: var(--bgcolorcard);
     border-radius: 10px;
     cursor: pointer;
+    &:hover {
+      transform: translateX(-7px);
+    }
   }
   input[type='radio']:checked + label {
     background-color: var(--colorAll);

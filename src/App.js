@@ -71,8 +71,6 @@ export default function App() {
     setActivities(current => [...current, value]);
   }
   return (
-    // <Appcontainer>
-    //   <Header />
     <Routes>
       <Route
         path="/"
@@ -124,11 +122,5 @@ export default function App() {
       <Route path="/map" element={<Map activities={activities} />} />
       <Route path="/addActivity" element={<AddActivityPage onSetActivities={value => setActivityHandler(value)} />} />
     </Routes>
-    // </Appcontainer>
   );
 }
-// const Appcontainer = styled.div`
-//   display: grid;
-//   height: 100vh;
-//   align-content: start;
-// `;

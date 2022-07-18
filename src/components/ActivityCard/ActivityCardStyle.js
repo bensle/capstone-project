@@ -63,8 +63,24 @@ export const LongLi = styled.li`
 `;
 export const InfoLi = styled.li`
   a {
-    color: red;
+    color: var(--linkcolor);
+    /* padding: 5px; */
+    border-radius: 5px;
+    &:active {
+      color: var(--linkcoloractive);
+    }
+    &:visited {
+      color: var(--colorAll);
+    }
+    &:hover {
+      color: var(--textcolor);
+      display: block;
+      transform: translateX(5px);
+    }
   }
+`;
+export const Linkspan = styled.span`
+  padding-left: 5px;
 `;
 
 export const FavButton = styled.button`
