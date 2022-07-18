@@ -88,7 +88,6 @@ export default function Favorite({
               )}
               {type === 'challenge' && (
                 <Style.TypeSpan>
-                  {' '}
                   <GiMountainClimbing />
                 </Style.TypeSpan>
               )}
@@ -104,13 +103,11 @@ export default function Favorite({
               <MdOutlineAccessTimeFilled />
               {type === 'culture' && (
                 <Style.TypeSpan>
-                  {' '}
                   <TbBuildingMonument />
                 </Style.TypeSpan>
               )}
               {type === 'sport' && (
                 <Style.TypeSpan>
-                  {' '}
                   <FaDumbbell />
                 </Style.TypeSpan>
               )}
@@ -121,13 +118,11 @@ export default function Favorite({
               )}
               {type === 'challenge' && (
                 <Style.TypeSpan>
-                  {' '}
                   <GiMountainClimbing />
                 </Style.TypeSpan>
               )}
               {type === 'nature' && (
                 <Style.TypeSpan>
-                  {' '}
                   <ImLeaf />
                 </Style.TypeSpan>
               )}

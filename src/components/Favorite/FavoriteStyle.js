@@ -5,7 +5,7 @@ export const Section = styled.section`
   justify-items: start;
   grid-template-columns: 2.3fr 1.5fr 0.2fr;
   grid-template-rows: 1fr;
-  padding: 10px 10px;
+  padding: 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
 

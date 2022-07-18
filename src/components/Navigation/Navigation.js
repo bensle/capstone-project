@@ -138,6 +138,4 @@ const NavMenu = styled.nav`
   left: 0;
   transition: 350ms;
   `}
-  @media (min-width: 600px) {
-  }
 `;
