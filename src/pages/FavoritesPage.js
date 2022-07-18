@@ -128,7 +128,5 @@ const StyledLink = styled(Link)`
   }
   &:hover {
     color: var(--textcolor);
-    display: block;
-    transform: translateX(5px);
   }
 `;
