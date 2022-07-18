@@ -121,7 +121,7 @@ export default function App() {
             />
           }
         />
-        <Route path="/map" element={<Map />} />
+        <Route path="/map" element={<Map activities={activities} />} />
         <Route path="/addActivity" element={<AddActivityPage onSetActivities={value => setActivityHandler(value)} />} />
       </Routes>
     </Appcontainer>

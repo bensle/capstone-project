@@ -1,6 +1,8 @@
+import {OpenStreetMapProvider} from 'leaflet-geosearch';
 import {nanoid} from 'nanoid';
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import {MdOutlineAdd} from 'react-icons/md';
+import styled from 'styled-components';
 
 import {
   Form,
@@ -12,9 +14,40 @@ import {
 } from './AddActivityFormStyle';
 
 export default function AddActivityForm({onSetActivities}) {
-  const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''});
+  const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''}); //has InputData from all inputs except location
+  const [location, setLocation] = useState([]); //has all locationInputSearchData
+  const [locationData, setLocationData] = useState({location: '', latitude: '', longitude: ''}); // has Data chosen from listed results
+  const refInput = useRef();
 
-  //----- Data from Input -----
+  const EMAIL = process.env.EMAIL;
+
+  //------------------set Provider and specify data---------------------------------------------------------
+  const provider = new OpenStreetMapProvider({
+    params: {
+      email: EMAIL,
+      'accept-language': 'de',
+      countrycodes: 'de',
+      limit: 4,
+    },
+  });
+
+  //add clicked to locationResults; useRef sets input to clicked value; locationData has location, lat & long.
+  function addLocation(x) {
+    const newLocation = location.find(loc => loc.x === x);
+    refInput.current.value = newLocation.label.substring(0, newLocation.label.indexOf(','));
+    setLocationData({
+      location: newLocation.label.substring(0, newLocation.label.indexOf(',')),
+      latitude: newLocation.y,
+      longitude: newLocation.x,
+    });
+  }
+  // locationInputHandler - geosearch -------------------------------------------------------------------------------------
+  const handleChangeLocation = async event => {
+    const inputLocation = event.target.value;
+    const results = await provider.search({query: inputLocation});
+    setLocation(results);
+  };
+  //----- Data from Input --------------------------------------------------------------------------------------------------
   const handleChange = event => {
     setFormData({...formData, [event.target.name]: event.target.value});
   };
@@ -27,12 +60,14 @@ export default function AddActivityForm({onSetActivities}) {
         : formData.infos.trim().toLowerCase();
     onSetActivities({
       id: nanoid(),
+      isFavorite: false,
       name: formData.name.trim(),
-      location: formData.location.trim().replace(/[^a-z]/gi, ' '),
+      location: locationData.location.trim(),
       duration: formData.duration,
       type: formData.type,
+      latitude: locationData.latitude,
+      longitude: locationData.longitude,
       infos: newInfos,
-      isFavorite: false,
     });
   };
   return (
@@ -49,16 +84,26 @@ export default function AddActivityForm({onSetActivities}) {
         maxLength="30"
         onChange={handleChange}
       ></input>
+
       <label htmlFor="location">Location of your activity</label>
-      <input
-        type="text"
-        name="location"
-        id="location"
-        required
-        autoComplete="off"
-        maxLength="30"
-        onChange={handleChange}
-      ></input>
+      <SearchDiv>
+        <LocationInput
+          ref={refInput}
+          type="text"
+          name="location"
+          id="location"
+          required
+          autoComplete="off"
+          maxLength="30"
+          onChange={handleChangeLocation}
+        ></LocationInput>
+        {location.map(({x, label}) => (
+          <SearchDivResult key={x} onClick={() => addLocation(x)}>
+            {label}
+          </SearchDivResult>
+        ))}
+      </SearchDiv>
+
       <label htmlFor="duration">
         Duration of your Activity?
         <StyledSelectDurationWrapper>
@@ -112,3 +157,24 @@ export default function AddActivityForm({onSetActivities}) {
     </Form>
   );
 }
+const SearchDiv = styled.div`
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+`;
+
+const SearchDivResult = styled.div`
+  background-color: white;
+  color: black;
+  margin-top: 10px;
+  cursor: pointer;
+`;
+
+const LocationInput = styled.input`
+  border: none;
+  width: 100%;
+  outline: none;
+  line-height: 48px;
+  color: gray;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+`;
