@@ -78,6 +78,9 @@ const MenuCloseButton = styled.button`
   right: -8rem;
   top: -1rem;
   cursor: pointer;
+  @media (max-height: 315px) {
+    top: 1rem;
+  }
 `;
 const MenuList = styled.ul`
   width: 100%;
@@ -87,6 +90,9 @@ const MenuList = styled.ul`
   flex-direction: column;
   gap: 1.25rem;
   list-style: none;
+  @media (min-width: 600px) {
+    gap: 0.5rem;
+  }
 `;
 const MenuItem = styled.li`
   width: 100%;
@@ -117,6 +123,7 @@ const NavigateToButton = styled.button`
 `;
 const NavMenu = styled.nav`
   background-color: var(--bgcolor);
+  overflow-y: auto;
   width: 200px;
   height: 100vh;
   display: flex;
