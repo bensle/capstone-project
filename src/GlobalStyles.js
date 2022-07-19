@@ -35,6 +35,7 @@ export default styled.createGlobalStyle`
     background-color: var(--bgcolor);
     color: var(--textcolor);
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
   }
 
   button,
@@ -46,6 +47,7 @@ export default styled.createGlobalStyle`
     height: 100vh;
     width: auto;
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
     font-size: 0.925rem;
   }
   .custom-popup .leaflet-popup-content-wrapper {

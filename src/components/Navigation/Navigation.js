@@ -23,7 +23,6 @@ export default function Navigation() {
         <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
           <TbDots />
         </MenuOpenButton>
-        <div>ROAM!</div>
       </MenuDiv>
       <NavMenu isOpen={showSidebar}>
         <MenuList role="list" onClick={toggleSidebar}>
@@ -59,7 +58,12 @@ const MenuDiv = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  @media (max-height: 600px) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
 `;
+
 const MenuOpenButton = styled.button`
   color: var(--textcolor);
   margin-left: 1.25rem;
@@ -79,7 +83,8 @@ const MenuCloseButton = styled.button`
   right: -8rem;
   top: -1rem;
   cursor: pointer;
-  @media (max-height: 315px) {
+
+  @media (max-height: 600px) {
     top: 1rem;
   }
 `;

@@ -9,7 +9,7 @@ export default function Header() {
   );
 }
 const StyledHeader = styled.header`
-  position: sticky;
+  position: relative;
   top: 0;
   background-color: var(--bgcolor);
   z-index: 2000;

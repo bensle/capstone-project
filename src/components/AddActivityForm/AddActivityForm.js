@@ -125,45 +125,42 @@ export default function AddActivityForm({onSetActivities}) {
 
           <Style.Durationlabel htmlFor="duration">
             Duration of your Activity?
-            <Style.StyledSelectDurationWrapper>
-              <Style.DurationSelect
-                required
-                name="duration"
-                id="duration"
-                onChange={handleChange}
-                placeholder="Select Option"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Duration
-                </option>
-                <option value="short">Day Trip</option>
-                <option value="weekend">Weekend</option>
-                <option value="vacation">3 Days +</option>
-              </Style.DurationSelect>
-            </Style.StyledSelectDurationWrapper>
+            <Style.DurationSelect
+              required
+              name="duration"
+              id="duration"
+              onChange={handleChange}
+              placeholder="Select Option"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Duration
+              </option>
+              <option value="short">Day Trip</option>
+              <option value="weekend">Weekend</option>
+              <option value="vacation">3 Days +</option>
+            </Style.DurationSelect>
           </Style.Durationlabel>
           <Style.TypeLabel htmlFor="type">
             Type of your Activity?
-            <Style.StyledSelectTypeWrapper>
-              <Style.TypeSelect
-                required
-                name="type"
-                id="type"
-                onChange={handleChange}
-                placeholder="Select Option"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Type
-                </option>
-                <option value="culture">Culture</option>
-                <option value="nature">Nature</option>
-                <option value="sport">Sport</option>
-                <option value="recovery">Recovery</option>
-                <option value="challenge">Challenge</option>
-              </Style.TypeSelect>
-            </Style.StyledSelectTypeWrapper>
+            <Style.TypeSelect
+              required
+              name="type"
+              id="type"
+              onChange={handleChange}
+              placeholder="Select Option"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Type
+              </option>
+              <option value="culture">Culture</option>
+              <option value="nature">Nature</option>
+              <option value="sport">Sport</option>
+              <option value="recovery">Recovery</option>
+              <option value="challenge">Challenge</option>
+            </Style.TypeSelect>
+            {/* </Style.StyledSelectTypeWrapper> */}
           </Style.TypeLabel>
           <Style.InfosLabel htmlFor="infos">
             Add an URL for more Infos <Style.InfoSpan>e.g. https://example.de</Style.InfoSpan>
