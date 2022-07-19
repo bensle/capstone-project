@@ -130,6 +130,7 @@ export const DurationSelect = styled.select`
   border: none;
   border-radius: 10px;
   padding: 7px 7px;
+  font-family: 'Space Grotesk', sans-serif;
   &:focus {
     outline: none;
     color: var(--colorAll);
@@ -154,6 +155,7 @@ export const TypeSelect = styled.select`
   border: none;
   border-radius: 10px;
   padding: 7px 7px;
+  font-family: 'Space Grotesk', sans-serif;
   &:focus {
     outline: none;
     color: var(--colorAll);

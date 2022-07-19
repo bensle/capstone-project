@@ -34,7 +34,7 @@ export default styled.createGlobalStyle`
     padding: 0;
     background-color: var(--bgcolor);
     color: var(--textcolor);
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   button,
@@ -45,6 +45,8 @@ export default styled.createGlobalStyle`
   .leaflet-container {
     height: 100vh;
     width: auto;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.925rem;
   }
   .custom-popup .leaflet-popup-content-wrapper {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -52,6 +54,7 @@ export default styled.createGlobalStyle`
     font-size: 0.925rem;
     color: var(--textcolor);
     background: var(--bgcolor);
+    font-family: 'Space Grotesk', sans-serif;
     a {
       color: var(--linkcoloractive);
     }

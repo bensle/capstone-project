@@ -23,6 +23,7 @@ export default function Navigation() {
         <MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
           <TbDots />
         </MenuOpenButton>
+        <div>ROAM!</div>
       </MenuDiv>
       <NavMenu isOpen={showSidebar}>
         <MenuList role="list" onClick={toggleSidebar}>
@@ -102,7 +103,7 @@ const MenuItem = styled.li`
 const NavigateToButton = styled.button`
   background: var(--bgcolor);
   border: none;
-  color: var(--textcolordarker);
+  color: var(--textcolor);
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -112,13 +113,14 @@ const NavigateToButton = styled.button`
   padding: 0.75rem;
   border-radius: 10px;
   &:hover {
-    background: var(--bgcolorlight);
+    background: var(--colorAll);
   }
 
   ${({isActive}) =>
     isActive &&
     `
-  color:var(--textcolor);;
+  color:var(--textcolor);
+  background-color:var(--colorAll)
   `}
 `;
 const NavMenu = styled.nav`
