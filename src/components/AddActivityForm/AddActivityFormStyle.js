@@ -172,6 +172,9 @@ export const AddButton = styled.button`
     background-color: var(--textcolor);
     color: var(--colorAll);
   }
+  &:disabled {
+    background-color: var(--bgcolor);
+  }
 `;
 
 export const AddSpan = styled.span`
