@@ -47,11 +47,17 @@ export default styled.createGlobalStyle`
     font: inherit;
   }
   .leaflet-container {
-    height: 70vh;
-    margin: 20px;
+    height: 100vh;
+    width: auto;
   }
   .custom-popup .leaflet-popup-content-wrapper {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     opacity: 0.85;
+    font-size: 0.925rem;
+    color: var(--textcolor);
+    background: var(--bgcolor);
+    a {
+      color: var(--linkcoloractive);
+    }
   }
 `;
