@@ -1,33 +1,57 @@
 import styled from 'styled-components';
-export const ButtonConfirmation = styled.button`
-  color: red;
-`;
-export const ButtonCancel = styled.button`
-  color: red;
-`;
-
 export const CancelDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: var(--modalbg);
-  padding: 0.8rem;
+  border-radius: 10px;
+  background-color: var(--bgcolorcard);
+  padding: 7px 7px;
   text-align: center;
   z-index: 3000;
-  position: fixed;
-  top: 10%;
-  left: 10%;
-  right: 10%;
+  position: absolute;
+  width: 100vw;
+  top: 20vh;
+  left: 0;
+  right: 0;
   bottom: auto;
-  @media (min-width: 600px) {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    right: auto;
-    width: 50%;
+`;
+
+export const Heading = styled.h2`
+  font-size: 0.925rem;
+  margin: 20px 0;
+`;
+export const Span = styled.span`
+  color: var(--deleteButton);
+  font-style: italic;
+`;
+export const ButtonConfirmation = styled.button`
+  margin-bottom: 20px;
+  width: 50%;
+  border: none;
+  align-self: center;
+  background-color: var(--colorAll);
+  border-radius: 10px;
+  color: var(--textcolor);
+  padding: 7px 7px;
+  font-size: 0.925rem;
+  &:hover {
+    background-color: var(--textcolor);
+    color: var(--deleteButton);
+  }
+`;
+export const ButtonCancel = styled.button`
+  margin-bottom: 20px;
+  width: 50%;
+  border: none;
+  align-self: center;
+  background-color: var(--colorAll);
+  border-radius: 10px;
+  color: var(--textcolor);
+  padding: 7px 7px;
+  font-size: 0.925rem;
+  &:hover {
+    background-color: var(--textcolor);
+    color: var(--colorAll);
   }
 `;

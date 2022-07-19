@@ -1,10 +1,12 @@
-import {ButtonConfirmation, ButtonCancel, CancelDiv} from './ConfirmationModal.style';
+import * as Style from './ConfirmationModal.style';
 export default function ConfirmationModal({onClose, onDelete}) {
   return (
-    <CancelDiv>
-      Do you really want to delete this Activity?
-      <ButtonCancel onClick={onClose}>Cancel</ButtonCancel>
-      <ButtonConfirmation onClick={onDelete}>Delete</ButtonConfirmation>
-    </CancelDiv>
+    <Style.CancelDiv>
+      <Style.Heading>
+        Do you really want to <Style.Span>delete</Style.Span> this Activity?
+      </Style.Heading>
+      <Style.ButtonCancel onClick={onClose}>Cancel</Style.ButtonCancel>
+      <Style.ButtonConfirmation onClick={onDelete}>Delete</Style.ButtonConfirmation>
+    </Style.CancelDiv>
   );
 }
