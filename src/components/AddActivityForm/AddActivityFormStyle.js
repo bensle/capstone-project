@@ -10,7 +10,7 @@ export const Form = styled.form`
 export const WrapperFormDiv = styled.div`
   background-color: var(--bgcolorcard);
   padding: 10px 10px;
-  margin: 0px 20px 0px 20px;
+  margin: 0 20px 0 20px;
   border-radius: 10px;
 `;
 export const Heading = styled.h2`
