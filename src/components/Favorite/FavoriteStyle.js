@@ -74,7 +74,6 @@ export const InfoLi = styled.li`
     &:hover {
       color: var(--textcolor);
       display: block;
-      transform: translateX(5px);
     }
   }
 `;

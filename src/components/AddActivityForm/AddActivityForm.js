@@ -1,17 +1,13 @@
 import {OpenStreetMapProvider} from 'leaflet-geosearch';
 import {nanoid} from 'nanoid';
 import {useState, useRef} from 'react';
+import {ImSearch} from 'react-icons/im';
+import {IoMdClose} from 'react-icons/io';
 import {MdOutlineAdd} from 'react-icons/md';
-import styled from 'styled-components';
 
-import {
-  Form,
-  Heading,
-  StyledSelectDurationWrapper,
-  StyledSelectTypeWrapper,
-  Button,
-  AddSpan,
-} from './AddActivityFormStyle';
+import Header from '../Header/Header';
+
+import * as Style from './AddActivityFormStyle';
 
 export default function AddActivityForm({onSetActivities}) {
   const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''}); //has InputData from all inputs except location
@@ -27,9 +23,15 @@ export default function AddActivityForm({onSetActivities}) {
       email: EMAIL,
       'accept-language': 'de',
       countrycodes: 'de',
-      limit: 4,
+      limit: 3,
     },
   });
+
+  const clearInput = () => {
+    setLocation([]);
+    setLocationData('');
+    refInput.current.value = '';
+  };
 
   //add clicked to locationResults; useRef sets input to clicked value; locationData has location, lat & long.
   function addLocation(x) {
@@ -40,6 +42,7 @@ export default function AddActivityForm({onSetActivities}) {
       latitude: newLocation.y,
       longitude: newLocation.x,
     });
+    setLocation([]);
   }
   // locationInputHandler - geosearch -------------------------------------------------------------------------------------
   const handleChangeLocation = async event => {
@@ -71,110 +74,115 @@ export default function AddActivityForm({onSetActivities}) {
     });
   };
   return (
-    <Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
-      <Heading id="addActivity">Add your Activity</Heading>
+    <>
+      <Header />
+      <Style.WrapperFormDiv>
+        <Style.Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
+          <Style.Heading id="addActivity">Add your Activity</Style.Heading>
 
-      <label htmlFor="name"> Name of your activity</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        required
-        autoComplete="off"
-        maxLength="30"
-        onChange={handleChange}
-      ></input>
-
-      <label htmlFor="location">Location of your activity</label>
-      <SearchDiv>
-        <LocationInput
-          ref={refInput}
-          type="text"
-          name="location"
-          id="location"
-          required
-          autoComplete="off"
-          maxLength="30"
-          onChange={handleChangeLocation}
-        ></LocationInput>
-        {location.map(({x, label}) => (
-          <SearchDivResult key={x} onClick={() => addLocation(x)}>
-            {label}
-          </SearchDivResult>
-        ))}
-      </SearchDiv>
-
-      <label htmlFor="duration">
-        Duration of your Activity?
-        <StyledSelectDurationWrapper>
-          <select
+          <Style.NameLabel htmlFor="name"> Name of your activity</Style.NameLabel>
+          <Style.NameInput
+            type="text"
+            name="name"
+            id="name"
             required
-            name="duration"
-            id="duration"
+            autoComplete="off"
+            maxLength="30"
             onChange={handleChange}
-            placeholder="Select Option"
-            defaultValue=""
-          >
-            <option value="" disabled hidden>
-              Duration
-            </option>
-            <option value="short">Day Trip</option>
-            <option value="weekend">Weekend</option>
-            <option value="vacation">3 Days +</option>
-          </select>
-        </StyledSelectDurationWrapper>
-      </label>
-      <label htmlFor="type">
-        Type of your Activity?
-        <StyledSelectTypeWrapper>
-          <select required name="type" id="type" onChange={handleChange} placeholder="Select Option" defaultValue="">
-            <option value="" disabled hidden>
-              Type
-            </option>
-            <option value="culture">Culture</option>
-            <option value="nature">Nature</option>
-            <option value="sport">Sport</option>
-            <option value="recovery">Recovery</option>
-            <option value="challenge">Challenge</option>
-          </select>
-        </StyledSelectTypeWrapper>
-      </label>
-      <label htmlFor="infos"> Add an URL for more Infos</label>
-      <input
-        type="text"
-        name="infos"
-        id="infos"
-        autoComplete="off"
-        placeholder="https://example.de"
-        onChange={handleChange}
-      ></input>
-      <Button type="submit">
-        Add Activity
-        <AddSpan>
-          <MdOutlineAdd />
-        </AddSpan>
-      </Button>
-    </Form>
+          ></Style.NameInput>
+
+          <Style.LocationLabel htmlFor="location">Location of your activity</Style.LocationLabel>
+          <Style.SearchDiv>
+            <Style.SearchInputDiv>
+              <Style.LocationInput
+                ref={refInput}
+                type="text"
+                name="location"
+                id="location"
+                required
+                autoComplete="off"
+                maxLength="30"
+                onChange={handleChangeLocation}
+              />
+              <Style.SearchIconDiv>
+                {location.length === 0 ? <ImSearch /> : <IoMdClose onClick={clearInput} />}
+              </Style.SearchIconDiv>
+            </Style.SearchInputDiv>
+            {location.length !== 0 && (
+              <Style.ResultDiv>
+                <Style.ResultList>
+                  {location.map(({x, label}) => {
+                    return (
+                      <Style.ResultItem key={x} onClick={() => addLocation(x)}>
+                        {label}
+                      </Style.ResultItem>
+                    );
+                  })}
+                </Style.ResultList>
+              </Style.ResultDiv>
+            )}
+          </Style.SearchDiv>
+
+          <Style.Durationlabel htmlFor="duration">
+            Duration of your Activity?
+            <Style.StyledSelectDurationWrapper>
+              <Style.DurationSelect
+                required
+                name="duration"
+                id="duration"
+                onChange={handleChange}
+                placeholder="Select Option"
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Duration
+                </option>
+                <option value="short">Day Trip</option>
+                <option value="weekend">Weekend</option>
+                <option value="vacation">3 Days +</option>
+              </Style.DurationSelect>
+            </Style.StyledSelectDurationWrapper>
+          </Style.Durationlabel>
+          <Style.TypeLabel htmlFor="type">
+            Type of your Activity?
+            <Style.StyledSelectTypeWrapper>
+              <Style.TypeSelect
+                required
+                name="type"
+                id="type"
+                onChange={handleChange}
+                placeholder="Select Option"
+                defaultValue=""
+              >
+                <option value="" disabled hidden>
+                  Type
+                </option>
+                <option value="culture">Culture</option>
+                <option value="nature">Nature</option>
+                <option value="sport">Sport</option>
+                <option value="recovery">Recovery</option>
+                <option value="challenge">Challenge</option>
+              </Style.TypeSelect>
+            </Style.StyledSelectTypeWrapper>
+          </Style.TypeLabel>
+          <Style.InfosLabel htmlFor="infos">
+            Add an URL for more Infos <Style.InfoSpan>e.g. https://example.de</Style.InfoSpan>
+          </Style.InfosLabel>
+          <Style.InfosInput
+            type="text"
+            name="infos"
+            id="infos"
+            autoComplete="off"
+            onChange={handleChange}
+          ></Style.InfosInput>
+          <Style.AddButton type="submit">
+            Add Activity
+            <Style.AddSpan>
+              <MdOutlineAdd />
+            </Style.AddSpan>
+          </Style.AddButton>
+        </Style.Form>
+      </Style.WrapperFormDiv>
+    </>
   );
 }
-const SearchDiv = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-`;
-
-const SearchDivResult = styled.div`
-  background-color: white;
-  color: black;
-  margin-top: 10px;
-  cursor: pointer;
-`;
-
-const LocationInput = styled.input`
-  border: none;
-  width: 100%;
-  outline: none;
-  line-height: 48px;
-  color: gray;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-`;
