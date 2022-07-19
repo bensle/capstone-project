@@ -85,6 +85,11 @@ export const ResultItem = styled.li`
   padding: 7px 7px;
   font-size: 0.925rem;
   position: relative;
+  &:hover {
+    background-color: var(--bgcolorcard);
+    border-radius: 10px;
+    cursor: pointer;
+  }
 `;
 export const ResultDiv = styled.div`
   position: relative;

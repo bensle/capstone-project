@@ -26,12 +26,8 @@ export default styled.createGlobalStyle`
 
     --linkcolor: #fbfbfc;
     --linkcoloractive: #966bf2;
-    --deleteButton: red;
-    --isFavorite: red;
-    --greenish: #04bfad;
-    --orange: #d9663d;
-    --red: #bf4f36;
-    --brown: #8c3a32;
+    --deleteButton: #ff0000;
+    --isFavorite: #ff0000;
   }
 
   body {
