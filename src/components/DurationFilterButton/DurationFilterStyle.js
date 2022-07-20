@@ -29,7 +29,7 @@ export const AllLabel = styled.label`
   align-items: center;
   font-size: 0.925rem;
   gap: 1.25rem;
-  padding: 5px 5px;
+  padding: 5px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
@@ -47,7 +47,7 @@ export const ShortLabel = styled.label`
   align-items: center;
   font-size: 0.925rem;
   gap: 1.25rem;
-  padding: 5px 5px;
+  padding: 5px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
@@ -66,7 +66,7 @@ export const MiddleLabel = styled.label`
   align-items: center;
   font-size: 0.925rem;
   gap: 1.25rem;
-  padding: 5px 5px;
+  padding: 5px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
@@ -85,7 +85,7 @@ export const LongLabel = styled.label`
   align-items: center;
   font-size: 0.925rem;
   gap: 1.25rem;
-  padding: 5px 5px;
+  padding: 5px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
   cursor: pointer;
