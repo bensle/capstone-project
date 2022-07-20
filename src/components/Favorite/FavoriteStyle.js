@@ -5,10 +5,9 @@ export const Section = styled.section`
   justify-items: start;
   grid-template-columns: 2.3fr 1.5fr 0.2fr;
   grid-template-rows: 1fr;
-  padding: 10px;
+  padding: 10px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
-
   ul {
     list-style: none;
     display: flex;
@@ -29,11 +28,15 @@ export const DescriptionDiv = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-around;
   gap: 5px;
   h2 {
     font-size: 0.975rem;
     text-align: left;
   }
+`;
+export const LocationSpan = styled.span`
+  font-weight: 300;
 `;
 export const ActionsDiv = styled.div`
   display: flex;
@@ -73,7 +76,6 @@ export const InfoLi = styled.li`
     }
     &:hover {
       color: var(--textcolor);
-      display: block;
     }
   }
 `;

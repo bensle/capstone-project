@@ -32,7 +32,7 @@ export default function Favorite({
       <Style.DescriptionDiv>
         <h2>{name}</h2>
         <h2>
-          <MdOutlineLocationOn /> {location}
+          <MdOutlineLocationOn /> <Style.LocationSpan>{location}</Style.LocationSpan>
         </h2>
       </Style.DescriptionDiv>
       <div>

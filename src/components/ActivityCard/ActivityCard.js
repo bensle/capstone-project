@@ -34,7 +34,7 @@ export default function ActivityCard({
       <Style.DescriptionDiv>
         <h2>{name}</h2>
         <h2>
-          <MdOutlineLocationOn /> {location}
+          <MdOutlineLocationOn /> <Style.LocationSpan>{location}</Style.LocationSpan>
         </h2>
       </Style.DescriptionDiv>
       <div>
@@ -90,7 +90,6 @@ export default function ActivityCard({
               )}
               {type === 'challenge' && (
                 <Style.TypeSpan>
-                  {' '}
                   <GiMountainClimbing />
                 </Style.TypeSpan>
               )}
@@ -106,13 +105,11 @@ export default function ActivityCard({
               <MdOutlineAccessTimeFilled />
               {type === 'culture' && (
                 <Style.TypeSpan>
-                  {' '}
                   <TbBuildingMonument />
                 </Style.TypeSpan>
               )}
               {type === 'sport' && (
                 <Style.TypeSpan>
-                  {' '}
                   <FaDumbbell />
                 </Style.TypeSpan>
               )}
@@ -123,20 +120,18 @@ export default function ActivityCard({
               )}
               {type === 'challenge' && (
                 <Style.TypeSpan>
-                  {' '}
                   <GiMountainClimbing />
                 </Style.TypeSpan>
               )}
               {type === 'nature' && (
                 <Style.TypeSpan>
-                  {' '}
                   <ImLeaf />
                 </Style.TypeSpan>
               )}
             </Style.LongLi>
           )}
           <Style.InfoLi>
-            <a href={infos}>
+            <a rel="noreferrer" target="_blank" href={infos}>
               More infos
               <Style.Linkspan>
                 <FiExternalLink />

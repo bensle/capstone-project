@@ -6,7 +6,7 @@ export const Card = Template.bind({});
 Card.args = {
   name: 'Freudenberg',
   location: 'Siegerland',
-  duration: 'Day Trip',
+  duration: 'short',
   type: 'culture',
   infos: 'https://test.de',
   isFavorite: true,
@@ -17,6 +17,7 @@ const story = {
   component: 'Favorite',
   argTypes: {
     onToggleFavorites: {action: 'clicked'},
+    onDelete: {action: 'click'},
     onShowConfirmationModal: {action: 'click'},
     showModalConfirmation: {action: 'click'},
   },

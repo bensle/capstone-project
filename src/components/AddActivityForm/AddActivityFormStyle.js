@@ -115,10 +115,6 @@ export const Durationlabel = styled.label`
   color: var(--textcolor);
   font-size: 0.925rem;
 `;
-export const StyledSelectDurationWrapper = styled.div`
-  /* display: flex;
-  justify-content: center; */
-`;
 
 export const DurationSelect = styled.select`
   margin-bottom: 20px;
@@ -130,6 +126,8 @@ export const DurationSelect = styled.select`
   border: none;
   border-radius: 10px;
   padding: 7px 7px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
   &:focus {
     outline: none;
     color: var(--colorAll);
@@ -140,10 +138,7 @@ export const TypeLabel = styled.label`
   color: var(--textcolor);
   font-size: 0.925rem;
 `;
-export const StyledSelectTypeWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+
 export const TypeSelect = styled.select`
   margin-bottom: 20px;
   width: 100%;
@@ -154,6 +149,8 @@ export const TypeSelect = styled.select`
   border: none;
   border-radius: 10px;
   padding: 7px 7px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
   &:focus {
     outline: none;
     color: var(--colorAll);
@@ -174,6 +171,9 @@ export const AddButton = styled.button`
   &:hover {
     background-color: var(--textcolor);
     color: var(--colorAll);
+  }
+  &:disabled {
+    background-color: var(--bgcolor);
   }
 `;
 

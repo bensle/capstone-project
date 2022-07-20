@@ -1,5 +1,6 @@
 import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
+import {IoMdHeartEmpty} from 'react-icons/io';
 import * as MdIcons from 'react-icons/md';
 
 export const NavigationData = [
@@ -9,14 +10,9 @@ export const NavigationData = [
     icon: <FaIcons.FaHome />,
   },
   {
-    title: 'Activities',
-    path: '/activities',
-    icon: <FiIcons.FiActivity />,
-  },
-  {
     title: 'Favorites',
     path: '/favorites',
-    icon: <MdIcons.MdWbSunny />,
+    icon: <IoMdHeartEmpty />,
   },
   {
     title: 'Map',

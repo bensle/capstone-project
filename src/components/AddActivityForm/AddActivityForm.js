@@ -4,6 +4,8 @@ import {useState, useRef} from 'react';
 import {ImSearch} from 'react-icons/im';
 import {IoMdClose} from 'react-icons/io';
 import {MdOutlineAdd} from 'react-icons/md';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Header from '../Header/Header';
 
@@ -16,7 +18,16 @@ export default function AddActivityForm({onSetActivities}) {
   const refInput = useRef();
 
   const EMAIL = process.env.EMAIL;
-
+  const notify = () =>
+    toast.success('New Activity added!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   //------------------set Provider and specify data---------------------------------------------------------
   const provider = new OpenStreetMapProvider({
     params: {
@@ -72,6 +83,7 @@ export default function AddActivityForm({onSetActivities}) {
       longitude: locationData.longitude,
       infos: newInfos,
     });
+    setLocationData([]);
   };
   return (
     <>
@@ -110,7 +122,7 @@ export default function AddActivityForm({onSetActivities}) {
             </Style.SearchInputDiv>
             {location.length !== 0 && (
               <Style.ResultDiv>
-                <Style.ResultList>
+                <Style.ResultList role="list">
                   {location.map(({x, label}) => {
                     return (
                       <Style.ResultItem key={x} onClick={() => addLocation(x)}>
@@ -125,45 +137,41 @@ export default function AddActivityForm({onSetActivities}) {
 
           <Style.Durationlabel htmlFor="duration">
             Duration of your Activity?
-            <Style.StyledSelectDurationWrapper>
-              <Style.DurationSelect
-                required
-                name="duration"
-                id="duration"
-                onChange={handleChange}
-                placeholder="Select Option"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Duration
-                </option>
-                <option value="short">Day Trip</option>
-                <option value="weekend">Weekend</option>
-                <option value="vacation">3 Days +</option>
-              </Style.DurationSelect>
-            </Style.StyledSelectDurationWrapper>
+            <Style.DurationSelect
+              required
+              name="duration"
+              id="duration"
+              onChange={handleChange}
+              placeholder="Select Option"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Duration
+              </option>
+              <option value="short">Day Trip</option>
+              <option value="weekend">Weekend</option>
+              <option value="vacation">3 Days +</option>
+            </Style.DurationSelect>
           </Style.Durationlabel>
           <Style.TypeLabel htmlFor="type">
             Type of your Activity?
-            <Style.StyledSelectTypeWrapper>
-              <Style.TypeSelect
-                required
-                name="type"
-                id="type"
-                onChange={handleChange}
-                placeholder="Select Option"
-                defaultValue=""
-              >
-                <option value="" disabled hidden>
-                  Type
-                </option>
-                <option value="culture">Culture</option>
-                <option value="nature">Nature</option>
-                <option value="sport">Sport</option>
-                <option value="recovery">Recovery</option>
-                <option value="challenge">Challenge</option>
-              </Style.TypeSelect>
-            </Style.StyledSelectTypeWrapper>
+            <Style.TypeSelect
+              required
+              name="type"
+              id="type"
+              onChange={handleChange}
+              placeholder="Select Option"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>
+                Type
+              </option>
+              <option value="culture">Culture</option>
+              <option value="nature">Nature</option>
+              <option value="sport">Sport</option>
+              <option value="recovery">Recovery</option>
+              <option value="challenge">Challenge</option>
+            </Style.TypeSelect>
           </Style.TypeLabel>
           <Style.InfosLabel htmlFor="infos">
             Add an URL for more Infos <Style.InfoSpan>e.g. https://example.de</Style.InfoSpan>
@@ -175,12 +183,29 @@ export default function AddActivityForm({onSetActivities}) {
             autoComplete="off"
             onChange={handleChange}
           ></Style.InfosInput>
-          <Style.AddButton type="submit">
+          <Style.AddButton
+            disabled={!formData.name || !formData.type || !formData.duration || !locationData.location}
+            type="submit"
+            onClick={notify}
+          >
             Add Activity
             <Style.AddSpan>
               <MdOutlineAdd />
             </Style.AddSpan>
           </Style.AddButton>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHove
+            theme="dark"
+            Type="success"
+          />
         </Style.Form>
       </Style.WrapperFormDiv>
     </>
