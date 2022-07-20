@@ -150,7 +150,7 @@ export default function ActivityCard({
               </Style.SpanAdded>
             </Style.FavButton>
 
-            <Style.FavButtonDelete aria-label="Delete Activity" onClick={() => onShowConfirmationModal(id)}>
+            <Style.FavButtonDelete aria-label="Delete Activity" onClick={name => onShowConfirmationModal(id, name)}>
               <Style.SpanAdd>
                 <TiDeleteOutline />
               </Style.SpanAdd>
@@ -166,7 +166,7 @@ export default function ActivityCard({
               </Style.SpanAdd>
             </Style.FavButton>
 
-            <Style.FavButtonDelete aria-label="Delete Activity" onClick={() => onShowConfirmationModal(id)}>
+            <Style.FavButtonDelete aria-label="Delete Activity" onClick={name => onShowConfirmationModal(id, name)}>
               <Style.SpanAdd>
                 <TiDeleteOutline />
               </Style.SpanAdd>
@@ -176,7 +176,13 @@ export default function ActivityCard({
       )}
 
       {showModalConfirmation.show && <Backdrop onClick={onCloseConfirmationModal} />}
-      {showModalConfirmation.show && <ConfirmationModal onClose={onCloseConfirmationModal} onDelete={onDelete} />}
+      {showModalConfirmation.show && (
+        <ConfirmationModal
+          onClose={onCloseConfirmationModal}
+          onDelete={onDelete}
+          showModalConfirmation={showModalConfirmation}
+        />
+      )}
     </Style.Section>
   );
 }

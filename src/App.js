@@ -12,7 +12,7 @@ export default function App() {
   const [activities, setActivities] = useLocalStorage('activities', db);
   const [typeFilterValue, setTypeFiltervalue] = useState('all');
   const [durationFilterValue, setDurationFilterValue] = useState('all');
-  const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null});
+  const [showModalConfirmation, setShowModalConfirmation] = useState({show: false, id: null, name: ''});
 
   //----- Filter (Duration & Type) -----------------------------------------------------------------------------------------
   const filteredActivities = activities.filter(data => {
@@ -59,10 +59,11 @@ export default function App() {
     }
   }
   const showModalConfirmationHandler = id => {
-    setShowModalConfirmation({show: true, id});
+    const newDelete = activities.find(activity => activity.id === id);
+    setShowModalConfirmation({show: true, id: id, name: newDelete.name});
   };
   const closeModalConfirmationHandler = () => {
-    setShowModalConfirmation({show: false, id: null});
+    setShowModalConfirmation({show: false, id: null, name: ''});
   };
 
   function setActivityHandler(value) {

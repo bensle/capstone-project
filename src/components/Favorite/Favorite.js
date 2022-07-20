@@ -152,7 +152,13 @@ export default function Favorite({
       </Style.ActionsDiv>
 
       {showModalConfirmation.show && <Backdrop onClick={onCloseConfirmationModal} />}
-      {showModalConfirmation.show && <ConfirmationModal onClose={onCloseConfirmationModal} onDelete={onDelete} />}
+      {showModalConfirmation.show && (
+        <ConfirmationModal
+          onClose={onCloseConfirmationModal}
+          onDelete={onDelete}
+          showModalConfirmation={showModalConfirmation}
+        />
+      )}
     </Style.Section>
   );
 }

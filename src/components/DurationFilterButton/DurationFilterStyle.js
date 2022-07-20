@@ -8,6 +8,24 @@ export const DurationSpan = styled.span`
   flex-direction: column;
   align-items: center;
 `;
+export const DurationSpanShort = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--colorShort);
+`;
+export const DurationSpanMiddle = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--colorMiddle);
+`;
+export const DurationSpanLong = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--colorLong);
+`;
 export const FilterHeading = styled.h2`
   text-align: left;
   font-size: 0.925rem;
@@ -58,7 +76,7 @@ export const ShortLabel = styled.label`
 
 export const ShortInput = styled.input`
   &:checked + label {
-    background-color: var(--colorShort);
+    background-color: var(--colorAll);
   }
 `;
 export const MiddleLabel = styled.label`
@@ -77,7 +95,7 @@ export const MiddleLabel = styled.label`
 
 export const MiddleInput = styled.input`
   &:checked + label {
-    background-color: var(--colorMiddle);
+    background-color: var(--colorAll);
   }
 `;
 export const LongLabel = styled.label`
@@ -96,6 +114,6 @@ export const LongLabel = styled.label`
 
 export const LongInput = styled.input`
   &:checked + label {
-    background-color: var(--colorLong);
+    background-color: var(--colorAll);
   }
 `;

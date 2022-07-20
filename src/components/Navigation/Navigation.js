@@ -1,6 +1,6 @@
 import {useState} from 'react';
+import {IoMdMenu} from 'react-icons/io';
 import * as MdIcons from 'react-icons/md';
-import {TbDots} from 'react-icons/tb';
 import {useNavigate, useLocation} from 'react-router-dom';
 
 import * as Style from './Navigation.Style';
@@ -21,7 +21,7 @@ export default function Navigation() {
     <>
       <Style.MenuDiv>
         <Style.MenuOpenButton aria-label="Open menu" onClick={toggleSidebar}>
-          <TbDots />
+          <IoMdMenu />
         </Style.MenuOpenButton>
       </Style.MenuDiv>
       <Style.NavMenu isOpen={showSidebar}>
