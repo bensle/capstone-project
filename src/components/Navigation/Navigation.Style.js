@@ -3,10 +3,9 @@ import styled from 'styled-components';
 export const MenuDiv = styled.div`
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: flex-start;
   @media (max-height: 600px) {
     flex-wrap: wrap;
-    align-items: flex-start;
   }
 `;
 

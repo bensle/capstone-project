@@ -23,7 +23,13 @@ export const Heading = styled.h2`
 `;
 export const Span = styled.span`
   color: var(--deleteButton);
-  font-style: italic;
+  font-size: 0.925rem;
+  font-weight: 400;
+`;
+
+export const DelP = styled.p`
+  margin-top: 10px;
+  font-size: 1.2rem;
 `;
 export const ButtonConfirmation = styled.button`
   margin-bottom: 20px;

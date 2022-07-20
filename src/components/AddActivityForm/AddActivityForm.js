@@ -4,7 +4,7 @@ import {useState, useRef} from 'react';
 import {ImSearch} from 'react-icons/im';
 import {IoMdClose} from 'react-icons/io';
 import {MdOutlineAdd} from 'react-icons/md';
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Header from '../Header/Header';
@@ -193,7 +193,7 @@ export default function AddActivityForm({onSetActivities}) {
               <MdOutlineAdd />
             </Style.AddSpan>
           </Style.AddButton>
-          <ToastContainer
+          <Style.Toast
             position="top-right"
             autoClose={5000}
             hideProgressBar={false}

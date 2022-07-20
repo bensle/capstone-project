@@ -1,3 +1,4 @@
+import {ToastContainer} from 'react-toastify';
 import styled from 'styled-components';
 
 export const Form = styled.form`
@@ -188,4 +189,16 @@ export const InfoSpan = styled.span`
   display: block;
   font-style: italic;
   color: var(--colorShort);
+`;
+export const Toast = styled(ToastContainer)`
+  &&&.Toastify__toast-container {
+    .Toastify__toast--success {
+      background: #181a21;
+      color: var(--textcolor);
+      font-family: 'Space Grotesk';
+    }
+    .Toastify__progress-bar {
+      background: #966bf2;
+    }
+  }
 `;

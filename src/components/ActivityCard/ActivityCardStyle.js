@@ -8,6 +8,10 @@ export const Section = styled.section`
   padding: 10px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
+  @media (min-height: 300px) {
+    max-height: 90px;
+  }
+
   ul {
     list-style: none;
     display: flex;
@@ -30,6 +34,7 @@ export const DescriptionDiv = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   gap: 5px;
+
   h2 {
     font-size: 0.975rem;
     text-align: left;

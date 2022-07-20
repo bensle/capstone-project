@@ -32,9 +32,9 @@ export default function DurationFilter({onFilterDurationReset, onFilterDurationV
           onChange={event => onFilterDurationValue(event.target.value)}
         ></Style.ShortInput>
         <Style.ShortLabel htmlFor="radioDayTrip">
-          <Style.DurationSpan>
+          <Style.DurationSpanShort>
             <MdOutlineAccessTimeFilled />
-          </Style.DurationSpan>
+          </Style.DurationSpanShort>
           Day Trip
         </Style.ShortLabel>
 
@@ -46,9 +46,9 @@ export default function DurationFilter({onFilterDurationReset, onFilterDurationV
           onChange={event => onFilterDurationValue(event.target.value)}
         ></Style.MiddleInput>
         <Style.MiddleLabel htmlFor="radioWeekend">
-          <Style.DurationSpan>
+          <Style.DurationSpanMiddle>
             <MdOutlineAccessTimeFilled />
-          </Style.DurationSpan>
+          </Style.DurationSpanMiddle>
           Weekend
         </Style.MiddleLabel>
 
@@ -60,9 +60,9 @@ export default function DurationFilter({onFilterDurationReset, onFilterDurationV
           onChange={event => onFilterDurationValue(event.target.value)}
         ></Style.LongInput>
         <Style.LongLabel htmlFor="radioVacation">
-          <Style.DurationSpan>
+          <Style.DurationSpanLong>
             <MdOutlineAccessTimeFilled />
-          </Style.DurationSpan>
+          </Style.DurationSpanLong>
           3 Days +
         </Style.LongLabel>
       </Style.RadioDurationForm>
