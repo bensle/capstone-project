@@ -195,7 +195,7 @@ export const Toast = styled(ToastContainer)`
     .Toastify__toast--success {
       background: #181a21;
       color: var(--textcolor);
-      font-family: 'Space Grotesk';
+      font-family: 'Space Grotesk', sans-serif;
     }
     .Toastify__progress-bar {
       background: #966bf2;
