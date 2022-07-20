@@ -8,7 +8,6 @@ export const Section = styled.section`
   padding: 10px 10px;
   background: var(--bgcolorcard);
   border-radius: 10px;
-
   ul {
     list-style: none;
     display: flex;
@@ -29,11 +28,15 @@ export const DescriptionDiv = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-around;
   gap: 5px;
   h2 {
     font-size: 0.975rem;
     text-align: left;
   }
+`;
+export const LocationSpan = styled.span`
+  font-weight: 300;
 `;
 export const ActionsDiv = styled.div`
   display: flex;
@@ -47,6 +50,7 @@ export const ShortLi = styled.li`
   color: var(--colorShort);
   font-size: 1.25rem;
   display: flex;
+  align-items: flex-start;
   gap: 2rem;
 `;
 export const MiddleLi = styled.li`

@@ -38,7 +38,7 @@ export default function FavoritesPage({
               />
             </PlayerDiv>
             <h3>
-              Head back to <StyledLink to="/activities">Activities</StyledLink> and explore something New!
+              Head back to <StyledLink to="/">Activities</StyledLink> and explore something New!
             </h3>
           </NoFavoritesDiv>
         ) : (

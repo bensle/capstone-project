@@ -88,23 +88,6 @@ export default function App() {
         }
       />
       <Route
-        path="/activities"
-        element={
-          <ActivityPage
-            activities={filteredActivities}
-            onToggleFavorites={toggleFavorites}
-            onCloseConfirmationModal={closeModalConfirmationHandler}
-            onShowConfirmationModal={showModalConfirmationHandler}
-            onDeleteActivity={deleteActivity}
-            showModalConfirmation={showModalConfirmation}
-            onFilterTypeReset={filterTypeReset}
-            onFilterDurationReset={filterDurationReset}
-            onFilterTypeValue={typeValue}
-            onFilterDurationValue={durationValue}
-          />
-        }
-      />
-      <Route
         path="/favorites"
         element={
           <FavoritesPage

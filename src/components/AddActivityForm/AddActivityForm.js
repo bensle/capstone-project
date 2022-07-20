@@ -122,7 +122,7 @@ export default function AddActivityForm({onSetActivities}) {
             </Style.SearchInputDiv>
             {location.length !== 0 && (
               <Style.ResultDiv>
-                <Style.ResultList>
+                <Style.ResultList role="list">
                   {location.map(({x, label}) => {
                     return (
                       <Style.ResultItem key={x} onClick={() => addLocation(x)}>

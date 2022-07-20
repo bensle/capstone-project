@@ -4,13 +4,14 @@ import {GiMountainClimbing} from 'react-icons/gi'; //challenge
 import {ImLeaf} from 'react-icons/im'; //nature
 import {TbBuildingMonument} from 'react-icons/tb'; //culture
 import {TbBeach} from 'react-icons/tb'; //recovery
-import styled from 'styled-components';
+
+import * as Style from './TypeFilterStyle';
 
 export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
   return (
-    <TypeSection>
-      <FilterHeading id="radioTypeHeading">I&apos;m interested in:</FilterHeading>
-      <RadioTypeForm aria-labelledby="radioTypeHeading">
+    <Style.TypeSection>
+      <Style.FilterHeading id="radioTypeHeading">I&apos;m interested in:</Style.FilterHeading>
+      <Style.RadioTypeForm aria-labelledby="radioTypeHeading">
         <input
           type="radio"
           id="radioTypeAll"
@@ -20,9 +21,9 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           onClick={() => onFilterTypeReset()}
         ></input>
         <label htmlFor="radioTypeAll">
-          <TypeSpan>
+          <Style.TypeSpan>
             <FaRegThumbsUp />
-          </TypeSpan>
+          </Style.TypeSpan>
           All
         </label>
 
@@ -34,9 +35,9 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
         <label htmlFor="radioCulture">
-          <TypeSpan>
+          <Style.TypeSpan>
             <TbBuildingMonument />
-          </TypeSpan>
+          </Style.TypeSpan>
           Culture
         </label>
 
@@ -48,9 +49,9 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
         <label htmlFor="radioNature">
-          <TypeSpan>
+          <Style.TypeSpan>
             <ImLeaf />
-          </TypeSpan>
+          </Style.TypeSpan>
           Nature
         </label>
 
@@ -62,9 +63,9 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
         <label htmlFor="radioSport">
-          <TypeSpan>
+          <Style.TypeSpan>
             <FaDumbbell />
-          </TypeSpan>
+          </Style.TypeSpan>
           Sport
         </label>
 
@@ -76,9 +77,9 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
         <label htmlFor="radioRecovery">
-          <TypeSpan>
+          <Style.TypeSpan>
             <TbBeach />
-          </TypeSpan>
+          </Style.TypeSpan>
           Recovery
         </label>
 
@@ -90,57 +91,12 @@ export default function TypeFilter({onFilterTypeReset, onFilterTypeValue}) {
           onChange={event => onFilterTypeValue(event.target.value)}
         ></input>
         <label htmlFor="radioChallenge">
-          <TypeSpan>
+          <Style.TypeSpan>
             <GiMountainClimbing />
-          </TypeSpan>
+          </Style.TypeSpan>
           Challenge
         </label>
-      </RadioTypeForm>
-    </TypeSection>
+      </Style.RadioTypeForm>
+    </Style.TypeSection>
   );
 }
-
-const TypeSection = styled.section`
-  padding: 0 10px;
-`;
-const TypeSpan = styled.span`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const FilterHeading = styled.h2`
-  text-align: left;
-  font-size: 0.925rem;
-  font-weight: 500;
-  @media (min-width: 600px) {
-    margin-top: 10px;
-  }
-`;
-const RadioTypeForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  input[type='radio'] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-  }
-  label {
-    display: flex;
-    align-items: center;
-    font-size: 0.925rem;
-    gap: 1.25rem;
-    padding: 5px 5px;
-    background: var(--bgcolorcard);
-    border-radius: 10px;
-    cursor: pointer;
-    &:hover {
-      transform: translateX(-7px);
-    }
-  }
-  input[type='radio']:checked + label {
-    background-color: var(--colorAll);
-  }
-`;
