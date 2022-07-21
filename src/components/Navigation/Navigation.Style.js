@@ -26,7 +26,7 @@ export const MenuCloseButton = styled.button`
   font-size: 1.325rem;
   position: relative;
   right: -8rem;
-  top: -1rem;
+  top: 1rem;
   cursor: pointer;
 
   @media (max-height: 600px) {
