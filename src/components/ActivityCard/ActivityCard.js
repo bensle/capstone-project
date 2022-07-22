@@ -132,7 +132,7 @@ export default function ActivityCard({
           )}
           <Style.InfoLi>
             <a rel="noreferrer" target="_blank" href={infos}>
-              More infos
+              More Infos
               <Style.Linkspan>
                 <FiExternalLink />
               </Style.Linkspan>

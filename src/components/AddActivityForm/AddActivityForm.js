@@ -7,14 +7,16 @@ import {MdOutlineAdd} from 'react-icons/md';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import useActivities from '../../hooks/useActivities';
 import Header from '../Header/Header';
 
 import * as Style from './AddActivityFormStyle';
 
-export default function AddActivityForm({onSetActivities}) {
+export default function AddActivityForm() {
   const [formData, setFormData] = useState({id: '', name: '', location: '', duration: '', type: '', infos: ''}); //has InputData from all inputs except location
   const [location, setLocation] = useState([]); //has all locationInputSearchData
   const [locationData, setLocationData] = useState({location: '', latitude: '', longitude: ''}); // has Data chosen from listed results
+  const {setActivityHandler} = useActivities();
   const refInput = useRef();
 
   const EMAIL = process.env.EMAIL;
@@ -72,7 +74,7 @@ export default function AddActivityForm({onSetActivities}) {
       formData.infos.indexOf('https://') !== 0
         ? (formData.infos = 'https://' + formData.infos.trim().toLowerCase())
         : formData.infos.trim().toLowerCase();
-    onSetActivities({
+    setActivityHandler({
       id: nanoid(),
       isFavorite: false,
       name: formData.name.trim(),
@@ -92,7 +94,7 @@ export default function AddActivityForm({onSetActivities}) {
         <Style.Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
           <Style.Heading id="addActivity">Add your Activity</Style.Heading>
 
-          <Style.NameLabel htmlFor="name"> Name of your activity</Style.NameLabel>
+          <Style.NameLabel htmlFor="name">Name of your activity</Style.NameLabel>
           <Style.NameInput
             type="text"
             name="name"

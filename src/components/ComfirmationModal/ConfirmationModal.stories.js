@@ -4,6 +4,9 @@ export default {
   component: ConfirmationModal,
 };
 
-const template = args => <ConfirmationModal {...args} />;
+const template = args => <ConfirmationModal showModalConfirmation {...args} />;
 
-export const DeleteConfirmation = template.bind({});
+export const DeleteConfirmation = template.bind();
+DeleteConfirmation.args = {
+  name: 'Freudenberg',
+};

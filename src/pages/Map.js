@@ -3,8 +3,11 @@ import {MapContainer, TileLayer, Marker, Popup, ZoomControl} from 'react-leaflet
 import styled from 'styled-components';
 
 import Header from '../components/Header/Header';
+import useActivities from '../hooks/useActivities';
 
-export default function Map({activities}) {
+export default function Map() {
+  const {activities} = useActivities();
+
   var customMarker = new L.icon({
     iconUrl: require('../services/location.png'),
     iconRetinaUrl: require('../services/location.png'),

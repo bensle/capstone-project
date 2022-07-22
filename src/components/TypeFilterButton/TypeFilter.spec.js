@@ -14,11 +14,11 @@ describe('Typefilter', () => {
   it('should render all remaining Typefilter correctly', () => {
     render(<TypeFilter />);
 
-    const typefilter2 = screen.getByLabelText('culture');
-    const typefilter3 = screen.getByLabelText('nature');
-    const typefilter4 = screen.getByLabelText('sport');
-    const typefilter5 = screen.getByLabelText('recovery');
-    const typefilter6 = screen.getByLabelText('challenge');
+    const typefilter2 = screen.getByLabelText('Culture');
+    const typefilter3 = screen.getByLabelText('Nature');
+    const typefilter4 = screen.getByLabelText('Sport');
+    const typefilter5 = screen.getByLabelText('Recovery');
+    const typefilter6 = screen.getByLabelText('Challenge');
 
     const radio2 = screen.getByRole('radio', {name: /culture/i});
     const radio3 = screen.getByRole('radio', {name: /nature/i});
