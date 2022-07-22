@@ -94,7 +94,7 @@ export default function AddActivityForm() {
         <Style.Form aria-labelledby="addActivity" onSubmit={handleSubmit}>
           <Style.Heading id="addActivity">Add your Activity</Style.Heading>
 
-          <Style.NameLabel htmlFor="name"> Name of your activity</Style.NameLabel>
+          <Style.NameLabel htmlFor="name">Name of your activity</Style.NameLabel>
           <Style.NameInput
             type="text"
             name="name"
