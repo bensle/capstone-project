@@ -4,32 +4,34 @@ import ActivityCards from '../components/ActivityCard/ActivityCards';
 import DurationFilter from '../components/DurationFilterButton/DurationFilter';
 import Header from '../components/Header/Header';
 import TypeFilter from '../components/TypeFilterButton/TypeFilter';
+import useActivities from '../hooks/useActivities';
 
-export default function ActivityPage({
-  onFilterDurationValue,
-  onFilterDurationReset,
-  onFilterTypeValue,
-  onFilterTypeReset,
-  showModalConfirmation,
-  onDeleteActivity,
-  onShowConfirmationModal,
-  onCloseConfirmationModal,
-  onToggleFavorites,
-  activities,
-}) {
+export default function ActivityPage() {
+  const {
+    filterDurationReset,
+    filterTypeReset,
+    typeValue,
+    durationValue,
+    filteredActivities,
+    toggleFavorites,
+    showModalConfirmation,
+    deleteActivity,
+    showModalConfirmationHandler,
+    closeModalConfirmationHandler,
+  } = useActivities();
   return (
     <Main>
       <Header />
       <FilterWrapper>
-        <DurationFilter onFilterDurationReset={onFilterDurationReset} onFilterDurationValue={onFilterDurationValue} />
-        <TypeFilter onFilterTypeReset={onFilterTypeReset} onFilterTypeValue={onFilterTypeValue} />
+        <DurationFilter onFilterDurationReset={filterDurationReset} onFilterDurationValue={durationValue} />
+        <TypeFilter onFilterTypeReset={filterTypeReset} onFilterTypeValue={typeValue} />
       </FilterWrapper>
       <ActivityCards
-        activities={activities}
-        onToggleFavorites={onToggleFavorites}
-        onCloseConfirmationModal={onCloseConfirmationModal}
-        onShowConfirmationModal={onShowConfirmationModal}
-        onDeleteActivity={onDeleteActivity}
+        activities={filteredActivities}
+        onToggleFavorites={toggleFavorites}
+        onCloseConfirmationModal={closeModalConfirmationHandler}
+        onShowConfirmationModal={showModalConfirmationHandler}
+        onDeleteActivity={deleteActivity}
         showModalConfirmation={showModalConfirmation}
       />
     </Main>

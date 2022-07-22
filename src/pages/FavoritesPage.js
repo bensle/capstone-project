@@ -5,15 +5,17 @@ import styled from 'styled-components';
 
 import Favorite from '../components/Favorite/Favorite';
 import Header from '../components/Header/Header';
+import useActivities from '../hooks/useActivities';
 
-export default function FavoritesPage({
-  activities,
-  onToggleFavorites,
-  onCloseConfirmationModal,
-  onShowConfirmationModal,
-  onDeleteActivity,
-  showModalConfirmation,
-}) {
+export default function FavoritesPage() {
+  const {
+    toggleFavorites,
+    activities,
+    deleteActivity,
+    showModalConfirmation,
+    showModalConfirmationHandler,
+    closeModalConfirmationHandler,
+  } = useActivities();
   //----- Find favorites for Mapping -----
   const savedFavorite = activities.filter(activity => activity.isFavorite);
 
@@ -53,10 +55,10 @@ export default function FavoritesPage({
             duration={duration}
             type={type}
             infos={infos}
-            onToggleFavorites={onToggleFavorites}
-            onDelete={() => onDeleteActivity(id)}
-            onShowConfirmationModal={() => onShowConfirmationModal(id)}
-            onCloseConfirmationModal={onCloseConfirmationModal}
+            onToggleFavorites={toggleFavorites}
+            onDelete={() => deleteActivity(id)}
+            onShowConfirmationModal={() => showModalConfirmationHandler(id)}
+            onCloseConfirmationModal={closeModalConfirmationHandler}
             showModalConfirmation={showModalConfirmation}
           />
         ))}
