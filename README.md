@@ -30,7 +30,7 @@ You can have a look at the hosted version on Vercel: [Roam!](https://roam-now.ve
 ## Project Setup
 
 - clone this repository
-- insall all dependencies `$ npm install`
+- install all dependencies `$ npm install`
 - create a local .env file and enter:
   - a valid email-adress
 - run app in dev mode `$npm start`
